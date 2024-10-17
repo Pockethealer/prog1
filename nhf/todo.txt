@@ -1,0 +1,2 @@
+--konzol karakterkódolást beállítani hogy windowson is jól fusson a progi
+--receptes file-t írni/kitalálni milyen formában legyenek tárolva az adatok
