@@ -1,0 +1,1 @@
+gcc fa.c -o fa `sdl2-config --cflags --libs` -lSDL2 -lSDL2main -lSDL2_gfx -lm
