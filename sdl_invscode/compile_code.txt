@@ -1,2 +1,0 @@
-gcc -Isrc/Include -Lsrc/lib main.c -o bit/sdl -lmingw32 -lSDL2main -lSDL2
-gcc -Isrc/include -Lsrc/lib second.c -o bin/sdl2 -lmingw32 -lSDL2main -lSDL2 -lSDL2_gfx
