@@ -1,2 +1,3 @@
 --konzol karakterkódolást beállítani hogy windowson is jól fusson a progi
 --receptes file-t írni/kitalálni milyen formában legyenek tárolva az adatok
+--hibakezelés t megyrni, ha nem szabályos inputot ad a user
