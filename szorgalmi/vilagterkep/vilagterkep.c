@@ -9,7 +9,8 @@ typedef struct Kordinata
     Sint16 x;
     Sint16 y;
 } Kordinata;
-
+// kordinata vektorok vektora Kordinata *alak[], Kordinata **alakok[].
+// be kell olvasni hát alakzat van, es hany kordinata, es az alapjan foglalni le memoriateruletet.
 void kordinata(float *fokok)
 {
 }
