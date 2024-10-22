@@ -115,26 +115,31 @@ int main(void) {
     return 0;
 }*/
 
-/*hosszu_sort_olvas() fv.
-char* hosszu_sort_olvas(void) {
+// hosszu_sort_olvas() fv.
+char *hosszu_sort_olvas(void)
+{
     printf("Irja be az elemeket.\n");
-    char* tomb = malloc(sizeof(char) * 2);
-    if (tomb == NULL) {
+    char *tomb = malloc(sizeof(char) * 2);
+    if (tomb == NULL)
+    {
         printf("Nem sikerult lefoglalni\n");
         return NULL;
     }
     int aktualis_meret = 1;
     scanf("%c", &tomb[aktualis_meret - 1]);
 
-    while (tomb[aktualis_meret - 1] != '\n') {
+    while (tomb[aktualis_meret - 1] != '\n')
+    {
         aktualis_meret++;
-        char* tmp = malloc((aktualis_meret + 1) * sizeof(char));
-        if (tmp == NULL) {
+        char *tmp = malloc((aktualis_meret + 1) * sizeof(char));
+        if (tmp == NULL)
+        {
             printf("Nem sikerult lefoglalni\n");
             free(tomb);
             return NULL;
         }
-        for (int i = 0; i < aktualis_meret - 1; i++) {
+        for (int i = 0; i < aktualis_meret - 1; i++)
+        {
             tmp[i] = tomb[i];
         }
         scanf("%c", &tmp[aktualis_meret - 1]);
@@ -145,9 +150,10 @@ char* hosszu_sort_olvas(void) {
     return tomb;
 }
 
-int main(void) {
+int main(void)
+{
 
-    char* tomb = hosszu_sort_olvas();
+    char *tomb = hosszu_sort_olvas();
     if (tomb == NULL)
     {
         printf("Astringet nem sikerult beolvasni!");
@@ -159,4 +165,4 @@ int main(void) {
 
     free(tomb);
     return 0;
-}*/
+}
