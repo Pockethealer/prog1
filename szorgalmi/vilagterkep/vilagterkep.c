@@ -4,6 +4,16 @@
 #include <../../src/include/SDL2/SDL.h>
 #include <../../src/include/SDL2/SDL2_gfxPrimitives.h>
 
+typedef struct Kordinata
+{
+    Sint16 x;
+    Sint16 y;
+} Kordinata;
+
+void kordinata(float *fokok)
+{
+}
+
 int main(int argc, char *argv[])
 {
 
