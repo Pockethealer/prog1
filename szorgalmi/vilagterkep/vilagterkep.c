@@ -24,13 +24,13 @@ int main(int argc, char* argv[])
     /*szelesseg, magassagertek meghatarozasa*/
     const int WIDTH = 1080, HEITH = 540;
 
-    /* SDL inicializalasa, hibak kezelese, az infoc-n talalhato anyagok alapjan
+    /* SDL inicializalasa, hibak kezelese, az infoc-n talalhato anyagok alapjan*/
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
     {
         SDL_Log("Nem indithato az SDL: %s", SDL_GetError());
         exit(1);
     }
-    //az ablak letrehozasa
+    /*az ablak letrehozasa*/
     SDL_Window* window = SDL_CreateWindow("Elso grafikus szorgalmi", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEITH, 0);
     if (window == NULL)
     {
@@ -49,10 +49,10 @@ int main(int argc, char* argv[])
     Sint16 x[] = { 100, 150, 180, 400 };
     Sint16 y[] = { 111, 200, 115, 80 };
 
-    //a poligonok
+    /* a poligonok */
     aapolygonRGBA(renderer, x, y, 4, 255, 0, 255, 255);
 
-    // az ez utani resz is az infoc-n talalhato programreszleten alapul
+    /* az ez utani resz is az infoc-n talalhato programreszleten alapul */
     SDL_RenderPresent(renderer);
 
     SDL_Event ev;
@@ -61,7 +61,6 @@ int main(int argc, char* argv[])
     }
 
     SDL_Quit();
-    */
     int poligonok = 0;
     int* pontok_soronkent = NULL;
     Kordinata** kesz_kordinata = kordinata(vilag, &poligonok, &pontok_soronkent);
@@ -127,7 +126,7 @@ Kordinata** kordinata(float* const fokok, int* hany_sokszog, int** hany_pont_egy
                 free(*hany_pont_egy_alakzat);
                 return NULL;
             }
-            *hany_pont_egy_alakzat[alakzatok_szama] = sorok_hossza;
+            hany_pont_egy_alakzat[alakzatok_szama] = sorok_hossza;
             sorok_hossza = 0;
             alakzatok_szama++;
         }
