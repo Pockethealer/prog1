@@ -1,6 +1,6 @@
 Windows:
 gcc -Isrc/Include -Lsrc/lib main.c -o bit/sdl -lmingw32 -lSDL2main -lSDL2
 gcc -I./src/include -L./src/lib ./farajzolo/fa.c -o ./bin/farajzolo -lmingw32 -lSDL2main -lSDL2 -lSDL2_gfx-->farajzolo
-gcc -I./src/include -L./src/lib ./szorgalmi/vilagterkep/vilagterkep.c -o ./bin/test -lmingw32 -lSDL2main -lSDL2 -lSDL2_gfx -->vilagterkep
+gcc -I./src/include -L./src/lib ./szorgalmi/vilagterkep/vilagterkep.c ./szorgalmi/vilagterkep/vilag.c -o ./bin/test -lmingw32 -lSDL2main -lSDL2 -lSDL2_gfx -->vilagterkep
 Linux:
 gcc fa.c -o fa `sdl2-config --cflags --libs` -lSDL2 -lSDL2main -lSDL2_gfx -lm
