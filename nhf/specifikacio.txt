@@ -1,0 +1,53 @@
+Hogyan jelenik meg a menü, hogyan lehet menüpontot választani?
+A program egy menüvezérelt recepteket kezelő program lesz.
+A menüpontokat számok konzolra való begépelésével lehet kiválasztani.
+Az egyes menüpontok néha almenükbe vezetnek, innen a visszatérés mindig az almenü utolsó menüpontjaként 
+"kilépés"-ként jelenik meg, ezért nem írom le minden almenühöz.
+
+Az első menüpont az összetevők, amely egy almenübe vezet: 
+-lehetőség nyílik új összetevőt felvenni, az új összetevőt a nevével a mértékegységének típusával(pl. kg, g, l, db),
+vesszővel elválasztva(pl. tojás,db). A program feltételezi hogy a felhasználó mindig ugyanazt a mértékegységet fogja használni egy adott összetevőhöz.
+(pl. nem ír be egyszer tejet dl-el egyszer meg literrel)
+-lehetőség van összetevőt törölni(az összetevő neve alapján), és
+-összetevőt keresni, amikoris kiírja a program a keresett összetevőt a fenti adatokkal, vagy azt hogy nem találta.
+Összetevőt módosítani csak a régi törlésével és újbóli hozzáadásával lehetséges.
+
+A második menüpontban recepteket lehet kezelni, szintén egy almenüben:
+-Lehet új receptet felvenni, itt az étel nevét kell megadni az első sorban, 
+az étel összetevőit (összetevő mértékegység mennyiség vessző) formátumban a második sorban, 
+és az elkészités módja a harmadik sorban, maximumm 1000 karakterben.
+Amennyiben valamelyik összetevő nem szerepelt az összetevők listáján a program autómatikusan felveszi arra.
+-Lehet receptet keresni, az étel nevével, utána a program kilistázza a fentebb említett adatokat a recepthez.
+-Lehet receptet törölni az étel nevének beírásával.
+
+A harmadik menüpontban Qol funkciók találhatóak, szintén almenüben: -kedvencek, -bevásárló lista
+-Random választás: a program felkínál egy ételt véletlenszerüen(a korábban már hozzáadott listáról), 
+amit egy i lenyomásával lehet elfogadni vagy egy n lenyomásával lehet elutasítani. Ha elfogadjuk akkor kiírja a receptjét,
+ha nem akkor feldob egy újat, egészen addig amíg az egyik el nem fogadjuk.
+-Recept keresése egy, vagy több összetevő alapján: a felhasználó beírja egy összetevő nevét, 
+és a program kilistázza azokat a recepteket amiben megtalálható az összes összetevő.
+Ezután be kell írni a megfelelő étel nevét, hogy a program kiírja a receptjét, vagy a '0'-t a kilépéshez, 
+ha nem található egy ilyen recept sem akkor autómatikusan visszalép a menübe hibaüzenettel.
+
+
+A negyedik menüpontban lehetőség van bevásárló listát kezelni: 
+-Lehetőség van egy étel nevét megadva annak összetevőit egy bevásárló listához adni.
+-lehetőség van a program könyvtárában egy bevasarlolista.txt file-ba elmenteni
+a bevásárlólistához adott ételek összetevőit, és azok mennyiségeit.
+-Lehetőség van a korábbi, szintén ugyanabban a könyvtárban tárolt 
+bavasarlolista.txt file tartalmát törölni(a file-t nem törli csak a tartalmát.)
+
+Az ötödik menüpontban a kedvenc receptek kezelésére van lehetőség:
+-Egy étel hozzáadása a kedvencek listához(a neve alapján)
+-Egy étel törlése a kedvencek listáról (a neve alapján)
+-A kedvencek listán levő ételek neveinek kiírása, 
+majd a felhasználó kiválaszthatja hogy melyik receptjét írja ki a program.
+
+A hatodik menüpont a kilépés, mikor a program automatikusan elmenti az összetevők listáját a receptek listáját, és a kedvencek listáját külön file-okba.
+
+A program feltételezi hogy a felhasználó karakterhelyesen gépeli be az adott, már egyszer elmentett neveket, ha nem akkor új adatként fogja kezelni.
+Ha a bemeneti adatok helyesek csak a formátumuk nem jó akkor hibaüzenettel tér vissza(pl összetevőt úgy ad meg hogy nincs közte vessző, pl."tojás db" )
+A három kezelt file formátuma a következő:
+összetevők: egy sorban " összetevő, mértékegység"
+recept: név, összetevők darabszáma, összetevők(név mértékegység, mennyiség), és leírás, végjelesen tárolva.
+kedvencek: az ételek nevei külön sorban
