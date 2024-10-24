@@ -49,5 +49,9 @@ A program feltételezi hogy a felhasználó karakterhelyesen gépeli be az adott
 Ha a bemeneti adatok helyesek csak a formátumuk nem jó akkor hibaüzenettel tér vissza(pl összetevőt úgy ad meg hogy nincs közte vessző, pl."tojás db" )
 A három kezelt file formátuma a következő:
 összetevők: egy sorban " összetevő, mértékegység"
-recept: név, összetevők darabszáma, összetevők(név mértékegység, mennyiség), és leírás, végjelesen tárolva.
+recept: az ételek számaegy sorban
+        név, összetevők darabszáma, egy sorban
+        összetevők(név mértékegység, mennyiség) külön sorban
+        leírás, külön sorban.(ha szükséges lehet végjelesen tárolva.)
 kedvencek: az ételek nevei külön sorban
+Egy összetevő, étel, vagy mértékegység neve csak limitált hosszúságú lehet, illetve egy recept is csak limitált mennyiségü összetevőt tartalmazhat.
