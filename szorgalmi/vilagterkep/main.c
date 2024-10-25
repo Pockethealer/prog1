@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <math.h>
 #include <../../src/include/SDL2/SDL.h>
 #include <../../src/include/SDL2/SDL2_gfxPrimitives.h>
 #include <../../src/include/debugmalloc.h>

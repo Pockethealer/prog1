@@ -4,174 +4,40 @@
 #include <../../src/include/SDL2/SDL2_gfxPrimitives.h>
 #include <../../src/include/debugmalloc.h>
 
-/*Eredetileg benne volt a debugmalloc.h csak a gephaz nem engedte ugy feltolteni*/
-/*a tavak.c es vilag.c fileokbol atmasoltam a tomboket, mert a gephaz nem engedte hogy kulso file-okkent hivatkozzak rajuk
-extern-el hivatkozom rajuk, a kod vegen vannak*/
 extern const float vilag[];
 extern const float tavak[];
 /*csak azert hozom ki globalis valtozonak hogy ne kelljen tobb argumentumba bevinni a fv-eknek.*/
 const int WIDTH = 1080, HEIGHT = 540;
 
-/*az egyes file-okon beluli poligonoknak a strukturaja, x es y kordinata tombokkel*/
+/*Most a program pontosan annyi memoriat foglal minden alakzathoz amennyi kordinataja van,
+*viszont cserébe tobbszor kell vegigiteralni a tombokon,
+*ha nagyon nagyon a tombok, es kozel azonos meretuek az alakzatok akkor lehet
+*gyorsabb egyseges buffert hasznalni minden alakzathoz hogy sporoljunk a futasidon.
+*Kiprobaltam debugmalloc-al, igy ~9-10kB-ot foglal, a masik modszerrel ~200kB-ot ezeknel a tomboknel.*/
+
+/*az adott poligonok strukturaja*/
 typedef struct Alakzat
 {
     Sint16* x;
     Sint16* y;
     int pontok_szama;
 } Alakzat;
-/*az adott poligonok tombjenek a strukturaja*/
-typedef struct Terkep
-{
-    Alakzat* alakzatok;
-    int alakzatok_szama;
-} Terkep;
+/*kirajzolja a kapott alakzatot a renderre*/
+void rajzol(SDL_Renderer* renderer, Alakzat* alakzat, int* szin);
+/*megszamolja hany poligon van, illetve mekkora a legnagyobb, hogy mekkora buffer kell majd kesobb*/
+int alakzatot_szamol(const float* kordinatak, int* max_buffer_meret);
+void bme_rajzol(SDL_Renderer* renderer);
+void racsotrajzol(SDL_Renderer* renderer);
+/*megszamolja a keresett alakzat pontjainak a szamat majd beirja az alakzat kezdopontjat a *kezdopontba*/
+int pontot_szamol(const float* kordinatak, int keresett_alakzat, int* kezdopont);
+/*beolvassa az adott alakzat kordinatait egy alakzat strukturaba amit a rajzol fv-el meg is jelenit rogton*/
+int alakzatot_rajzol(const float* kordinatak, int keresett_alakzat, int buffer_meret, SDL_Renderer* renderer, int* szin, int kezdopont);
+/*az alakzatot szamol es alakzatot rajzol fv-ekkel kirajzolja az osszes alakzatot az adott tombbol*/
+void beolvas(const float* kordinatak, SDL_Renderer* renderer, int* szin);
 
-/*Megszamolja hany alakzat van a tombben, es megnezi hogy hany kordinataja
-van a legnagyobb alakzatnak hogy azt hasznalja buffernek*/
-int alakzatot_szamol(const float* kordinatak, int* max_buffer_meret)
-{
-    int alakzatok_szama = 0;
-    int i = 0;
-    *max_buffer_meret = 0;
-    int buffer = 0;
-    /*elmegyek a tomb vegeig, minden egyes 0,0-nal iteralom a szamlalot kozte pedig iteralom a buffert*/
-    while (!(kordinatak[i] == -1 && kordinatak[i + 1] == -1))
-    {
-        if (kordinatak[i] == 0 && kordinatak[i + 1] == 0)
-        {
-            alakzatok_szama++;
-            if (*max_buffer_meret < buffer) {
-                *max_buffer_meret = buffer;
-            }
-            buffer = 0;
-        }
-        i += 2;
-        buffer++;
-    }
-    return alakzatok_szama;
-}
-/*lemasolja a tombbol az argumentumban kapott terkep strukturanak az adott alakzataba a pontokat, majd visszadja hany pontot masolt*/
-int pontot_masol(const float* kordinatak, int keresett_alakzat, int buffer_meret, Terkep* terkep)
-{
-    int pontok_szama = 0;
-    int aktualis_alakzat = 0;
-    int i = 0;
-    /*elmegy a keresett helyre:*/
-    while (aktualis_alakzat < keresett_alakzat && !(kordinatak[i] == -1 && kordinatak[i + 1] == -1)) {
-        if (kordinatak[i] == 0 && kordinatak[i + 1] == 0) {
-            aktualis_alakzat++;
-        }
-        i += 2;
-    }
-
-    if (kordinatak[i] == -1 && kordinatak[i + 1] == -1) {
-        return 0;
-    }
-    /*buffert csinal a pontoknak*/
-    Sint16* bufferx = (Sint16*)malloc(buffer_meret * sizeof(Sint16));
-    Sint16* buffery = (Sint16*)malloc(buffer_meret * sizeof(Sint16));
-    if (bufferx == NULL || buffery == NULL) {
-        printf("Nem sikerult lefoglalni a buffert");
-        return -1;
-    }
-    /*bemasolja a keresett kordinatakat a bufferbe, es leszamolja mekkora helyet kell foglalni tanylegesen,
-    kozben atvaltja a fokot tenyleges kepernyo kordinatara*/
-    while (!(kordinatak[i] == 0 && kordinatak[i + 1] == 0))
-    {
-
-
-        bufferx[pontok_szama] = (Sint16)(((kordinatak[i] + 180) / 360) * WIDTH);
-        buffery[pontok_szama] = (Sint16)(((90 - kordinatak[i + 1]) / 180) * HEIGHT);
-        pontok_szama++;
-        i += 2;
-    }
-    /*atmasolja a bufferbol a tenylegesen foglalt helyre a kordinatakat:*/
-    terkep->alakzatok[keresett_alakzat].x = (Sint16*)malloc(pontok_szama * sizeof(Sint16));
-    terkep->alakzatok[keresett_alakzat].y = (Sint16*)malloc(pontok_szama * sizeof(Sint16));
-    if (terkep->alakzatok[keresett_alakzat].x == NULL || terkep->alakzatok[keresett_alakzat].y == NULL) {
-        printf("Nem sikerult lefoglalni a kordinatak tombjet.");
-        return -1;
-    }
-
-    for (int j = 0; j < pontok_szama; j++) {
-        terkep->alakzatok[keresett_alakzat].x[j] = bufferx[j];
-        terkep->alakzatok[keresett_alakzat].y[j] = buffery[j];
-    }
-    /*felszabaditja a buffert:*/
-    free(bufferx);
-    free(buffery);
-    return pontok_szama;
-}
-/*elkesziti a hasznalt terkep strukturat*/
-Terkep beolvas(const float* tomb)
-{
-    Terkep terkep = { NULL, 0 };
-    int pontok_buffer;
-    terkep.alakzatok_szama = alakzatot_szamol(tomb, &pontok_buffer);
-    terkep.alakzatok = malloc(terkep.alakzatok_szama * sizeof(Alakzat));
-    if (terkep.alakzatok == NULL)
-        return terkep;
-    for (int i = 0; i < terkep.alakzatok_szama; i++)
-    {
-        terkep.alakzatok[i].pontok_szama = pontot_masol(tomb, i, pontok_buffer, &terkep);
-        /*Ha nem sikerul a foglalas barmelyik sorra, fel kell szabaditani az osszes elozo sorra lefoglalt memoriat.*/
-        if (terkep.alakzatok[i].pontok_szama == -1) {
-            printf("Nem sikerult atmasolni a kordinatakat");
-            for (int j = i;j >= 0;j--) {
-                free(terkep.alakzatok[i].x);
-                free(terkep.alakzatok[i].y);
-            }
-            free(terkep.alakzatok);
-            return terkep;
-        }
-    }
-    return terkep;
-}
-/*felszabaditja az adott terkep strukturat*/
-void terkep_felszabadit(Terkep* terkep)
-{
-    if (terkep == NULL)
-        return;
-
-    for (int i = 0; i < terkep->alakzatok_szama; i++)
-    {
-        free(terkep->alakzatok[i].x);
-        free(terkep->alakzatok[i].y);
-
-    }
-    free(terkep->alakzatok);
-    terkep->alakzatok = NULL;
-    terkep->alakzatok_szama = 0;
-}
-/*kirajzolja az adott renderen a terkepet.*/
-void rajzol(SDL_Renderer* renderer, Terkep* terkep, int* szin) {
-    for (int i = 0; i < terkep->alakzatok_szama; i++)
-    {
-        aapolygonRGBA(renderer, terkep->alakzatok[i].x, terkep->alakzatok[i].y, terkep->alakzatok[i].pontok_szama, 0, 0, 0, 0);
-        filledPolygonRGBA(renderer, terkep->alakzatok[i].x, terkep->alakzatok[i].y, terkep->alakzatok[i].pontok_szama, szin[0], szin[1], szin[2], szin[3]);
-    }
-}
-void racsotrajzol(SDL_Renderer* renderer) {
-
-    for (int i = 0; i <= WIDTH; i += (WIDTH / 12)) {
-        lineRGBA(renderer, i, 0, i, HEIGHT, 0, 0, 0, 150);
-    }
-
-
-    for (int i = 0; i <= HEIGHT; i += (HEIGHT / 12)) {
-        lineRGBA(renderer, 0, i, WIDTH, i, 0, 0, 0, 150);
-    }
-}
-void bme_rajzol(SDL_Renderer* renderer) {
-    int y = (int)(((90 - 47.4768) / 180) * HEIGHT);
-    int x = (int)(((180 + 19.0567) / 360) * WIDTH);
-    filledCircleRGBA(renderer, x, y, 3, 255, 0, 0, 255);
-}
 int main(int argc, char** argv) {
-
     int KEK[] = { 0,0,139,255 };
     int ZOLD[] = { 95,200,0,255 };
-    /*a ket terkep struktura beolvasasa, a megfelelo tombbol, illetve ellenorzes hogy sikerult-e beolvasni*/
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
     {
@@ -194,15 +60,8 @@ int main(int argc, char** argv) {
     SDL_SetRenderDrawColor(renderer, KEK[0], KEK[1], KEK[2], KEK[3]);
     SDL_RenderClear(renderer);
     /*a poligonok kirajzolasa*/
-    Terkep terkep = beolvas(vilag);
-    if (terkep.alakzatok == NULL) {
-        return -1;
-    }
-    rajzol(renderer, &terkep, ZOLD);
-    terkep_felszabadit(&terkep);
-    terkep = beolvas(tavak);
-    rajzol(renderer, &terkep, KEK);
-    terkep_felszabadit(&terkep);
+    beolvas(vilag, renderer, ZOLD);
+    beolvas(tavak, renderer, KEK);
     racsotrajzol(renderer);
     bme_rajzol(renderer);
     SDL_RenderPresent(renderer);
@@ -213,14 +72,122 @@ int main(int argc, char** argv) {
 
     }
     SDL_Quit();
-    /*Memoria felszabaditasa*/
-
-
-
     return 0;
-
 }
 
+void rajzol(SDL_Renderer* renderer, Alakzat* alakzat, int* szin) {
+
+    aapolygonRGBA(renderer, alakzat->x, alakzat->y, alakzat->pontok_szama, 0, 0, 0, 160);
+    filledPolygonRGBA(renderer, alakzat->x, alakzat->y, alakzat->pontok_szama, szin[0], szin[1], szin[2], szin[3]);
+    return;
+
+}
+int alakzatot_szamol(const float* kordinatak, int* max_buffer_meret)
+{
+    int alakzatok_szama = 0;
+    int i = 0;
+    *max_buffer_meret = 0;
+    int buffer = 0;
+    /*elmegyek a tomb vegeig, minden egyes 0,0-nal iteralom a szamlalot kozte pedig iteralom a buffert*/
+    while (!(kordinatak[i] == -1 && kordinatak[i + 1] == -1))
+    {
+        if (kordinatak[i] == 0 && kordinatak[i + 1] == 0)
+        {
+            alakzatok_szama++;
+            if (*max_buffer_meret < buffer) {
+                *max_buffer_meret = buffer;
+            }
+            buffer = 0;
+        }
+        i += 2;
+        buffer++;
+    }
+    return alakzatok_szama;
+}
+void racsotrajzol(SDL_Renderer* renderer) {
+
+    for (int i = 0; i <= WIDTH; i += (WIDTH / 12)) {
+        lineRGBA(renderer, i, 0, i, HEIGHT, 0, 0, 0, 150);
+    }
+
+
+    for (int i = 0; i <= HEIGHT; i += (HEIGHT / 12)) {
+        lineRGBA(renderer, 0, i, WIDTH, i, 0, 0, 0, 150);
+    }
+}
+void bme_rajzol(SDL_Renderer* renderer) {
+    int y = (int)(((90 - 47.4768) / 180) * HEIGHT);
+    int x = (int)(((180 + 19.0567) / 360) * WIDTH);
+    filledCircleRGBA(renderer, x, y, 3, 255, 0, 0, 255);
+}
+int alakzatot_rajzol(const float* kordinatak, int keresett_alakzat, int buffer_meret, SDL_Renderer* renderer, int* szin, int kezdopont)
+{
+    int pontok_szama = 0;
+    int i = kezdopont;
+    /*buffert csinal a pontoknak*/
+    Sint16* bufferx = (Sint16*)malloc(buffer_meret * sizeof(Sint16));
+    Sint16* buffery = (Sint16*)malloc(buffer_meret * sizeof(Sint16));
+    if (bufferx == NULL || buffery == NULL) {
+        printf("Nem sikerult lefoglalni a buffert");
+        return -1;
+    }
+    /*bemasolja a keresett kordinatakat a bufferbe,
+    kozben atvaltja a fokot tenyleges kepernyo kordinatara*/
+    while (!(kordinatak[i] == 0 && kordinatak[i + 1] == 0))
+    {
+
+
+        bufferx[pontok_szama] = (Sint16)(((kordinatak[i] + 180) / 360) * WIDTH);
+        buffery[pontok_szama] = (Sint16)(((90 - kordinatak[i + 1]) / 180) * HEIGHT);
+        pontok_szama++;
+        i += 2;
+    }
+    Alakzat alakzat;
+    alakzat.pontok_szama = pontok_szama;
+    alakzat.x = bufferx;
+    alakzat.y = buffery;
+    rajzol(renderer, &alakzat, szin);
+    free(bufferx);
+    free(buffery);
+    return 1;
+
+}
+void beolvas(const float* kordinatak, SDL_Renderer* renderer, int* szin)
+{
+    int pontok_buffer;
+    int alakzatok_szama = alakzatot_szamol(kordinatak, &pontok_buffer);
+    int aktualis_kezdopont;
+    for (int i = 0;i < alakzatok_szama;i++) {
+        int pontok_buffer = pontot_szamol(kordinatak, i, &aktualis_kezdopont);
+        int sikeres = alakzatot_rajzol(kordinatak, i, pontok_buffer, renderer, szin, aktualis_kezdopont);
+        if (sikeres < 0) {
+            printf("Az %d. alakzatot nem sikerult beolvasni", i);
+            return;
+        }
+    }return;
+}
+int pontot_szamol(const float* kordinatak, int keresett_alakzat, int* kezdopont)
+{
+    int pontok_szama = 0;
+    int aktualis_alakzat = 0;
+    int i = 0;
+    while (aktualis_alakzat < keresett_alakzat && !(kordinatak[i] == -1 && kordinatak[i + 1] == -1)) {
+        if (kordinatak[i] == 0 && kordinatak[i + 1] == 0) {
+            aktualis_alakzat++;
+        }
+        i += 2;
+    }
+    if (kordinatak[i] == -1 && kordinatak[i + 1] == -1) {
+        return 0;
+    }
+    *kezdopont = i;
+    while (!(kordinatak[i] == 0 && kordinatak[i + 1] == 0))
+    {
+        pontok_szama++;
+        i += 2;
+    }
+    return pontok_szama;
+}
 
 float const tavak[] = {
     48.6, 41.8, 47.6, 43.7, 46.7, 44.6, 48.6, 45.8, 50, 46.6, 51.2, 47, 53, 46.9, 53, 45.3, 51.3, 45.2, 50.3, 44.3, 51.3, 43.1,

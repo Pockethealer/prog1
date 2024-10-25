@@ -12,13 +12,13 @@ typedef struct Osszetevo
 } Osszetevo;
 
 // fuggvenyek deklaralasa
-FILE *file_megnyit(char *mit, char *hogyan);
+FILE* file_megnyit(char* mit, char* hogyan);
 void menu_kiir(void);
-int osszetevo_beolvas(Osszetevo *osszetevok);
-void osszetevo_kiir(Osszetevo *osszetevok, int mit, int hanyadik);
-int osszetevo_fileba_ir(Osszetevo osszetevo, Osszetevo *osszetevok);
+int osszetevo_beolvas(Osszetevo* osszetevok);
+void osszetevo_kiir(Osszetevo* osszetevok, int mit, int hanyadik);
+int osszetevo_fileba_ir(Osszetevo osszetevo, Osszetevo* osszetevok);
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
 	bool vege;
 	int a = 0;
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 	// osszetevok file megnyitasa, beolvasasa az oasszetevok tombjebe, es bezarasa
 	int osszetevo_db = osszetevo_beolvas(osszetevok);
 	// osszetevo kiirasa
-	Osszetevo uj = {"Erős pista", osszetevo_db + 1, "g", 700};
+	Osszetevo uj = { "Erős pista", osszetevo_db + 1, "g", 700 };
 	osszetevo_fileba_ir(uj, osszetevok);
 	osszetevo_kiir(osszetevok, 1, 100);
 
@@ -68,19 +68,19 @@ void menu_kiir(void)
 	printf("4.kilepni\n");
 	return;
 }
-int osszetevo_beolvas(Osszetevo *osszetevok)
+int osszetevo_beolvas(Osszetevo* osszetevok)
 { /*beolvassa az osszetevok.txt filebol az elemeket,
 es eltarolja oket Osszetevok strukturaban, majd visszaadj hany elemet olvasott be*/
-	FILE *osszetevo_file = file_megnyit("osszetevok.txt", "r");
+	FILE* osszetevo_file = file_megnyit("osszetevok.txt", "r");
 	if (osszetevo_file != NULL)
 	{
-		Osszetevo *p_osszetevo = osszetevok;
+		Osszetevo* p_osszetevo = osszetevok;
 		int osszetevo_db = 0;
 		while (fscanf(osszetevo_file, " %49[^;];%d;%9[^;];%d",
-					  p_osszetevo->nev,
-					  &(p_osszetevo->sorszam),
-					  p_osszetevo->tipus,
-					  &(p_osszetevo->ar)) == 4)
+			p_osszetevo->nev,
+			&(p_osszetevo->sorszam),
+			p_osszetevo->tipus,
+			&(p_osszetevo->ar)) == 4)
 		{
 			p_osszetevo++;
 			osszetevo_db++;
@@ -91,7 +91,7 @@ es eltarolja oket Osszetevok strukturaban, majd visszaadj hany elemet olvasott b
 	else
 		return -1;
 }
-void osszetevo_kiir(Osszetevo *osszetevok, int mit, int hanyadik)
+void osszetevo_kiir(Osszetevo* osszetevok, int mit, int hanyadik)
 { // kiirja az adott struktura adott elemet
 	switch (mit)
 	{
@@ -112,13 +112,13 @@ void osszetevo_kiir(Osszetevo *osszetevok, int mit, int hanyadik)
 	}
 	return;
 }
-int osszetevo_fileba_ir(Osszetevo osszetevo, Osszetevo *osszetevok)
+int osszetevo_fileba_ir(Osszetevo osszetevo, Osszetevo* osszetevok)
 {
-	FILE *file = file_megnyit("osszetevok.txt", "a");
+	FILE* file = file_megnyit("osszetevok.txt", "a");
 	if (file != NULL)
 	{
 		fprintf(file, " \n%s;%d;%s;%d", osszetevo.nev,
-				osszetevo.sorszam, osszetevo.tipus, osszetevo.ar);
+			osszetevo.sorszam, osszetevo.tipus, osszetevo.ar);
 		fclose(file);
 		osszetevo_beolvas(osszetevok);
 		return 0;
@@ -126,9 +126,9 @@ int osszetevo_fileba_ir(Osszetevo osszetevo, Osszetevo *osszetevok)
 	return -1;
 }
 
-FILE *file_megnyit(char *mit, char *hogyan)
+FILE* file_megnyit(char* mit, char* hogyan)
 {
-	FILE *file = fopen(mit, hogyan);
+	FILE* file = fopen(mit, hogyan);
 	if (file == NULL)
 	{
 		printf("Nem sikerült megnyitni a %s file-t", mit);
