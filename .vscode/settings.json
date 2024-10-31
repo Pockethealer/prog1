@@ -4,6 +4,8 @@
     "sdl2_gfxprimitives.h": "c",
     "debugmalloc.h": "c",
     "sdl.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "stdio.h": "c",
+    "file_utils.h": "c"
   }
 }
