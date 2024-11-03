@@ -14,11 +14,11 @@ int main(void) {
 #endif
     setlocale(LC_ALL, "hu_HU.UTF-8");
     Receptkonyv* konyv = receptek_beolvas();
-    printf(" %s\n %s\n %d\n", konyv->etelek[1].osszetevok[2].tipus, konyv->etelek[1].osszetevok[2].nev, strlen(konyv->etelek[1].osszetevok[2].nev));
+    printf("%s\n%s\n%d\n", konyv->etelek[1].osszetevok[2].tipus, konyv->etelek[1].osszetevok[2].nev, strlen(konyv->etelek[1].osszetevok[2].nev));
     receptet_fileba_ment(konyv);
     Egyedi_osszetevok* osszetevo = osszetevo_beolvas();
     printf("%s\n", osszetevo->egyedi_osszetevok[5].tipus);
-
+    osszetevo_fileba_ment(osszetevo, konyv);
     egyedi_osszetevo_felszabadit(osszetevo);
     receptkonyv_felszabadit(konyv);
     return 0;

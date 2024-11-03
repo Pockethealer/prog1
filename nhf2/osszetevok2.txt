@@ -1,4 +1,4 @@
-59
+54
 Spagetti,kg
 Darált marhahús,kg
 Paradicsomszósz,liter
@@ -53,8 +53,3 @@ Pizzatészta,db
 Mozzarella sajt,csésze
 Tejszín,csésze
 Szódabikarbóna,teáskanál
-Víz,liter
-Rizs,kg
-Paprika,db
-Pirospaprika,evőkanál
-Tejföl,evőkanál

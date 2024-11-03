@@ -32,7 +32,7 @@ void receptet_fileba_ment(Receptkonyv* r);
 void receptkonyv_felszabadit(Receptkonyv* r);
 
 Egyedi_osszetevok* osszetevo_beolvas(void);
-void osszetevo_fileba_ment(Receptkonyv* r);
+void osszetevo_fileba_ment(Egyedi_osszetevok*, Receptkonyv* r);
 void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e);
 
 Receptkonyv* program_megnyit(void);
