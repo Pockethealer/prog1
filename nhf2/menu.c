@@ -170,6 +170,7 @@ void osszetevo_felvesz(Egyedi_osszetevok* e) {
         e->egyedi_osszetevok = temp;
         strcpy(e->egyedi_osszetevok[e->egyedi_osszetevok_szama - 1].nev, a.nev);
         strcpy(e->egyedi_osszetevok[e->egyedi_osszetevok_szama - 1].tipus, a.tipus);
+        printf("\n Az összetevő sikeresen hozzáadtad!")
 
 
     }

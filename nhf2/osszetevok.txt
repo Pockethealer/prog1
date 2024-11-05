@@ -1,4 +1,4 @@
-61
+63
 Spagetti,kg
 Darált marhahús,kg
 Paradicsomszósz,liter
@@ -60,3 +60,5 @@ Pirospaprika,evőkanál
 Tejföl,evőkanál
 piripiri,g
 Őrölt bors,g
+kakaó,g
+piros arany,g
