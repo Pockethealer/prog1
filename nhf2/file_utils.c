@@ -13,7 +13,7 @@ typedef struct Etel {
     char nev[51];
     int osszetevok_szama;
     Osszetevo* osszetevok;
-    char elkeszites[1000];
+    char elkeszites[1001];
 } Etel;
 typedef struct Receptkonyv {
     int etelek_szama;
@@ -32,9 +32,8 @@ void receptkonyv_felszabadit(Receptkonyv* r);
 Egyedi_osszetevok* osszetevo_beolvas(void);
 void osszetevo_fileba_ment(Egyedi_osszetevok*, Receptkonyv* r);
 void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e);
+int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve);
 
-Receptkonyv* program_megnyit(void);
-void program_bezar(Receptkonyv* r);
 
 
 
@@ -145,7 +144,7 @@ void receptkonyv_felszabadit(Receptkonyv* r)
 int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve) {
     /*Megnézi hogy az adott összetevő létezik-e, az osszetevok fileba irásához segédfüggvény*/
     for (int i = 0; i < e->egyedi_osszetevok_szama; i++) {
-        if (strcmp(e->egyedi_osszetevok[i].nev, osszetevo_neve) == 0) {
+        if (strcasecmp(e->egyedi_osszetevok[i].nev, osszetevo_neve) == 0) {
             return 1;
         }
     }
@@ -190,7 +189,9 @@ Egyedi_osszetevok* osszetevo_beolvas(void) {
     for (int i = 0; i < e->egyedi_osszetevok_szama; i++) {
         e->egyedi_osszetevok[i].nev[51] = 0;
         e->egyedi_osszetevok[i].tipus[51] = 0;
-        fscanf(f, " %[^,], %[^\n]", e->egyedi_osszetevok[i].nev, e->egyedi_osszetevok[i].tipus);
+        if (fscanf(f, " %[^,], %[^\n]", e->egyedi_osszetevok[i].nev, e->egyedi_osszetevok[i].tipus) != 2) {
+            e->egyedi_osszetevok_szama = i;
+        }
     }
 
     fclose(f);
@@ -213,7 +214,6 @@ void osszetevo_fileba_ment(Egyedi_osszetevok* e, Receptkonyv* r) {
             if (!osszetevo_letezik(e, osszetevo->nev)) {
                 e->egyedi_osszetevok_szama++;
                 e->egyedi_osszetevok = realloc(e->egyedi_osszetevok, e->egyedi_osszetevok_szama * sizeof(Osszetevo));
-
                 if (e->egyedi_osszetevok == NULL) {
                     printf("Nem sikerült a memória bővítése az összetevőknek!\n");
                     fclose(f);

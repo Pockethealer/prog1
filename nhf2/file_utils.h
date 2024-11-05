@@ -34,9 +34,6 @@ void receptkonyv_felszabadit(Receptkonyv* r);
 Egyedi_osszetevok* osszetevo_beolvas(void);
 void osszetevo_fileba_ment(Egyedi_osszetevok*, Receptkonyv* r);
 void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e);
-
-Receptkonyv* program_megnyit(void);
-void program_bezar(Receptkonyv* r);
-
+int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve);
 
 #endif
