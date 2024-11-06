@@ -1,4 +1,4 @@
-63
+66
 Spagetti,kg
 Darált marhahús,kg
 Paradicsomszósz,liter
@@ -62,3 +62,6 @@ piripiri,g
 Őrölt bors,g
 kakaó,g
 piros arany,g
+Fehér üröm,g
+PRÓBA,G
+Póba,kiló

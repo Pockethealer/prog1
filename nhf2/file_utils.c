@@ -70,24 +70,26 @@ Receptkonyv* receptek_beolvas(void)
     if (r == NULL)
     {
         printf("Nem lehetett lefoglalni a memoriat!\n");
-        free(r);
         return NULL;
     }
-    FILE* f;
-    f = fopen("receptek.txt", "r");
+    FILE* f = fopen("receptek.txt", "r");
     if (f == NULL)
     {
         printf("Nem lehetett megnyitni a file-t!\n");
         free(r);
         return NULL;
     }
-    fscanf(f, "%d", &(r->etelek_szama));
+    if (fscanf(f, "%d", &(r->etelek_szama)) != 1 || r->etelek_szama <= 0) {
+        printf("Hibas etelek szama a file-ban!\n");
+        free(r);
+        fclose(f);
+        return NULL;
+    }
     r->etelek = (Etel*)malloc((r->etelek_szama) * sizeof(Etel));
     if (r->etelek == NULL)
     {
         printf("Nem lehetett lefoglalni a memoriat!\n");
         free(r);
-        free(r->etelek);
         fclose(f);
         return NULL;
     }

@@ -44,8 +44,16 @@ int main_menu(void) {
     setlocale(LC_ALL, "hu_HU.UTF-8");
     /*struktúrák inicializálása*/
     Egyedi_osszetevok* osszetevo = osszetevo_beolvas();
+    if (osszetevo == NULL) {
+        printf("nem sikerült az összetevők beolvasása!, kilépés");
+        return -1;
+    }
     Receptkonyv* konyv = receptek_beolvas();
-
+    if (konyv == NULL) {
+        printf("nem sikerült az összetevők beolvasása!, kilépés");
+        kilepes(osszetevo, NULL);
+        return -1;
+    }
     /*történések*/
     int vege = 0;
     int opcio = 0;
@@ -170,7 +178,7 @@ void osszetevo_felvesz(Egyedi_osszetevok* e) {
         e->egyedi_osszetevok = temp;
         strcpy(e->egyedi_osszetevok[e->egyedi_osszetevok_szama - 1].nev, a.nev);
         strcpy(e->egyedi_osszetevok[e->egyedi_osszetevok_szama - 1].tipus, a.tipus);
-        printf("\n Az összetevő sikeresen hozzáadtad!")
+        printf("Az összetevőt sikeresen hozzáadtad!\n");
 
 
     }
