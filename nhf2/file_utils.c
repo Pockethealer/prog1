@@ -3,89 +3,94 @@
 #include <string.h>
 #include "debugmalloc.h"
 
-
-typedef struct Osszetevo {
+typedef struct Osszetevo
+{
     char nev[51];
     char tipus[51];
     double mennyiseg;
 } Osszetevo;
-typedef struct Etel {
+typedef struct Etel
+{
     char nev[51];
     int osszetevok_szama;
-    Osszetevo* osszetevok;
+    Osszetevo *osszetevok;
     char elkeszites[1001];
 } Etel;
-typedef struct Receptkonyv {
+typedef struct Receptkonyv
+{
     int etelek_szama;
-    Etel* etelek;
+    Etel *etelek;
 } Receptkonyv;
 
-typedef struct Egyedi_osszetevok {
-    Osszetevo* egyedi_osszetevok;
+typedef struct Egyedi_osszetevok
+{
+    Osszetevo *egyedi_osszetevok;
     int egyedi_osszetevok_szama;
-}Egyedi_osszetevok;
+} Egyedi_osszetevok;
 
-Receptkonyv* receptek_beolvas(void);
-void receptet_fileba_ment(Receptkonyv* r);
-void receptkonyv_felszabadit(Receptkonyv* r);
+Receptkonyv *receptek_beolvas(void);
+void receptet_fileba_ment(Receptkonyv *r);
+void receptkonyv_felszabadit(Receptkonyv *r);
 
-Egyedi_osszetevok* osszetevo_beolvas(void);
-void osszetevo_fileba_ment(Egyedi_osszetevok*, Receptkonyv* r);
-void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e);
-int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve);
+Egyedi_osszetevok *osszetevo_beolvas(void);
+void osszetevo_fileba_ment(Egyedi_osszetevok *, Receptkonyv *r);
+void egyedi_osszetevo_felszabadit(Egyedi_osszetevok *e);
+int osszetevo_letezik(Egyedi_osszetevok *e, const char *osszetevo_neve);
 
-
-
-
-
-void receptet_fileba_ment(Receptkonyv* r) {
-    if (r == NULL) {
+void receptet_fileba_ment(Receptkonyv *r)
+{
+    if (r == NULL)
+    {
         printf("Nincs adat a receptkonyvben!\n");
         return;
     }
 
-    FILE* f = fopen("receptek.txt", "w");
-    if (f == NULL) {
+    FILE *f = fopen("receptek3.txt", "w");
+    if (f == NULL)
+    {
         printf("Nem lehet megnyitni a fájlt írásra.\n");
         return;
     }
     fprintf(f, "%d\n", r->etelek_szama);
 
-    for (int i = 0; i < r->etelek_szama; i++) {
-        Etel* etel = &r->etelek[i];
+    for (int i = 0; i < r->etelek_szama; i++)
+    {
+        Etel *etel = &r->etelek[i];
 
         fprintf(f, "%s,%d\n", etel->nev, etel->osszetevok_szama);
 
-        for (int j = 0; j < etel->osszetevok_szama; j++) {
-            Osszetevo* osszetevo = &etel->osszetevok[j];
+        for (int j = 0; j < etel->osszetevok_szama; j++)
+        {
+            Osszetevo *osszetevo = &etel->osszetevok[j];
             fprintf(f, "%s,%s,%.2lf\n", osszetevo->nev, osszetevo->tipus, osszetevo->mennyiseg);
         }
         fprintf(f, "%s\n", etel->elkeszites);
     }
     fclose(f);
 }
-Receptkonyv* receptek_beolvas(void)
+Receptkonyv *receptek_beolvas(void)
 {
-    Receptkonyv* r = (Receptkonyv*)malloc(sizeof(Receptkonyv));
+    Receptkonyv *r = (Receptkonyv *)malloc(sizeof(Receptkonyv));
     if (r == NULL)
     {
         printf("Nem lehetett lefoglalni a memoriat!\n");
         return NULL;
     }
-    FILE* f = fopen("receptek.txt", "r");
+    FILE *f = fopen("receptek3.txt", "r");
     if (f == NULL)
     {
         printf("Nem lehetett megnyitni a file-t!\n");
         free(r);
         return NULL;
     }
-    if (fscanf(f, "%d", &(r->etelek_szama)) != 1 || r->etelek_szama <= 0) {
+    if (fscanf(f, "%d", &(r->etelek_szama)) != 1 || r->etelek_szama <= 0)
+    {
         printf("Hibas etelek szama a file-ban!\n");
         free(r);
         fclose(f);
         return NULL;
     }
-    r->etelek = (Etel*)malloc((r->etelek_szama) * sizeof(Etel));
+    r->etelek = (Etel *)malloc((r->etelek_szama) * sizeof(Etel));
     if (r->etelek == NULL)
     {
         printf("Nem lehetett lefoglalni a memoriat!\n");
@@ -95,14 +100,15 @@ Receptkonyv* receptek_beolvas(void)
     }
     for (int i = 0; i < r->etelek_szama; i++)
     {
-        if (fscanf(f, " %[^,],%d", r->etelek[i].nev, &(r->etelek[i].osszetevok_szama)) != 2) {
+        if (fscanf(f, " %[^,],%d", r->etelek[i].nev, &(r->etelek[i].osszetevok_szama)) != 2)
+        {
             printf("Hibas a receptek.txt file tartalma!");
             free(r->etelek);
             free(r);
             fclose(f);
             return NULL;
         }
-        r->etelek[i].osszetevok = (Osszetevo*)malloc(r->etelek[i].osszetevok_szama * sizeof(Osszetevo));
+        r->etelek[i].osszetevok = (Osszetevo *)malloc(r->etelek[i].osszetevok_szama * sizeof(Osszetevo));
         if (r->etelek[i].osszetevok == NULL)
         {
             printf("Nem lehetett lefoglalni a memoriat!\n");
@@ -118,16 +124,16 @@ Receptkonyv* receptek_beolvas(void)
         for (int j = 0; j < r->etelek[i].osszetevok_szama; j++)
         {
             fscanf(f, " %[^,], %[^,],%lf",
-                r->etelek[i].osszetevok[j].nev,
-                r->etelek[i].osszetevok[j].tipus,
-                &r->etelek[i].osszetevok[j].mennyiseg);
+                   r->etelek[i].osszetevok[j].nev,
+                   r->etelek[i].osszetevok[j].tipus,
+                   &r->etelek[i].osszetevok[j].mennyiseg);
         }
         fscanf(f, " %[^\n]", r->etelek[i].elkeszites);
     }
     fclose(f);
     return r;
 }
-void receptkonyv_felszabadit(Receptkonyv* r)
+void receptkonyv_felszabadit(Receptkonyv *r)
 {
     if (r == NULL)
     {
@@ -141,18 +147,20 @@ void receptkonyv_felszabadit(Receptkonyv* r)
     free(r);
 }
 
-
-
-int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve) {
+int osszetevo_letezik(Egyedi_osszetevok *e, const char *osszetevo_neve)
+{
     /*Megnézi hogy az adott összetevő létezik-e, az osszetevok fileba irásához segédfüggvény*/
-    for (int i = 0; i < e->egyedi_osszetevok_szama; i++) {
-        if (strcasecmp(e->egyedi_osszetevok[i].nev, osszetevo_neve) == 0) {
+    for (int i = 0; i < e->egyedi_osszetevok_szama; i++)
+    {
+        if (strcasecmp(e->egyedi_osszetevok[i].nev, osszetevo_neve) == 0)
+        {
             return 1;
         }
     }
     return 0;
 }
-void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e) {
+void egyedi_osszetevo_felszabadit(Egyedi_osszetevok *e)
+{
     {
         if (e == NULL)
         {
@@ -162,15 +170,16 @@ void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e) {
         free(e);
     }
 }
-Egyedi_osszetevok* osszetevo_beolvas(void) {
-    Egyedi_osszetevok* e = (Egyedi_osszetevok*)malloc(sizeof(Egyedi_osszetevok));
+Egyedi_osszetevok *osszetevo_beolvas(void)
+{
+    Egyedi_osszetevok *e = (Egyedi_osszetevok *)malloc(sizeof(Egyedi_osszetevok));
     if (e == NULL)
     {
         printf("Nem lehetett lefoglalni a memoriat!\n");
         free(e);
         return NULL;
     }
-    FILE* f;
+    FILE *f;
     f = fopen("osszetevok.txt", "r");
     if (f == NULL)
     {
@@ -179,7 +188,7 @@ Egyedi_osszetevok* osszetevo_beolvas(void) {
         return NULL;
     }
     fscanf(f, " %d", &(e->egyedi_osszetevok_szama));
-    e->egyedi_osszetevok = (Osszetevo*)malloc(e->egyedi_osszetevok_szama * sizeof(Osszetevo));
+    e->egyedi_osszetevok = (Osszetevo *)malloc(e->egyedi_osszetevok_szama * sizeof(Osszetevo));
     if (e->egyedi_osszetevok == NULL)
     {
         printf("Nem lehetett lefoglalni a memoriat!\n");
@@ -188,10 +197,12 @@ Egyedi_osszetevok* osszetevo_beolvas(void) {
         free(e);
         return NULL;
     }
-    for (int i = 0; i < e->egyedi_osszetevok_szama; i++) {
+    for (int i = 0; i < e->egyedi_osszetevok_szama; i++)
+    {
         e->egyedi_osszetevok[i].nev[51] = 0;
         e->egyedi_osszetevok[i].tipus[51] = 0;
-        if (fscanf(f, " %[^,], %[^\n]", e->egyedi_osszetevok[i].nev, e->egyedi_osszetevok[i].tipus) != 2) {
+        if (fscanf(f, " %[^,], %[^\n]", e->egyedi_osszetevok[i].nev, e->egyedi_osszetevok[i].tipus) != 2)
+        {
             e->egyedi_osszetevok_szama = i;
         }
     }
@@ -199,24 +210,31 @@ Egyedi_osszetevok* osszetevo_beolvas(void) {
     fclose(f);
     return e;
 }
-void osszetevo_fileba_ment(Egyedi_osszetevok* e, Receptkonyv* r) {
-    if (e == NULL || r == NULL) {
+void osszetevo_fileba_ment(Egyedi_osszetevok *e, Receptkonyv *r)
+{
+    if (e == NULL || r == NULL)
+    {
         printf("Hibás az összetevők vagy a receptek listája!\n");
         return;
     }
-    FILE* f = fopen("osszetevok.txt", "w");
-    if (f == NULL) {
+    FILE *f = fopen("osszetevok.txt", "w");
+    if (f == NULL)
+    {
         printf("Nem lehetett megnyitni a file-t!\n");
         return;
     }
-    for (int i = 0; i < r->etelek_szama; i++) {
-        Etel* etel = &(r->etelek[i]);
-        for (int j = 0; j < etel->osszetevok_szama; j++) {
-            Osszetevo* osszetevo = &(etel->osszetevok[j]);
-            if (!osszetevo_letezik(e, osszetevo->nev)) {
+    for (int i = 0; i < r->etelek_szama; i++)
+    {
+        Etel *etel = &(r->etelek[i]);
+        for (int j = 0; j < etel->osszetevok_szama; j++)
+        {
+            Osszetevo *osszetevo = &(etel->osszetevok[j]);
+            if (!osszetevo_letezik(e, osszetevo->nev))
+            {
                 e->egyedi_osszetevok_szama++;
                 e->egyedi_osszetevok = realloc(e->egyedi_osszetevok, e->egyedi_osszetevok_szama * sizeof(Osszetevo));
-                if (e->egyedi_osszetevok == NULL) {
+                if (e->egyedi_osszetevok == NULL)
+                {
                     printf("Nem sikerült a memória bővítése az összetevőknek!\n");
                     fclose(f);
                     return;
@@ -229,7 +247,8 @@ void osszetevo_fileba_ment(Egyedi_osszetevok* e, Receptkonyv* r) {
     /*kiírjuk a fileba az összetevők számát*/
     fprintf(f, "%d\n", e->egyedi_osszetevok_szama);
     /*fileba írjuk a már létező öszetevőket*/
-    for (int i = 0; i < e->egyedi_osszetevok_szama; i++) {
+    for (int i = 0; i < e->egyedi_osszetevok_szama; i++)
+    {
         fprintf(f, "%s,%s\n", e->egyedi_osszetevok[i].nev, e->egyedi_osszetevok[i].tipus);
     }
     fclose(f);
