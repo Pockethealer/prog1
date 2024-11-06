@@ -10,6 +10,9 @@
 #include"file_utils.h"
 
 
-Osszetevo osszetevo_beolvas_stdin(void);
+Osszetevo o_beolvas1(void);
+Osszetevo o_beolvas2(void);
+Osszetevo o_beolvas3(void);
+
 #endif
 #endif

@@ -9,12 +9,14 @@
 #include "file_utils.h"
 #include "debugmalloc.h"
 
-void osszetevok_almenu(Egyedi_osszetevok *e);
+void osszetevok_almenu(Egyedi_osszetevok* e);
 int main_menu(void);
-int kilepes(Egyedi_osszetevok *e, Receptkonyv *r);
+int kilepes(Egyedi_osszetevok* e, Receptkonyv* r);
 void menu_kiir(void);
-void osszetevo_felvesz(Egyedi_osszetevok *e);
-void osszetevo_kiir(Egyedi_osszetevok *e);
+void osszetevo_felvesz(Egyedi_osszetevok* e);
+void osszetevo_kiir(Egyedi_osszetevok* e);
+void osszetevok_keres(Egyedi_osszetevok* e);
+void osszetevo_torol(Egyedi_osszetevok* e);
 
 void menu_kiir(void)
 {
@@ -27,7 +29,7 @@ void menu_kiir(void)
     printf("6.Kilépni\n");
     return;
 }
-int kilepes(Egyedi_osszetevok *e, Receptkonyv *r)
+int kilepes(Egyedi_osszetevok* e, Receptkonyv* r)
 {
     receptet_fileba_ment(r);
     osszetevo_fileba_ment(e, r);
@@ -44,13 +46,13 @@ int main_menu(void)
     setlocale(LC_ALL, "hu_HU.UTF-8");
 #endif
     /*struktúrák inicializálása*/
-    Egyedi_osszetevok *osszetevo = osszetevo_beolvas();
+    Egyedi_osszetevok* osszetevo = osszetevo_beolvas();
     if (osszetevo == NULL)
     {
         printf("nem sikerült az összetevők beolvasása!, kilépés");
         return -1;
     }
-    Receptkonyv *konyv = receptek_beolvas();
+    Receptkonyv* konyv = receptek_beolvas();
     if (konyv == NULL)
     {
         printf("nem sikerült az összetevők beolvasása!, kilépés");
@@ -67,18 +69,17 @@ int main_menu(void)
         {
             printf("Hibás bevitel. Csak számot adj meg.\n");
         }
-        while (getchar() != '\n' && getchar() != EOF)
-            ;
+        while (getchar() != '\n' && getchar() != EOF);
 
         switch (opcio)
         {
         case 1:
+            system("@cls||clear");
             printf("Összetevők kezelése\n");
             osszetevok_almenu(osszetevo);
-
             break;
         case 2:
-            system("@cls||clear");
+            system("clear");
             printf("Receptek kezelése\n");
             break;
         case 3:
@@ -112,7 +113,7 @@ int main_menu(void)
     return 0;
 }
 
-void osszetevok_almenu(Egyedi_osszetevok *e)
+void osszetevok_almenu(Egyedi_osszetevok* e)
 {
 
     int vege1 = 0;
@@ -130,8 +131,7 @@ void osszetevok_almenu(Egyedi_osszetevok *e)
         {
             printf("Hibás bevitel. Csak számot adj meg.\n");
         }
-        while (getchar() != '\n' && getchar() != EOF)
-            ;
+        while (getchar() != '\n' && getchar() != EOF);
         switch (opcio1)
         {
         case 1:
@@ -139,14 +139,16 @@ void osszetevok_almenu(Egyedi_osszetevok *e)
             osszetevo_felvesz(e);
             break;
         case 2:
-            printf("Receptek kezelése\n");
+            printf("Összetevőt törölése\n");
+            osszetevo_torol(e);
             break;
         case 3:
-            printf("3.Az összetevőket kilistázni\n");
+            printf("3.Az összetevőket kilistázása\n");
             osszetevo_kiir(e);
             break;
         case 4:
-            printf("Bevásárló lista kezelése\n");
+            printf("Összetevőt keresése\n");
+            osszetevok_keres(e);
             break;
         case 5:
             printf("Kilépés\n");
@@ -161,23 +163,26 @@ void osszetevok_almenu(Egyedi_osszetevok *e)
     return;
 }
 
-void osszetevo_felvesz(Egyedi_osszetevok *e)
+void osszetevo_felvesz(Egyedi_osszetevok* e)
 {
     /*ékezetes karaktert lehet csak teljesen máshogy windowson és unixon*/
     printf("Írd be az összetevő nevét, és mértékegységét, vesszővel elválasztva!\n");
 
 #ifdef _WIN32
-    Osszetevo a = osszetevo_beolvas_stdin();
+    Osszetevo a = o_beolvas2();
 #endif
 #ifdef __linux__
     Osszetevo a;
-    scanf("%[^,],%[^\n]", a.nev, a.tipus);
+    if (scanf("%[^,],%[^\n]", a.nev, a.tipus) != 2) {
+        printf("Hibás név, nem sikerült az összetevőt felvenni!\n");
+        return;
+    };
 #endif
 
     if (!osszetevo_letezik(e, a.nev))
     {
         e->egyedi_osszetevok_szama++;
-        Osszetevo *temp = realloc(e->egyedi_osszetevok, e->egyedi_osszetevok_szama * sizeof(Osszetevo));
+        Osszetevo* temp = realloc(e->egyedi_osszetevok, e->egyedi_osszetevok_szama * sizeof(Osszetevo));
         if (temp == NULL)
         {
             printf("Nem sikerült a memória bővítése az összetevőknek!\n");
@@ -196,11 +201,78 @@ void osszetevo_felvesz(Egyedi_osszetevok *e)
 
     return;
 }
-void osszetevo_kiir(Egyedi_osszetevok *e)
+void osszetevo_kiir(Egyedi_osszetevok* e)
 {
     for (int i = 0; i < e->egyedi_osszetevok_szama; i++)
     {
         printf("%d. Összetevő: %s, mértékegysége: %s.\n", i + 1, e->egyedi_osszetevok[i].nev, e->egyedi_osszetevok[i].tipus);
     }
+    return;
+}
+void osszetevok_keres(Egyedi_osszetevok* e) {
+    printf("Írd be a keresett összetevő nevét!\n");
+#ifdef _WIN32
+    Osszetevo a = o_beolvas1();
+
+#endif
+#ifdef __linux__
+    Osszetevo a;
+    if (scanf("%[^,],", a.nev) <= 0) {
+        printf("Hibás név, nem sikerült az összetevőt felvenni!\n");
+        return;
+    };
+
+#endif
+    int i = osszetevo_letezik(e, a.nev) - 1;
+    if (i >= 0) {
+        printf("A keresett összetevő(%s) a %d. helyen van a listában, mértékegysége: %s\n", a.nev, i + 1, e->egyedi_osszetevok[i].tipus);
+    }
+    else printf("A keresett összetevő nem található!\n");
+    return;
+}
+void osszetevo_torol(Egyedi_osszetevok* e)
+{
+    /*ékezetes karaktert lehet csak teljesen máshogy windowson és unixon*/
+    printf("Írd be a törlendő összetevő nevét!\n");
+#ifdef _WIN32
+    Osszetevo a = o_beolvas1();
+
+#endif
+#ifdef __linux__
+    Osszetevo a;
+    if (scanf("%[^,]", a.nev) <= 0) {
+        printf("Hibás név, nem sikerült az összetevőt felvenni!\n");
+        return;
+    };
+
+#endif
+    int j = osszetevo_letezik(e, a.nev) - 1;
+    if (j >= 0)
+    {
+        Osszetevo* temp = malloc((e->egyedi_osszetevok_szama - 1) * sizeof(Osszetevo));
+        if (temp == NULL)
+        {
+            printf("Nem sikerült a memória foglalás az összetevő törléséhez!\n");
+            return;
+        }
+        int poz = 0;
+        for (int i = 0;i < e->egyedi_osszetevok_szama;i++) {
+            if (i != j)
+            {
+                temp[poz] = e->egyedi_osszetevok[i];
+                poz++;
+            }
+
+        }
+        free(e->egyedi_osszetevok);
+        e->egyedi_osszetevok = temp;
+        e->egyedi_osszetevok_szama--;
+        printf("Az összetevőt sikeresen törölted!\n");
+    }
+    else
+    {
+        printf("A keresett összetevő nem található!\n");
+    }
+
     return;
 }
