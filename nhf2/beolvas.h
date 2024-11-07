@@ -7,7 +7,7 @@
 #include <locale.h>
 #include <fcntl.h>
 #include <io.h>
-#include"file_utils.h"
+#include "file_utils.h"
 
 
 Osszetevo o_beolvas1(void);

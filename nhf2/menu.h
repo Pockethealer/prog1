@@ -11,11 +11,11 @@
 #include "file_utils.h"
 #include "debugmalloc.h"
 
-void osszetevok_almenu(Egyedi_osszetevok *e);
+void osszetevok_almenu(Egyedi_osszetevok* e);
 int main_menu(void);
-int kilepes(Egyedi_osszetevok *e, Receptkonyv *r);
+int kilepes(Egyedi_osszetevok* e, Receptkonyv* r);
 void menu_kiir(void);
-void osszetevo_felvesz(Egyedi_osszetevok *e);
-void osszetevo_kiir(Egyedi_osszetevok *e);
+void osszetevo_felvesz(Egyedi_osszetevok* e);
+void osszetevo_kiir(Egyedi_osszetevok* e);
 
 #endif

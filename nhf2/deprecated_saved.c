@@ -1,6 +1,4 @@
-
-/*
-int read_in_2_things(wchar_t* str1, wchar_t* str2, int max_len) {
+/*int read_in_2_things(wchar_t* str1, wchar_t* str2, int max_len) {
     wchar_t line[102] = { 0 };  // Initialize to zero
 
     // Flush any remaining input
