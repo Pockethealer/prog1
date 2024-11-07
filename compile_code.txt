@@ -3,7 +3,7 @@ gcc -Isrc/Include -Lsrc/lib main.c -o bit/sdl -lmingw32 -lSDL2main -lSDL2
 gcc -I./src/include -L./src/lib ./farajzolo/fa.c -o ./bin/farajzolo -lmingw32 -lSDL2main -lSDL2 -lSDL2_gfx-->farajzolo
 gcc -I./src/include -L./src/lib ./szorgalmi/vilagterkep/main.c ./szorgalmi/vilagterkep/vilag.c ./szorgalmi/vilagterkep/tavak.c -o ./bin/vilag -lmingw32 -lSDL2main -lSDL2 -lSDL2_gfx -lm-->vilagterkep
 gcc -I./src/include -L./src/lib ./szorgalmi/vilagterkep/terkep.c -o ./bin/vilag -lmingw32 -lSDL2main -lSDL2 -lSDL2_gfx
-nhf: gcc main.c menu.c file_utils.c beolvas.c -o nhf2 -Werror -Wall && ./nhf2
+nhf: gcc main.c menu.c file_utils.c o_menu.c r_menu.c -o nhf2 -Werror -Wall && ./nhf2
 Linux:
 gcc fa.c -o fa `sdl2-config --cflags --libs` -lSDL2 -lSDL2main -lSDL2_gfx -lm
-gcc main.c menu.c file_utils.c beolvas.c -o nhf2 && ./nhf2
+gcc gcc main.c menu.c file_utils.c o_menu.c -o nhf2 -Werror -Wall && ./nhf2

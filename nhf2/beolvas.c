@@ -76,13 +76,7 @@ Osszetevo o_beolvas3(void) {
     _setmode(_fileno(stdin), _O_U16TEXT);
     _setmode(_fileno(stdout), _O_U16TEXT);
 
-    /*wchar_t line[150];
-    _getws_s(line, 150);
-    swscanf(line, L" %50[^,], %50[^,], %lf", wstr1, wstr2, &d);*/
     wscanf(L" %50l[^,], %50l[^,], %lf", wstr1, wstr2, &d);
-
-
-    //wprintf(L"A beolvasott karakter: %ls, %ls, %lf\n", wstr1, wstr2, d);
 
     _setmode(_fileno(stdout), _O_TEXT);
     _setmode(_fileno(stdin), _O_TEXT);

@@ -1,4 +1,4 @@
-71
+63
 Spagetti,kg
 Darált marhahús,kg
 Paradicsomszósz,liter

@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef _WIN32
+#include <windows.h>
+#include <locale.h>
+#include <wchar.h>
+#include <windows.h>
+#include <locale.h>
+#include <fcntl.h>
+#include <io.h>
+#endif
 #include "debugmalloc.h"
 
 typedef struct Osszetevo
@@ -31,12 +40,28 @@ typedef struct Egyedi_osszetevok
 Receptkonyv* receptek_beolvas(void);
 void receptet_fileba_ment(Receptkonyv* r);
 void receptkonyv_felszabadit(Receptkonyv* r);
+int recept_letezik(Receptkonyv* r, const char* etel_neve);
+void recept_kiir(Etel* m);
 
 Egyedi_osszetevok* osszetevo_beolvas(void);
 void osszetevo_fileba_ment(Egyedi_osszetevok*, Receptkonyv* r);
 void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e);
 int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve);
 
+Osszetevo o_beolvas1(void);
+Osszetevo o_beolvas2(void);
+Osszetevo o_beolvas3(void);
+
+int recept_letezik(Receptkonyv* r, const char* etel_neve) {
+    for (int i = 0; i < r->etelek_szama; i++)
+    {
+        if (strcasecmp(r->etelek[i].nev, etel_neve) == 0)
+        {
+            return i + 1;
+        }
+    }
+    return 0;
+}
 void receptet_fileba_ment(Receptkonyv* r)
 {
     if (r == NULL)
@@ -45,7 +70,7 @@ void receptet_fileba_ment(Receptkonyv* r)
         return;
     }
 
-    FILE* f = fopen("receptek3.txt", "w");
+    FILE* f = fopen("receptek.txt", "w");
     if (f == NULL)
     {
         printf("Nem lehet megnyitni a fájlt írásra.\n");
@@ -76,10 +101,10 @@ Receptkonyv* receptek_beolvas(void)
         printf("Nem lehetett lefoglalni a memoriat!\n");
         return NULL;
     }
-    FILE* f = fopen("receptek3.txt", "r");
+    FILE* f = fopen("receptek.txt", "r");
     if (f == NULL)
     {
-        printf("Nem lehetett megnyitni a file-t!\n");
+        printf("Nem lehetett megnyitni a receptek file-t!\n");
         free(r);
         return NULL;
     }
@@ -146,6 +171,20 @@ void receptkonyv_felszabadit(Receptkonyv* r)
     free(r->etelek);
     free(r);
 }
+void recept_kiir(Etel* m) {
+    if (m == NULL)
+    {
+        printf("Null pointert adott meg az étel kiíráshoz!\n");
+        return;
+    }
+    printf("Az étel neve: %s\n", m->nev);
+    printf("Az étel összetevőinek száma: %d\n", m->osszetevok_szama);
+    for (int i = 0;i < m->osszetevok_szama;i++) {
+        printf("Az %d. összetevő: %s, mennyisége: %.3lf(%s).\n", i, m->osszetevok[i].nev, m->osszetevok[i].mennyiseg, m->osszetevok[i].tipus);
+    }
+    printf("Az Étel elkészítése:\n%s", m->elkeszites);
+    return;
+}
 
 int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve)
 {
@@ -164,6 +203,7 @@ void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e)
     {
         if (e == NULL)
         {
+            printf("Üres az összetevők tartalma, nem lehet mit felszabadítani!");
             return;
         }
         free(e->egyedi_osszetevok);
@@ -176,14 +216,13 @@ Egyedi_osszetevok* osszetevo_beolvas(void)
     if (e == NULL)
     {
         printf("Nem lehetett lefoglalni a memoriat!\n");
-        free(e);
         return NULL;
     }
     FILE* f;
     f = fopen("osszetevok.txt", "r");
     if (f == NULL)
     {
-        printf("Nem lehetett megnyitni a file-t!\n");
+        printf("Nem lehetett megnyitni az összetevők file-t!\n");
         free(e);
         return NULL;
     }
@@ -192,7 +231,6 @@ Egyedi_osszetevok* osszetevo_beolvas(void)
     if (e->egyedi_osszetevok == NULL)
     {
         printf("Nem lehetett lefoglalni a memoriat!\n");
-        free(e->egyedi_osszetevok);
         fclose(f);
         free(e);
         return NULL;
@@ -253,3 +291,93 @@ void osszetevo_fileba_ment(Egyedi_osszetevok* e, Receptkonyv* r)
     }
     fclose(f);
 }
+
+
+#ifdef _WIN32
+Osszetevo o_beolvas1(void) {
+    Osszetevo o;
+    wchar_t wstr1[51] = { 0 };
+
+    _setmode(_fileno(stdin), _O_U16TEXT);
+    _setmode(_fileno(stdout), _O_U16TEXT);
+
+    /*wchar_t line[51];
+    _getws_s(line, 51);
+    swscanf(line, L" %51[^\n]", wstr1);*/
+
+    wscanf(L" %50l[^\n]", wstr1);
+
+    //wprintf(L"A beolvasott karakter: %ls, %ls, %lf\n", wstr1, wstr2, d);
+
+    _setmode(_fileno(stdout), _O_TEXT);
+    _setmode(_fileno(stdin), _O_TEXT);
+
+    char utf8_str1[51] = { 0 };
+    WideCharToMultiByte(CP_UTF8, 0, wstr1, -1, utf8_str1, sizeof(utf8_str1), NULL, NULL);
+
+
+    printf("az utf karakter: %s\n", utf8_str1);
+    strcpy(o.nev, utf8_str1);
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+    return o;
+
+}
+Osszetevo o_beolvas2(void) {
+    Osszetevo o;
+    wchar_t wstr1[51] = { 0 }, wstr2[51] = { 0 };
+
+
+    _setmode(_fileno(stdin), _O_U16TEXT);
+    _setmode(_fileno(stdout), _O_U16TEXT);
+
+    /*wchar_t line[102];
+    _getws_s(line, 102);
+    swscanf(line, L" %50[^,], %50[^\n]", wstr1, wstr2);*/
+    wscanf(L" %50l[^,], %50l[^\n]", wstr1, wstr2);
+
+
+    //wprintf(L"A beolvasott karakter: %ls, %ls, %lf\n", wstr1, wstr2, d);
+
+    _setmode(_fileno(stdout), _O_TEXT);
+    _setmode(_fileno(stdin), _O_TEXT);
+
+    char utf8_str1[51] = { 0 }, utf8_str2[51] = { 0 };
+    WideCharToMultiByte(CP_UTF8, 0, wstr1, -1, utf8_str1, sizeof(utf8_str1), NULL, NULL);
+    WideCharToMultiByte(CP_UTF8, 0, wstr2, -1, utf8_str2, sizeof(utf8_str2), NULL, NULL);
+
+    printf("az utf karakter: %s, %s\n", utf8_str1, utf8_str2);
+    strcpy(o.nev, utf8_str1);
+    strcpy(o.tipus, utf8_str2);
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+    return o;
+
+}
+Osszetevo o_beolvas3(void) {
+    Osszetevo o;
+    wchar_t wstr1[51] = { 0 }, wstr2[51] = { 0 };
+    double d;
+
+    _setmode(_fileno(stdin), _O_U16TEXT);
+    _setmode(_fileno(stdout), _O_U16TEXT);
+
+    wscanf(L" %50l[^,], %50l[^,], %lf", wstr1, wstr2, &d);
+
+    _setmode(_fileno(stdout), _O_TEXT);
+    _setmode(_fileno(stdin), _O_TEXT);
+
+    char utf8_str1[51] = { 0 }, utf8_str2[51] = { 0 };
+    WideCharToMultiByte(CP_UTF8, 0, wstr1, -1, utf8_str1, sizeof(utf8_str1), NULL, NULL);
+    WideCharToMultiByte(CP_UTF8, 0, wstr2, -1, utf8_str2, sizeof(utf8_str2), NULL, NULL);
+
+    printf("az utf karakter: %s, %s, %lf\n", utf8_str1, utf8_str2, d);
+    strcpy(o.nev, utf8_str1);
+    strcpy(o.tipus, utf8_str2);
+    o.mennyiseg = d;
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+    return o;
+
+}
+#endif
