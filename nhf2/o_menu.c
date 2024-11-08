@@ -1,3 +1,8 @@
+/**
+ * @file o_menu.c
+ * @brief Az összetevők almenühöz tartozó fv-ek, egy külön modulba szétszedve.
+ * @date 2024-11-08
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,6 +18,11 @@ void osszetevo_kiir(Egyedi_osszetevok* e);
 void osszetevok_keres(Egyedi_osszetevok* e);
 void osszetevo_torol(Egyedi_osszetevok* e);
 
+/**
+ * @brief Az összetevők almenü vezérlőegysége, azért kell **e-t kapnia hogy hozzáférjen az eredeti pointerhez ha azon akar módosítani
+ * Tartalmaz egy összetevő felvétel, törlés, listázás, és keresés menüpontot.
+ * @param e A korábban beolvasott összetevők listáját tartalmazó egyedi összetevők struct.
+ */
 void osszetevok_almenu(Egyedi_osszetevok** e)
 {
 
@@ -83,6 +93,11 @@ void osszetevok_almenu(Egyedi_osszetevok** e)
     } while (!vege);
     return;
 }
+/**
+ * @brief Megnézi hogy van e összetevő a listában, ha nincs akkor inicializálja a listát. Ezután beolvas egy nevet,
+ * ha tartalmazza már a tömb akkor nem engedi újra felvenni egyébként hozzáadja a tömbhöz átméretezés után.
+ * @param e Receptek listája
+ */
 void osszetevo_felvesz(Egyedi_osszetevok** e)
 {
 
@@ -130,9 +145,12 @@ void osszetevo_felvesz(Egyedi_osszetevok** e)
     {
         printf("A beírt összetevő már létezik\n");
     }
-
     return;
 }
+/**
+ * @brief Kiírja az argumentumban kapot struct összetevő elemeinek a listáját.
+ * @param e
+ */
 void osszetevo_kiir(Egyedi_osszetevok* e)
 {
     if (e == NULL)
@@ -148,6 +166,10 @@ void osszetevo_kiir(Egyedi_osszetevok* e)
     printf("Az összetevőt sikeresen kilistáztad! Nyomj egy entert a továbblépéshez!\n");
     return;
 }
+/**
+ * @brief Keres az adott struktúrában a név alapján amit stdin-ről olvas be.
+ * @param e
+ */
 void osszetevok_keres(Egyedi_osszetevok* e) {
     if (e == NULL)
     {
@@ -174,6 +196,11 @@ void osszetevok_keres(Egyedi_osszetevok* e) {
     else printf("A keresett összetevő nem található!\n");
     return;
 }
+/**
+ * @brief Törli az adott összetevőt amit a nevével kell megadni, amennyiben létezik az e structban.
+ * Készít egy ideiglenes struckt pointert, lefoglalja neki az új hoszzát, majd átmásolja az összes elemet kivéve a törlendőt, végül felszabadítja az eredetit.
+ * @param e
+ */
 void osszetevo_torol(Egyedi_osszetevok* e)
 {
     if (e == NULL)

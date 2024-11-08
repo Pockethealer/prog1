@@ -1,6 +1,13 @@
+/**
+ * @file file_utils.c
+ * @brief Ebben a modulban kaptak helyet a filokból beolvasó illetve azokba kiíró fv-k,
+ * illetve az általánosan használt stdin/stdout olvasó író fv-ek.
+ * @date 2024-11-08
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+ /*Az utf-es bohóckodások miatt kell, kicsit megdobja a compile-time-ot */
 #ifdef _WIN32
 #include <windows.h>
 #include <locale.h>
@@ -11,22 +18,26 @@
 #include <io.h>
 #endif
 #include "debugmalloc.h"
-/*Ebben a modulban kaptak helyet a filokból beolvasó illetve azokba kiíró fv-k,
-*illetve az általánosan használt stdin/stdout olvasó író fv-ek */
 
-/*Az általános adatstruktúráim, a kettős indirekció ott van benne,
-* hogy egy ételnek bárhány összetevője lehet illetve bárhány étel lehet a receptkönyvben.*/
+ /*Az általános adatstruktúráim, a kettős indirekció ott van benne,
+    *hogy egy ételnek bárhány összetevője lehet illetve bárhány étel lehet a receptkönyvben.*/
 
-/*Összetevők struckt tartalmazza az összetevő nevét (max 50 karakter),
-*típusát(max 50 karakter), és mennyiségét(double)*/
+    /**
+        * @struct Osszetevo
+        * @brief  Összetevők struckt tartalmazza az összetevő nevét (max 50 karakter),
+        *típusát(max 50 karakter), és mennyiségét(double)
+    */
 typedef struct Osszetevo
 {
     char nev[51];
     char tipus[51];
     double mennyiseg;
 } Osszetevo;
-/*Étel struktúra tartalmazza az étel nevét(max 50 karakter) az összetevőinek számát,
-*az összetevők tömbjének pointerét, és az elkészítési útmutatót(max 1000 karakter) */
+/**
+ * @struct Etel
+ * @brief Étel struktúra tartalmazza az étel nevét(max 50 karakter) az összetevőinek számát,
+ * az összetevők tömbjének pointerét, és az elkészítési útmutatót(max 1000 karakter)
+ */
 typedef struct Etel
 {
     char nev[51];
@@ -34,15 +45,21 @@ typedef struct Etel
     Osszetevo* osszetevok;
     char elkeszites[1001];
 } Etel;
-/*receptkönyv struktúra tartalmazza a benne levő ételek számát és az ételek tömbjére egy mutatót*/
+/**
+ * @struct Receptkonyv
+ * @brief Receptkönyv struktúra tartalmazza a benne levő ételek számát és az ételek tömbjére egy mutatót.
+ */
 typedef struct Receptkonyv
 {
     int etelek_szama;
     Etel* etelek;
 } Receptkonyv;
-/*Egyedi összetevőket tartalmazó lista minden összetevő egyszer
-*kell hogy szerepeljen benne tartalmazza az összetevők számát és az összetevők tömbjére mutató pointert.
-*A benne levő összetevők rendszerint nem tartalmaznak mennyiségeket csak a nevet és típust*/
+/**
+ * @struct Receptkonyv
+ * @brief Egyedi összetevőket tartalmazó lista minden összetevő egyszer
+ *kell hogy szerepeljen benne, tartalmazza az összetevők számát és az összetevők tömbjére mutató pointert.
+ *A benne levő összetevők rendszerint nem tartalmaznak mennyiségeket csak a nevet és típust
+ */
 typedef struct Egyedi_osszetevok
 {
     Osszetevo* egyedi_osszetevok;
@@ -66,10 +83,14 @@ Osszetevo o_beolvas2(void);
 Osszetevo o_beolvas3(void);
 Etel i_beolvas(void);
 
-/*Kap egy receptek structot és egy stringet és megnézi hogy a string egyezik e valamely r.etelek.nev stringgel
-*elvileg case független, de mivel utf karakterek ezért néha bugos, az esetek 99%ában működik.
-*Ezután visszatér a keresett elem tömbbeli indexével plusz 1(i+1-el), vagy nullával ha nem található
-(azért kell az i+1 hogy a 0. elemet is helyesen kezelje).*/
+/**
+ * @brief Kap egy receptek structot és egy stringet és megnézi hogy a string egyezik e valamely r.etelek.nev stringgel
+ * elvileg case független, de mivel utf karakterek ezért néha bugos, az esetek 99%ában működik.
+ * @param r receptek struct
+ * @param etel_neve keresett string
+ * @return int Visszatér a keresett elem tömbbeli indexével plusz 1(i+1-el), vagy nullával ha nem található
+(azért kell az i+1 hogy a 0. elemet is helyesen kezelje).
+ */
 int recept_letezik(Receptkonyv* r, const char* etel_neve) {
     if (r == NULL)
     {
@@ -86,7 +107,10 @@ int recept_letezik(Receptkonyv* r, const char* etel_neve) {
     }
     return 0;
 }
-/*elmenti a kapott r struktúrát az előre megadott formátumban a receptek.txt fileba, ha nem létezik létrehozza a program gyökérkönyvtárába*/
+/**
+ * @brief Elmenti a kapott r struktúrát az előre megadott formátumban a receptek.txt fileba, ha nem létezik létrehozza a program gyökérkönyvtárába
+ * @param r Receptkönyv amit menteni szeretnénk
+ */
 void receptet_fileba_ment(Receptkonyv* r)
 {
     if (r == NULL)
@@ -118,8 +142,11 @@ void receptet_fileba_ment(Receptkonyv* r)
     }
     fclose(f);
 }
-/*beolvassa a recepteket az előre megadott receptek.txt fileból az r receptkönyv struktúrába
-(lehetett volna argumentum a filenév de felesleges)*/
+/**
+ * @brief beolvassa a recepteket az előre megadott receptek.txt fileból az r receptkönyv struktúrába
+(lehetett volna argumentum a filenév de felesleges), a működése egyszerű csak felbloatolja egy rakás hibakezelés.
+ * @return Receptkonyv*
+ */
 Receptkonyv* receptek_beolvas(void)
 {
     Receptkonyv* r = (Receptkonyv*)malloc(sizeof(Receptkonyv));
@@ -192,7 +219,10 @@ Receptkonyv* receptek_beolvas(void)
     fclose(f);
     return r;
 }
-/*felszabadítja a kapott r struktúrát és minden alstruktúráját*/
+/**
+ * @brief felszabadítja a kapott r struktúrát és minden alstruktúráját
+ * @param r
+ */
 void receptkonyv_felszabadit(Receptkonyv* r)
 {
     if (r == NULL)
@@ -206,7 +236,10 @@ void receptkonyv_felszabadit(Receptkonyv* r)
     free(r->etelek);
     free(r);
 }
-/*kiirja az adott etel struktura adatait(név összetevők elkészítés)*/
+/**
+ * @brief kiirja az adott etel struktura adatait(név összetevők elkészítés)
+ * @param m Az étel struktúra amit ki akarunk írni.
+ */
 void recept_kiir(Etel* m) {
     if (m == NULL)
     {
@@ -222,9 +255,13 @@ void recept_kiir(Etel* m) {
     return;
 }
 
-/*Kap egy egyedi osszetevok structot és egy stringet és megnézi hogy a string egyezik-e valamely r.osszetevok.nev stringgel
-*elvileg case független, de mivel utf karakterek ezért néha bugos, az esetek 99%ában működik.
-*Ezután visszatér a keresett elem tömbbeli poziciójával, vagy nullával ha nem található.*/
+/**
+ * @brief Kap egy egyedi osszetevok structot és egy stringet és megnézi hogy a string egyezik-e valamely r.osszetevok.nev stringgel
+ * elvileg case független, de mivel utf karakterek ezért néha bugos, az esetek 99%ában működik.
+ * @param e Az összetevőket tartalmazó struktúra.
+ * @param osszetevo_neve Keresett string.
+ * @return int Ezután visszatér a keresett elem tömbbeli poziciójával, vagy nullával ha nem található.
+ */
 int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve)
 {
     if (e == NULL)
@@ -242,7 +279,10 @@ int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve)
     }
     return 0;
 }
-/*felszabadítja a kapott e struktúrát és minden alstruktúráját*/
+/**
+ * @brief Felszabadítja a kapott e struktúrát és minden alstruktúráját.
+ * @param e
+ */
 void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e)
 {
     {
@@ -255,7 +295,10 @@ void egyedi_osszetevo_felszabadit(Egyedi_osszetevok* e)
         free(e);
     }
 }
-/*beolvassa az összetevőket az előre megadott osszetevok.txt fileból az e egyedi összetevők tömbbe*/
+/**
+ * @brief Beolvassa az összetevőket az előre megadott osszetevok.txt fileból az e egyedi összetevők tömbbe.
+ * @return Egyedi_osszetevok*
+ */
 Egyedi_osszetevok* osszetevo_beolvas(void)
 {
     Egyedi_osszetevok* e = (Egyedi_osszetevok*)malloc(sizeof(Egyedi_osszetevok));
@@ -295,9 +338,13 @@ Egyedi_osszetevok* osszetevo_beolvas(void)
     fclose(f);
     return e;
 }
-/*osszefésüli az e struktúrában található összetevőket a receptkönyv struktúra ételeinek az összetevőivel,
-*hogy az egyedi összetevő struktúra pontosan egyszer tartalmazzon minden összetevőt, majd elmenti azt
-*az előre megadott formátumban az osszetevok.txt fileba, ha nem létezik létrehozza a program gyökérkönyvtárába.*/
+/**
+ * @brief Összefésüli az e struktúrában található összetevőket a receptkönyv struktúra ételeinek az összetevőivel,
+ * hogy az egyedi összetevő struktúra pontosan egyszer tartalmazzon minden összetevőt, majd elmenti azt
+ * az előre megadott formátumban az osszetevok.txt fileba, ha nem létezik létrehozza a program gyökérkönyvtárába.
+ * @param e
+ * @param r
+ */
 void osszetevo_fileba_ment(Egyedi_osszetevok* e, Receptkonyv* r)
 {
     if (e == NULL)
@@ -312,6 +359,8 @@ void osszetevo_fileba_ment(Egyedi_osszetevok* e, Receptkonyv* r)
         return;
     }
     if (r != NULL) {
+        /*Végigmegy a receptkönyvben levő összetevőkön és ellenőrzi hogy tartalmazza-e már
+        *őket az összetevők listája ha nem akkor hozzáadja, lassú a realloc ezért érdemes ezt kevésszer futtatni, mondjuk csak program zárásakor*/
         for (int i = 0; i < r->etelek_szama; i++)
         {
             Etel* etel = &(r->etelek[i]);
@@ -344,41 +393,56 @@ void osszetevo_fileba_ment(Egyedi_osszetevok* e, Receptkonyv* r)
     fclose(f);
 }
 
-/*windows-os bohóckodás utf-8-as beolvasáshoz, elvileg működik,
-*3 különböző verziójú windowson néztem, mingw32 compilerrel. Nem teljesen megbízható, de az idő 99%ában működik
-azert struktúrát adnak vissza mert így egyszerűbb volt fix hosszúságú stringet visszaadni*/
+/**
+ * @brief windows-os bohóckodás utf-8-as beolvasáshoz, elvileg működik,
+ * 3 különböző verziójú windowson néztem, mingw32 compilerrel. Nem teljesen megbízható, de az idő 99%ában működik
+ * azért struktúrát adnak vissza mert így egyszerűbb volt fix hosszúságú stringet visszaadni. Az első fv.-nél részletezem a működésüket.
+ */
 #ifdef _WIN32
-/*beolvassa egy összetevőnek a nevét(max 50 karakter), és visszaadja osszetevok struktúrában*/
+ /**
+  * @brief Beolvassa egy összetevőnek a nevét(max 50 karakter), és visszaadja osszetevok struktúrában
+  * @return Osszetevo
+  */
 Osszetevo o_beolvas1(void) {
+    /*Ez a pár fv több időmbe tellt megoldani és debuggolni mint minden más 3x, azért rantelek egy kicsit a kommentekben...*/
     Osszetevo o;
+    /*Wchar-ba kell olvasni mert eddig csak azzal sikerült rávenni hogy ténylegesen beolvasson utf karaktert.*/
     wchar_t wstr1[51] = { 0 };
-
+    /*Át kell állítani mindkét(!) std streamet utf-16 kódolásra(wide), (mert a SetConsoleOutputCP(CP_UTF8) és
+    SetConsoleCP(CP_UTF8) valamiért nem csinál semmit az inputon, csak az outputot állítja át.), és azért utf-16-ra mert az utf-8(_O_U8TEXT)
+    valamiért nem működik consolablakban, de még csak kb 12 éve jelentették a microsoftnak és egy ilyen is indie companytól nem is várható el hogy mindenre tudjanak megoldást...*/
     _setmode(_fileno(stdin), _O_U16TEXT);
     _setmode(_fileno(stdout), _O_U16TEXT);
 
-    /*wchar_t line[51];
+    /*debug kód, néha nem megbízható a scanf, régebbi compilereknél ezt kell használni, ezért bennhagyom hátha kell egyszer.
+    wchar_t line[51];
     _getws_s(line, 51);
     swscanf(line, L" %51[^\n]", wstr1);*/
 
+    /*a scanf wide karakterekkel működő verziója, a megfelelő szintaxissal*/
     wscanf(L" %50l[^\n]", wstr1);
 
-    //wprintf(L"A beolvasott karakter: %ls, %ls, %lf\n", wstr1, wstr2, d);
-
+    /*Vissza kell állítani a kódolást mert különben a többi könyvtári fv nem működik*/
     _setmode(_fileno(stdout), _O_TEXT);
     _setmode(_fileno(stdin), _O_TEXT);
 
     char utf8_str1[51] = { 0 };
+    /*A wide-ot utf-be konvertáló fv*/
     WideCharToMultiByte(CP_UTF8, 0, wstr1, -1, utf8_str1, sizeof(utf8_str1), NULL, NULL);
-
-
-    printf("az utf karakter: %s\n", utf8_str1);
+    /*Mivel hajlamos inkonzisztenciákra inkább bennhagytam a debug kódot*/
+    printf("A beolvasott utf karakter: %s\n", utf8_str1);
     strcpy(o.nev, utf8_str1);
     int c;
+    /*Eltakarítja a bennmaradt bytokat az stdin-ről, mert a wide karaktereknél ez elég inkonzisztens,
+    *néha emiatt plusz entereket kell nyomni, de inkább 2 plusz enter mint egy segfault*/
     while ((c = getchar()) != '\n' && c != EOF) {}
     return o;
 
 }
-/*beolvassa egy összetevőnek a nevét(max 50 karakter) és típusát(max 50 karakter) és visszaadja egy osszetevők struktúrában*/
+/**
+ * @brief Beolvassa egy összetevőnek a nevét(max 50 karakter) és típusát(max 50 karakter) és visszaadja egy osszetevők struktúrában
+ * @return Osszetevo
+ */
 Osszetevo o_beolvas2(void) {
     Osszetevo o;
     wchar_t wstr1[51] = { 0 }, wstr2[51] = { 0 };
@@ -410,7 +474,10 @@ Osszetevo o_beolvas2(void) {
     return o;
 
 }
-/*Beolvassa egy összetevőnek a nevét(max 50 karakter) típusát(max 50 karakter) és mennyiségét és visszaadja egy összetevők struktúrában*/
+/**
+ * @brief Beolvassa egy összetevőnek a nevét(max 50 karakter) típusát(max 50 karakter) és mennyiségét és visszaadja egy összetevők struktúrában.
+ * @return Osszetevo
+ */
 Osszetevo o_beolvas3(void) {
     Osszetevo o;
     wchar_t wstr1[51] = { 0 }, wstr2[51] = { 0 };
@@ -437,7 +504,10 @@ Osszetevo o_beolvas3(void) {
     return o;
 
 }
-
+/**
+ * @brief Beolvassa egy receptnek az elkészítési módját(max 1000 karakter), és visszaadja egy étel struktúrában.
+ * @return Etel
+ */
 Etel i_beolvas(void) {
     Etel o;
     wchar_t wstr1[1001] = { 0 };

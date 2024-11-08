@@ -1,20 +1,30 @@
+/**
+ * @file menu.c
+ * @brief A főmenüt kezelő modul, csak a főmenü, és a kilépés funkcionalitását tartalmazza.
+ *
+ * @date 2024-11-08
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+ /*A helyes konzolmegjelenítéshez kell windowson*/
 #ifdef _WIN32
 #include <windows.h>
 #include <locale.h>
 #endif
+/*Saját modulok*/
 #include "file_utils.h"
-#include "debugmalloc.h"
 #include "o_menu.h"
 #include "r_menu.h"
+#include "debugmalloc.h"
 
 int main_menu(void);
 int kilepes(Egyedi_osszetevok* e, Receptkonyv* r);
 void menu_kiir(void);
 
-
+/**
+ * @brief Kilistázza a menüopciókat, stdio-n.
+ */
 void menu_kiir(void)
 {
     printf("Mit szeretnél csinálni? A megfelelő számot írd be!\n\n");
@@ -30,9 +40,9 @@ void menu_kiir(void)
 /**
  * @brief Meghívja a kilépés előtti fv-eket: elmenti a recepteket és
  * összetevőket és meghívja a megfelelő felszabadító fv-eket.
- * @param e Egyedi_osszetevo struktúra
- * @param r Receptkony struktúra
- * @return int visszatér nullával ha sikerült minden
+ * @param e Egyedi_osszetevo struktúra, amiben az összes összetevő van.
+ * @param r Receptkony struktúra, amiben az összes receptet tárolom.
+ * @return int visszatér nullával ha sikerült minden, majd később hibakezeléshez kell.
  */
 int kilepes(Egyedi_osszetevok* e, Receptkonyv* r)
 {
@@ -43,6 +53,15 @@ int kilepes(Egyedi_osszetevok* e, Receptkonyv* r)
     return 0;
 }
 
+/**
+ * @brief A főmenü logikájával foglalkozó fv. Beolvassa a fileokból az összetevők listáját(továbbiakban e), és receptek listáját(továbbiakban r).
+ * A véletlenszerűnek tűnően elhelyezett "while (getchar() != '\n') {}" az utf-8 as beolvasás miatt kellenek,
+ * mivel inkonzisztensen olvassa az stdio streamet ezért ezzel törlöm az esetlegesen bennmaradt adatot a következő beolvasás előtt,
+ * mivel az fflush nem definiált c-ben és vicces dolgokat művel néha.
+ * A "system("@cls||clear");" csak kozmetikai célok miatt van ott, törli a konzolablakot az átláthatóság kedvéért.
+ * Tartalmaz egy összetevők, receptek, qol, bev. lista, és kedvencek menüpontot.
+ * @return int ha minden rendben visszatér nullával, majd később hibakezeléshez.
+ */
 int main_menu(void)
 {
     /*locale beállítása windowson*/
@@ -54,9 +73,9 @@ int main_menu(void)
     /*struktúrák inicializálása*/
     Egyedi_osszetevok* osszetevo = osszetevo_beolvas();
     Receptkonyv* konyv = receptek_beolvas();
-    /*történések*/
     int vege = 0;
     int opcio = 0;
+    /*fő menülogika*/
     do
     {
         menu_kiir();
@@ -85,14 +104,17 @@ int main_menu(void)
         case 3:
             system("@cls||clear");
             printf("Qol funkciók\n");
+            //TODO
             break;
         case 4:
             system("@cls||clear");
             printf("Bevásárló lista kezelése\n");
+            //TODO
             break;
         case 5:
             system("@cls||clear");
             printf("Kedvencek kezelése\n");
+            //TODO
             break;
         case 6:
             system("@cls||clear");
@@ -106,8 +128,6 @@ int main_menu(void)
             break;
         }
     } while (!vege);
-    /*debug
-    printf("%s\n%s\n%d\n", konyv->etelek[1].osszetevok[2].tipus, konyv->etelek[1].osszetevok[2].nev, strlen(konyv->etelek[1].osszetevok[2].nev));*/
     /*program bezárása*/
     kilepes(osszetevo, konyv);
     return 0;
