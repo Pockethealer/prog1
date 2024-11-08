@@ -1,0 +1,942 @@
+125
+Spagetti Bolognese,5
+Spagetti,kg,0.50
+Darált marhahús,kg,0.30
+Paradicsomszósz,liter,0.50
+Hagyma,db,1.00
+Fokhagyma,gerezd,2.00
+Főzd meg a spagettit, pirítsd meg a húst a hagymával és fokhagymával, add hozzá a paradicsomszószt, és párold.
+Sajtos Melegszendvics,3
+Kenyér,szelet,2.00
+Sajt,szelet,1.00
+Vaj,evőkanál,1.00
+Kend meg a kenyeret vajjal, tedd közé a sajtot, és pirítsd serpenyőben aranybarnára.
+Csirkesaláta,6
+Csirkemell,db,1.00
+Saláta,fej,1.00
+Paradicsom,db,1.00
+Uborka,db,1.00
+Olívaolaj,evőkanál,1.00
+Só,teáskanál,0.50
+Süsd meg a csirkét, aprítsd fel a zöldségeket, keverd össze mindet, és ízesítsd olívaolajjal és sóval.
+Paradicsomleves,5
+Paradicsom,kg,0.50
+Hagyma,db,1.00
+Fokhagyma,gerezd,2.00
+Zöldségleves alap,liter,0.50
+Só,teáskanál,0.50
+Aprítsd fel a paradicsomot, hagymát, fokhagymát, párold alaplében, majd turmixold és ízesítsd.
+Palacsinta,6
+Liszt,csésze,1.00
+Tej,csésze,1.00
+Tojás,db,1.00
+Cukor,evőkanál,1.00
+Sütőpor,teáskanál,0.50
+Só,csipet,1.00
+Keverd össze az összetevőket, önts egy serpenyőbe, és süsd aranybarnára mindkét oldalát.
+Omlett,4
+Tojás,db,2.00
+Só,csipet,1.00
+Bors,csipet,1.00
+Vaj,evőkanál,1.00
+Verd fel a tojásokat, fűszerezd, öntsd egy forró serpenyőbe, és süsd készre.
+Cézár Saláta,6
+Római saláta,fej,1.00
+Kruton,csésze,1.00
+Parmezán sajt,evőkanál,2.00
+Csirkemell,db,1.00
+Cézár öntet,evőkanál,2.00
+Só,csipet,1.00
+Vágd fel a salátát, add hozzá a krutont és sajtot, süsd meg a csirkét, keverd össze, és öntsd rá az öntetet.
+Francia Pirítós,4
+Kenyér,szelet,2.00
+Tojás,db,1.00
+Tej,csésze,0.25
+Cukor,evőkanál,1.00
+Áztasd be a kenyeret tojásos tejbe, süsd serpenyőben aranybarnára.
+Zöldség Wok,7
+Kaliforniai paprika,db,1.00
+Répa,db,1.00
+Brokkoli,csésze,1.00
+Szójaszósz,evőkanál,2.00
+Fokhagyma,gerezd,2.00
+Gyömbér,teáskanál,1.00
+Olívaolaj,evőkanál,1.00
+Vágd fel a zöldségeket, pirítsd meg az olajon, add hozzá a szójaszószt, fokhagymát és gyömbért.
+Sajtos Tészta,5
+Tészta,csésze,1.00
+Cheddar sajt,csésze,1.00
+Tej,csésze,0.50
+Vaj,evőkanál,1.00
+Só,csipet,1.00
+Főzd meg a tésztát, olvaszd fel a vajat a tejben, add hozzá a sajtot, és keverd össze a tésztával.
+Görög Saláta,5
+Paradicsom,db,1.00
+Uborka,db,1.00
+Feta sajt,csésze,0.50
+Olívabogyó,csésze,0.25
+Olívaolaj,evőkanál,1.00
+Aprítsd fel a zöldségeket, morzsold rá a fetát, add hozzá az olívabogyót, és locsold meg olívaolajjal.
+Csirke Curry,6
+Csirkemell,db,1.00
+Kókusztej,csésze,1.00
+Currypor,evőkanál,1.00
+Hagyma,db,1.00
+Fokhagyma,gerezd,2.00
+Só,teáskanál,0.50
+Pirítsd meg a csirkét a hagymával és fokhagymával, add hozzá a curryt és kókusztejet, párold készre.
+Gyümölcs Turmix,4
+Banán,db,1.00
+Eper,csésze,1.00
+Tej,csésze,1.00
+Méz,evőkanál,1.00
+Turmixold össze az összetevőket, amíg sima nem lesz.
+Rántotta,3
+Tojás,db,2.00
+Só,csipet,1.00
+Vaj,evőkanál,1.00
+Verd fel a tojásokat sóval, süsd meg vajon, közben óvatosan kevergetve.
+Fokhagymás Kenyér,4
+Kenyér,szelet,2.00
+Fokhagyma,gerezd,1.00
+Vaj,evőkanál,1.00
+Petrezselyem,evőkanál,0.50
+Kend meg a kenyeret fokhagymás vajjal, pirítsd aranybarnára, és szórd meg petrezselyemmel.
+Tonhal Szendvics,4
+Kenyér,szelet,2.00
+Tonhal,konzerv,1.00
+Majonéz,evőkanál,1.00
+Saláta,levél,1.00
+Keverd össze a tonhalat a majonézzel, kend a kenyérre a salátalevéllel.
+Marhahúsos Taco,6
+Darált marhahús,kg,0.20
+Taco tészta,db,2.00
+Saláta,levél,1.00
+Cheddar sajt,evőkanál,1.00
+Paradicsom,db,1.00
+Taco fűszerkeverék,evőkanál,1.00
+Pirítsd meg a húst fűszerkeverékkel, tedd a taco tésztába zöldségekkel és sajttal.
+Caprese Saláta,4
+Paradicsom,db,1.00
+Mozzarella,szelet,3.00
+Bazsalikom,levél,5.00
+Olívaolaj,evőkanál,1.00
+Szeleteld fel a paradicsomot és mozzarellát, rétegezd a bazsalikommal, és locsold meg olívaolajjal.
+Avokádós Pirítós,3
+Kenyér,szelet,1.00
+Avokádó,db,0.50
+Só,csipet,1.00
+Törd össze az avokádót, kend a kenyérre, és szórd meg sóval.
+Csirkés Wrap,5
+Csirkemell,db,1.00
+Tortilla,db,1.00
+Saláta,levél,1.00
+Paradicsom,db,1.00
+Majonéz,evőkanál,1.00
+Süsd meg a csirkét, szeleteld fel, és tekerd a tortillába a zöldségekkel és majonézzel.
+Lencseleves,5
+Lencse,csésze,1.00
+Répa,db,1.00
+Hagyma,db,1.00
+Fokhagyma,gerezd,1.00
+Zöldségleves alap,liter,0.50
+Főzd a lencsét a felaprított zöldségekkel alaplében, amíg meg nem puhul.
+Burgonyapüré,3
+Burgonya,db,2.00
+Vaj,evőkanál,1.00
+Tej,csésze,0.25
+Főzd meg a burgonyát, törd össze vajjal és tejjel.
+Margherita Pizza,5
+Pizzatészta,db,1.00
+Paradicsomszósz,csésze,0.50
+Mozzarella sajt,csésze,1.00
+Bazsalikom,levél,5.00
+Olívaolaj,evőkanál,1.00
+Kend meg a tésztát szószal, add hozzá a sajtot és bazsalikomot, süsd aranybarnára.
+Csirkés Tészta,5
+Tészta,csésze,1.00
+Csirkemell,db,1.00
+Tejszín,csésze,0.50
+Parmezán sajt,evőkanál,1.00
+Só,csipet,1.00
+Süsd meg a csirkét, add hozzá a tejszínt és sajtot, majd keverd össze a főtt tésztával.
+Banános Süti,7
+Banán,db,2.00
+Liszt,csésze,1.00
+Cukor,csésze,0.50
+Vaj,evőkanál,2.00
+Tojás,db,1.00
+Szódabikarbóna,teáskanál,1.00
+Só,csipet,1.00
+Törd össze a banánt, keverd össze az összetevőkkel, és süsd aranybarnára.
+Rántott Csirkeszárnyak,7
+Paprika,db,0.87
+Sajt,szelet,1.26
+Olívaolaj,evőkanál,1.00
+Víz,liter,1.19
+Hagyma,db,0.61
+Rizs,kg,0.14
+Vaj,evőkanál,1.33
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Csirke Rántva,5
+Paprika,db,0.77
+Kenyér,szelet,0.63
+Csirkemell,db,0.66
+Só,teáskanál,1.30
+Liszt,kg,0.63
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Sonkás Szendvics,6
+Tészta,kg,0.09
+Sütőpor,evőkanál,1.01
+Paradicsom,db,1.42
+Liszt,kg,0.67
+Vaj,evőkanál,1.39
+Pirospaprika,evőkanál,1.03
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Rakott Karfiol,5
+Só,teáskanál,0.82
+Tejföl,evőkanál,0.96
+Liszt,kg,0.27
+Paprika,db,0.61
+Tészta,kg,0.08
+Kockázd fel a csirkét, majd a hagymát pirítsd meg olajon. Tedd bele a csirkét és süsd, amíg fehéredni kezd. Adj hozzá pirospaprikát, majd öntsd fel vízzel, hogy ellepje. Főzd, amíg a hús puha lesz. Tálald friss tejföllel és galuskával.
+Lasagna,5
+Vaj,evőkanál,1.47
+Hagyma,db,0.98
+Csirkemell,db,0.80
+Kenyér,szelet,1.15
+Paprika,db,1.16
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Lencseleves,8
+Tészta,kg,0.05
+Liszt,kg,0.58
+Répa,db,0.66
+Paradicsom,db,0.61
+Tejföl,evőkanál,1.45
+Tojás,db,1.17
+Csirkemell,db,0.89
+Olívaolaj,evőkanál,0.61
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Pogácsa,3
+Tejföl,evőkanál,1.09
+Sajt,szelet,0.50
+Hagyma,db,0.98
+A lisztet keverd össze a sütőporral és sóval. Morzsold bele a vajat, majd adj hozzá tejfölt, és gyúrd tésztává. Nyújtsd ki a tésztát és szaggass belőle pogácsákat. Tedd a sütőbe és süsd 180 °C-on aranybarnára. Tálald frissen, puha vajjal.
+Töltött Káposzta,7
+Tejföl,evőkanál,0.62
+Vaj,evőkanál,0.53
+Tészta,kg,0.08
+Kenyér,szelet,0.86
+Liszt,kg,0.34
+Sütőpor,evőkanál,0.82
+Tojás,db,0.91
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Rántott Csirkeszárnyak,6
+Hagyma,db,0.60
+Kenyér,szelet,1.46
+Sütőpor,evőkanál,0.80
+Liszt,kg,0.74
+Tészta,kg,0.11
+Paprika,db,0.61
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Rántott Sajt,5
+Víz,liter,1.11
+Sütőpor,evőkanál,1.16
+Vaj,evőkanál,0.51
+Pirospaprika,evőkanál,1.00
+Paradicsom,db,1.46
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Gombás Rizottó,7
+Tojás,db,0.98
+Tejföl,evőkanál,0.98
+Sütőpor,evőkanál,0.73
+Sajt,szelet,0.91
+Liszt,kg,0.38
+Répa,db,0.91
+Rizs,kg,0.12
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Húsleves,6
+Kenyér,szelet,1.16
+Paradicsom,db,1.44
+Hagyma,db,1.38
+Tojás,db,1.08
+Só,teáskanál,1.39
+Répa,db,1.21
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Sajtos Melegszendvics,7
+Répa,db,0.51
+Tészta,kg,0.06
+Paradicsom,db,1.17
+Rizs,kg,0.05
+Olívaolaj,evőkanál,0.67
+Só,teáskanál,1.22
+Vaj,evőkanál,0.66
+Főzd meg a burgonyát héjában, majd hámozd meg és szeleteld fel. Vajazz ki egy tepsit, és rétegezd bele a burgonyát. Adj hozzá sót, tejfölt és felkarikázott tojást minden réteghez. Süssd 180 °C-on, amíg a teteje aranybarna lesz. Tálald savanyúsággal.
+Tejfölös Csirke,5
+Pirospaprika,evőkanál,1.07
+Hagyma,db,0.72
+Rizs,kg,0.10
+Liszt,kg,0.29
+Répa,db,0.70
+Főzd meg a nokedlit sós vízben. Közben serpenyőben melegítsd fel az olajat, majd üsd bele a tojásokat és keverd át, hogy lágy rántottát kapj. Keverd bele a főtt nokedlit, és ízesítsd sóval, borssal.
+Rántott Csirkeszárnyak,7
+Sütőpor,evőkanál,1.04
+Hagyma,db,0.88
+Kenyér,szelet,0.77
+Só,teáskanál,1.34
+Tojás,db,0.71
+Csirkemell,db,1.08
+Rizs,kg,0.14
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Lasagna,7
+Víz,liter,1.05
+Vaj,evőkanál,0.95
+Paprika,db,0.90
+Liszt,kg,0.56
+Hagyma,db,1.08
+Répa,db,0.51
+Tojás,db,0.88
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Gomba Pörkölt,8
+Sajt,szelet,0.84
+Répa,db,0.92
+Tejföl,evőkanál,0.97
+Hagyma,db,0.57
+Tojás,db,1.00
+Rizs,kg,0.09
+Vaj,evőkanál,1.38
+Pirospaprika,evőkanál,0.59
+A lisztet keverd össze a sütőporral és sóval. Morzsold bele a vajat, majd adj hozzá tejfölt, és gyúrd tésztává. Nyújtsd ki a tésztát és szaggass belőle pogácsákat. Tedd a sütőbe és süsd 180 °C-on aranybarnára. Tálald frissen, puha vajjal.
+Fokhagymás Csirke,7
+Víz,liter,0.58
+Hagyma,db,1.11
+Sajt,szelet,1.48
+Rizs,kg,0.09
+Olívaolaj,evőkanál,1.02
+Paradicsom,db,1.12
+Liszt,kg,0.56
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Spenót Főzelék,7
+Sütőpor,evőkanál,1.08
+Víz,liter,1.06
+Olívaolaj,evőkanál,1.39
+Pirospaprika,evőkanál,0.69
+Répa,db,0.57
+Vaj,evőkanál,0.98
+Tészta,kg,0.06
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Rántott Sajt,4
+Olívaolaj,evőkanál,0.71
+Csirkemell,db,1.31
+Liszt,kg,0.43
+Tészta,kg,0.11
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Görög Saláta,3
+Rizs,kg,0.09
+Kenyér,szelet,1.44
+Sajt,szelet,1.46
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Gombás Rizottó,5
+Rizs,kg,0.15
+Hagyma,db,0.62
+Tészta,kg,0.13
+Sütőpor,evőkanál,1.06
+Csirkemell,db,1.02
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Sonkás Szendvics,6
+Só,teáskanál,1.13
+Burgonya,db,0.71
+Csirkemell,db,0.83
+Sütőpor,evőkanál,1.14
+Vaj,evőkanál,0.64
+Paradicsom,db,0.51
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Gyümölcssaláta,4
+Liszt,kg,0.60
+Paradicsom,db,1.20
+Vaj,evőkanál,1.15
+Rizs,kg,0.08
+Kockázd fel a marhahúst. Aprítsd fel a hagymát, és pirítsd meg egy nagy fazékban. Tedd bele a húst, és süsd addig, amíg minden oldala megpirul. Add hozzá a pirospaprikát, majd öntsd fel vízzel. Tedd bele a felkockázott burgonyát, répát és főzd, amíg minden puha lesz. Ízesítsd sóval, borssal és tálald friss kenyérrel.
+Töltött Káposzta,8
+Tojás,db,0.89
+Víz,liter,1.23
+Pirospaprika,evőkanál,0.91
+Kenyér,szelet,1.32
+Tészta,kg,0.14
+Csirkemell,db,1.43
+Sajt,szelet,0.77
+Só,teáskanál,1.21
+Kockázd fel a marhahúst. Aprítsd fel a hagymát, és pirítsd meg egy nagy fazékban. Tedd bele a húst, és süsd addig, amíg minden oldala megpirul. Add hozzá a pirospaprikát, majd öntsd fel vízzel. Tedd bele a felkockázott burgonyát, répát és főzd, amíg minden puha lesz. Ízesítsd sóval, borssal és tálald friss kenyérrel.
+Lencseleves,7
+Vaj,evőkanál,0.99
+Olívaolaj,evőkanál,1.45
+Répa,db,1.07
+Tojás,db,0.74
+Paprika,db,0.74
+Tészta,kg,0.12
+Sajt,szelet,1.33
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Brokkoli Krémleves,7
+Tojás,db,0.82
+Tejföl,evőkanál,1.26
+Paprika,db,1.35
+Olívaolaj,evőkanál,1.30
+Rizs,kg,0.09
+Pirospaprika,evőkanál,1.46
+Liszt,kg,0.58
+Főzd meg a nokedlit sós vízben. Közben serpenyőben melegítsd fel az olajat, majd üsd bele a tojásokat és keverd át, hogy lágy rántottát kapj. Keverd bele a főtt nokedlit, és ízesítsd sóval, borssal.
+Gyümölcssaláta,4
+Tészta,kg,0.11
+Hagyma,db,0.89
+Tejföl,evőkanál,1.42
+Víz,liter,0.73
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Rántott Sajt,5
+Tészta,kg,0.07
+Répa,db,0.79
+Pirospaprika,evőkanál,0.89
+Sajt,szelet,0.99
+Víz,liter,1.15
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Sajtos Melegszendvics,4
+Sajt,szelet,0.84
+Paradicsom,db,1.07
+Csirkemell,db,1.04
+Tészta,kg,0.06
+Főzd meg a burgonyát héjában, majd hámozd meg és szeleteld fel. Vajazz ki egy tepsit, és rétegezd bele a burgonyát. Adj hozzá sót, tejfölt és felkarikázott tojást minden réteghez. Süssd 180 °C-on, amíg a teteje aranybarna lesz. Tálald savanyúsággal.
+Sajtos Melegszendvics,5
+Sütőpor,evőkanál,1.46
+Pirospaprika,evőkanál,1.05
+Tészta,kg,0.06
+Só,teáskanál,1.05
+Kenyér,szelet,1.10
+Főzd meg a burgonyát héjában, majd hámozd meg és szeleteld fel. Vajazz ki egy tepsit, és rétegezd bele a burgonyát. Adj hozzá sót, tejfölt és felkarikázott tojást minden réteghez. Süssd 180 °C-on, amíg a teteje aranybarna lesz. Tálald savanyúsággal.
+Krumplipüré,7
+Só,teáskanál,0.77
+Pirospaprika,evőkanál,1.40
+Rizs,kg,0.12
+Kenyér,szelet,1.48
+Víz,liter,1.19
+Olívaolaj,evőkanál,1.06
+Tészta,kg,0.10
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Sajtos Melegszendvics,4
+Hagyma,db,0.74
+Olívaolaj,evőkanál,0.58
+Sajt,szelet,0.80
+Víz,liter,1.02
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Krumplipüré,7
+Burgonya,db,1.34
+Só,teáskanál,1.27
+Csirkemell,db,1.00
+Paradicsom,db,0.83
+Tojás,db,0.70
+Rizs,kg,0.09
+Tészta,kg,0.13
+Kockázd fel a csirkét, majd a hagymát pirítsd meg olajon. Tedd bele a csirkét és süsd, amíg fehéredni kezd. Adj hozzá pirospaprikát, majd öntsd fel vízzel, hogy ellepje. Főzd, amíg a hús puha lesz. Tálald friss tejföllel és galuskával.
+Bableves,8
+Csirkemell,db,1.23
+Paradicsom,db,0.92
+Víz,liter,0.83
+Hagyma,db,0.54
+Só,teáskanál,0.89
+Répa,db,0.57
+Sajt,szelet,0.97
+Burgonya,db,0.50
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Sajtos Pogácsa,6
+Rizs,kg,0.11
+Répa,db,1.38
+Sajt,szelet,1.26
+Kenyér,szelet,0.65
+Pirospaprika,evőkanál,1.33
+Tojás,db,0.50
+Kockázd fel a csirkét, majd a hagymát pirítsd meg olajon. Tedd bele a csirkét és süsd, amíg fehéredni kezd. Adj hozzá pirospaprikát, majd öntsd fel vízzel, hogy ellepje. Főzd, amíg a hús puha lesz. Tálald friss tejföllel és galuskával.
+Hortobágyi Palacsinta,8
+Kenyér,szelet,1.40
+Vaj,evőkanál,0.75
+Tojás,db,1.39
+Só,teáskanál,0.88
+Csirkemell,db,0.78
+Paprika,db,0.63
+Rizs,kg,0.06
+Víz,liter,0.62
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Húsleves,3
+Liszt,kg,0.70
+Víz,liter,1.42
+Rizs,kg,0.07
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Hortobágyi Palacsinta,4
+Vaj,evőkanál,0.78
+Hagyma,db,1.48
+Olívaolaj,evőkanál,0.65
+Paprika,db,0.69
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Lasagna,6
+Paradicsom,db,0.96
+Sütőpor,evőkanál,0.74
+Olívaolaj,evőkanál,0.93
+Burgonya,db,1.11
+Sajt,szelet,1.09
+Paprika,db,1.08
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Rakott Karfiol,6
+Csirkemell,db,0.90
+Pirospaprika,evőkanál,1.12
+Paradicsom,db,1.47
+Paprika,db,1.21
+Hagyma,db,0.92
+Olívaolaj,evőkanál,1.23
+Kockázd fel a marhahúst. Aprítsd fel a hagymát, és pirítsd meg egy nagy fazékban. Tedd bele a húst, és süsd addig, amíg minden oldala megpirul. Add hozzá a pirospaprikát, majd öntsd fel vízzel. Tedd bele a felkockázott burgonyát, répát és főzd, amíg minden puha lesz. Ízesítsd sóval, borssal és tálald friss kenyérrel.
+Tojásos Nokedli,7
+Tejföl,evőkanál,1.46
+Vaj,evőkanál,0.76
+Burgonya,db,1.37
+Sajt,szelet,1.11
+Tojás,db,0.72
+Pirospaprika,evőkanál,0.72
+Só,teáskanál,0.76
+Főzd meg a nokedlit sós vízben. Közben serpenyőben melegítsd fel az olajat, majd üsd bele a tojásokat és keverd át, hogy lágy rántottát kapj. Keverd bele a főtt nokedlit, és ízesítsd sóval, borssal.
+Rakott Karfiol,3
+Paradicsom,db,0.82
+Paprika,db,1.06
+Sütőpor,evőkanál,0.94
+Kockázd fel a csirkét, majd a hagymát pirítsd meg olajon. Tedd bele a csirkét és süsd, amíg fehéredni kezd. Adj hozzá pirospaprikát, majd öntsd fel vízzel, hogy ellepje. Főzd, amíg a hús puha lesz. Tálald friss tejföllel és galuskával.
+Bableves,6
+Vaj,evőkanál,1.39
+Liszt,kg,0.39
+Tojás,db,0.54
+Rizs,kg,0.09
+Paradicsom,db,1.05
+Olívaolaj,evőkanál,1.08
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Rántott Sajt,6
+Víz,liter,0.88
+Sütőpor,evőkanál,1.33
+Vaj,evőkanál,0.74
+Kenyér,szelet,1.12
+Paprika,db,0.53
+Tojás,db,0.97
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Rántott Csirkeszárnyak,4
+Hagyma,db,0.71
+Burgonya,db,0.76
+Csirkemell,db,0.83
+Kenyér,szelet,0.69
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Sonkás Szendvics,5
+Olívaolaj,evőkanál,0.98
+Csirkemell,db,1.17
+Sajt,szelet,1.46
+Sütőpor,evőkanál,0.58
+Kenyér,szelet,0.87
+A lisztet keverd össze a sütőporral és sóval. Morzsold bele a vajat, majd adj hozzá tejfölt, és gyúrd tésztává. Nyújtsd ki a tésztát és szaggass belőle pogácsákat. Tedd a sütőbe és süsd 180 °C-on aranybarnára. Tálald frissen, puha vajjal.
+Húsleves,3
+Répa,db,0.76
+Paradicsom,db,0.54
+Tojás,db,0.57
+Kockázd fel a csirkét, majd a hagymát pirítsd meg olajon. Tedd bele a csirkét és süsd, amíg fehéredni kezd. Adj hozzá pirospaprikát, majd öntsd fel vízzel, hogy ellepje. Főzd, amíg a hús puha lesz. Tálald friss tejföllel és galuskával.
+Krumplileves,8
+Répa,db,0.76
+Tojás,db,0.84
+Víz,liter,1.00
+Liszt,kg,0.47
+Tészta,kg,0.06
+Paradicsom,db,1.42
+Olívaolaj,evőkanál,0.94
+Vaj,evőkanál,1.06
+Kockázd fel a marhahúst. Aprítsd fel a hagymát, és pirítsd meg egy nagy fazékban. Tedd bele a húst, és süsd addig, amíg minden oldala megpirul. Add hozzá a pirospaprikát, majd öntsd fel vízzel. Tedd bele a felkockázott burgonyát, répát és főzd, amíg minden puha lesz. Ízesítsd sóval, borssal és tálald friss kenyérrel.
+Lasagna,6
+Csirkemell,db,0.56
+Só,teáskanál,1.36
+Vaj,evőkanál,0.59
+Rizs,kg,0.12
+Víz,liter,0.64
+Hagyma,db,1.25
+Főzd meg a burgonyát héjában, majd hámozd meg és szeleteld fel. Vajazz ki egy tepsit, és rétegezd bele a burgonyát. Adj hozzá sót, tejfölt és felkarikázott tojást minden réteghez. Süssd 180 °C-on, amíg a teteje aranybarna lesz. Tálald savanyúsággal.
+Tojásos Nokedli,6
+Só,teáskanál,0.65
+Paradicsom,db,0.59
+Rizs,kg,0.10
+Burgonya,db,1.50
+Tojás,db,1.21
+Sütőpor,evőkanál,1.07
+Főzd meg a nokedlit sós vízben. Közben serpenyőben melegítsd fel az olajat, majd üsd bele a tojásokat és keverd át, hogy lágy rántottát kapj. Keverd bele a főtt nokedlit, és ízesítsd sóval, borssal.
+Tojásos Nokedli,6
+Paradicsom,db,1.35
+Tojás,db,0.75
+Víz,liter,0.89
+Rizs,kg,0.11
+Pirospaprika,evőkanál,1.29
+Tészta,kg,0.07
+Főzd meg a nokedlit sós vízben. Közben serpenyőben melegítsd fel az olajat, majd üsd bele a tojásokat és keverd át, hogy lágy rántottát kapj. Keverd bele a főtt nokedlit, és ízesítsd sóval, borssal.
+Görög Saláta,4
+Sütőpor,evőkanál,0.87
+Tejföl,evőkanál,1.34
+Tészta,kg,0.13
+Paprika,db,0.66
+Kockázd fel a csirkét, majd a hagymát pirítsd meg olajon. Tedd bele a csirkét és süsd, amíg fehéredni kezd. Adj hozzá pirospaprikát, majd öntsd fel vízzel, hogy ellepje. Főzd, amíg a hús puha lesz. Tálald friss tejföllel és galuskával.
+Gombás Rizottó,8
+Kenyér,szelet,0.69
+Sütőpor,evőkanál,1.04
+Sajt,szelet,0.75
+Paprika,db,1.44
+Paradicsom,db,1.05
+Pirospaprika,evőkanál,0.66
+Hagyma,db,0.99
+Vaj,evőkanál,1.04
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Lecsós Csirkemell,5
+Rizs,kg,0.10
+Paradicsom,db,0.84
+Sajt,szelet,1.45
+Liszt,kg,0.49
+Sütőpor,evőkanál,0.97
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Krumplileves,3
+Csirkemell,db,1.23
+Pirospaprika,evőkanál,0.62
+Liszt,kg,0.74
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Fokhagymás Csirke,3
+Víz,liter,0.68
+Burgonya,db,1.45
+Sajt,szelet,1.36
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Bableves,3
+Csirkemell,db,1.03
+Sajt,szelet,0.56
+Hagyma,db,1.21
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Görög Saláta,7
+Víz,liter,1.28
+Só,teáskanál,1.50
+Répa,db,0.71
+Hagyma,db,1.27
+Csirkemell,db,0.58
+Burgonya,db,1.25
+Paradicsom,db,0.70
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Lasagna,7
+Paprika,db,1.02
+Kenyér,szelet,0.88
+Olívaolaj,evőkanál,1.03
+Pirospaprika,evőkanál,1.38
+Burgonya,db,1.00
+Hagyma,db,1.02
+Só,teáskanál,1.36
+Főzd meg a burgonyát héjában, majd hámozd meg és szeleteld fel. Vajazz ki egy tepsit, és rétegezd bele a burgonyát. Adj hozzá sót, tejfölt és felkarikázott tojást minden réteghez. Süssd 180 °C-on, amíg a teteje aranybarna lesz. Tálald savanyúsággal.
+Töltött Káposzta,6
+Olívaolaj,evőkanál,0.78
+Vaj,evőkanál,1.42
+Víz,liter,1.05
+Liszt,kg,0.39
+Csirkemell,db,0.88
+Paradicsom,db,0.99
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Pogácsa,5
+Hagyma,db,0.64
+Olívaolaj,evőkanál,0.58
+Vaj,evőkanál,0.96
+Sajt,szelet,1.31
+Répa,db,1.29
+A lisztet keverd össze a sütőporral és sóval. Morzsold bele a vajat, majd adj hozzá tejfölt, és gyúrd tésztává. Nyújtsd ki a tésztát és szaggass belőle pogácsákat. Tedd a sütőbe és süsd 180 °C-on aranybarnára. Tálald frissen, puha vajjal.
+Sajtos Melegszendvics,5
+Csirkemell,db,0.65
+Répa,db,1.28
+Sajt,szelet,0.88
+Olívaolaj,evőkanál,1.26
+Víz,liter,1.24
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Rántott Csirkeszárnyak,6
+Csirkemell,db,1.15
+Sütőpor,evőkanál,0.82
+Tészta,kg,0.09
+Tejföl,evőkanál,1.16
+Só,teáskanál,0.63
+Hagyma,db,1.42
+Kockázd fel a marhahúst. Aprítsd fel a hagymát, és pirítsd meg egy nagy fazékban. Tedd bele a húst, és süsd addig, amíg minden oldala megpirul. Add hozzá a pirospaprikát, majd öntsd fel vízzel. Tedd bele a felkockázott burgonyát, répát és főzd, amíg minden puha lesz. Ízesítsd sóval, borssal és tálald friss kenyérrel.
+Krumplipüré,8
+Olívaolaj,evőkanál,0.65
+Sajt,szelet,0.70
+Sütőpor,evőkanál,1.38
+Répa,db,0.59
+Paprika,db,1.40
+Rizs,kg,0.13
+Tojás,db,0.97
+Pirospaprika,evőkanál,1.15
+A lisztet keverd össze a sütőporral és sóval. Morzsold bele a vajat, majd adj hozzá tejfölt, és gyúrd tésztává. Nyújtsd ki a tésztát és szaggass belőle pogácsákat. Tedd a sütőbe és süsd 180 °C-on aranybarnára. Tálald frissen, puha vajjal.
+Lasagna,3
+Tojás,db,1.49
+Só,teáskanál,1.29
+Rizs,kg,0.08
+A lisztet keverd össze a sütőporral és sóval. Morzsold bele a vajat, majd adj hozzá tejfölt, és gyúrd tésztává. Nyújtsd ki a tésztát és szaggass belőle pogácsákat. Tedd a sütőbe és süsd 180 °C-on aranybarnára. Tálald frissen, puha vajjal.
+Sonkás Szendvics,6
+Kenyér,szelet,0.68
+Olívaolaj,evőkanál,1.08
+Tojás,db,0.85
+Paradicsom,db,0.59
+Vaj,evőkanál,0.88
+Liszt,kg,0.57
+Főzd meg a burgonyát héjában, majd hámozd meg és szeleteld fel. Vajazz ki egy tepsit, és rétegezd bele a burgonyát. Adj hozzá sót, tejfölt és felkarikázott tojást minden réteghez. Süssd 180 °C-on, amíg a teteje aranybarna lesz. Tálald savanyúsággal.
+Gyümölcssaláta,8
+Hagyma,db,0.66
+Rizs,kg,0.10
+Sajt,szelet,0.52
+Sütőpor,evőkanál,1.42
+Só,teáskanál,0.89
+Burgonya,db,0.65
+Olívaolaj,evőkanál,0.67
+Víz,liter,1.05
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Csirke Rántva,7
+Tejföl,evőkanál,1.08
+Paradicsom,db,1.30
+Tojás,db,0.90
+Paprika,db,1.23
+Vaj,evőkanál,0.51
+Burgonya,db,0.79
+Liszt,kg,0.65
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Gomba Pörkölt,3
+Liszt,kg,0.46
+Paprika,db,1.06
+Sajt,szelet,1.25
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Tejfölös Csirke,3
+Kenyér,szelet,0.95
+Tejföl,evőkanál,0.87
+Csirkemell,db,0.87
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Sajtos Melegszendvics,6
+Tészta,kg,0.12
+Sütőpor,evőkanál,1.49
+Paprika,db,1.19
+Hagyma,db,1.20
+Pirospaprika,evőkanál,0.95
+Olívaolaj,evőkanál,1.29
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Tojásos Nokedli,4
+Paprika,db,0.82
+Víz,liter,0.67
+Burgonya,db,1.12
+Tészta,kg,0.12
+Főzd meg a nokedlit sós vízben. Közben serpenyőben melegítsd fel az olajat, majd üsd bele a tojásokat és keverd át, hogy lágy rántottát kapj. Keverd bele a főtt nokedlit, és ízesítsd sóval, borssal.
+Lecsós Csirkemell,6
+Olívaolaj,evőkanál,0.88
+Paradicsom,db,1.19
+Sütőpor,evőkanál,0.81
+Tojás,db,0.76
+Tejföl,evőkanál,1.33
+Rizs,kg,0.06
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Töltött Káposzta,5
+Víz,liter,0.68
+Sütőpor,evőkanál,0.92
+Rizs,kg,0.14
+Sajt,szelet,1.27
+Tészta,kg,0.06
+Főzd meg a burgonyát héjában, majd hámozd meg és szeleteld fel. Vajazz ki egy tepsit, és rétegezd bele a burgonyát. Adj hozzá sót, tejfölt és felkarikázott tojást minden réteghez. Süssd 180 °C-on, amíg a teteje aranybarna lesz. Tálald savanyúsággal.
+Gyümölcssaláta,7
+Rizs,kg,0.07
+Liszt,kg,0.34
+Paprika,db,0.72
+Csirkemell,db,1.48
+Sütőpor,evőkanál,1.09
+Só,teáskanál,1.12
+Répa,db,0.75
+Kockázd fel a csirkét, majd a hagymát pirítsd meg olajon. Tedd bele a csirkét és süsd, amíg fehéredni kezd. Adj hozzá pirospaprikát, majd öntsd fel vízzel, hogy ellepje. Főzd, amíg a hús puha lesz. Tálald friss tejföllel és galuskával.
+Sajtos Melegszendvics,8
+Tejföl,evőkanál,0.92
+Víz,liter,0.64
+Hagyma,db,0.73
+Rizs,kg,0.12
+Tészta,kg,0.07
+Burgonya,db,1.25
+Paradicsom,db,1.34
+Kenyér,szelet,0.76
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Bableves,8
+Kenyér,szelet,0.65
+Vaj,evőkanál,0.64
+Olívaolaj,evőkanál,0.51
+Sütőpor,evőkanál,1.13
+Répa,db,0.53
+Burgonya,db,0.73
+Víz,liter,0.72
+Tészta,kg,0.08
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Pogácsa,6
+Pirospaprika,evőkanál,1.06
+Olívaolaj,evőkanál,1.26
+Burgonya,db,1.41
+Só,teáskanál,1.45
+Tészta,kg,0.13
+Vaj,evőkanál,0.66
+A lisztet keverd össze a sütőporral és sóval. Morzsold bele a vajat, majd adj hozzá tejfölt, és gyúrd tésztává. Nyújtsd ki a tésztát és szaggass belőle pogácsákat. Tedd a sütőbe és süsd 180 °C-on aranybarnára. Tálald frissen, puha vajjal.
+Krumplileves,3
+Olívaolaj,evőkanál,0.54
+Sütőpor,evőkanál,0.54
+Tojás,db,0.90
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Görög Saláta,8
+Vaj,evőkanál,0.87
+Paprika,db,1.00
+Tojás,db,1.31
+Paradicsom,db,0.99
+Pirospaprika,evőkanál,0.77
+Olívaolaj,evőkanál,0.69
+Tejföl,evőkanál,1.27
+Burgonya,db,1.24
+Kockázd fel a marhahúst. Aprítsd fel a hagymát, és pirítsd meg egy nagy fazékban. Tedd bele a húst, és süsd addig, amíg minden oldala megpirul. Add hozzá a pirospaprikát, majd öntsd fel vízzel. Tedd bele a felkockázott burgonyát, répát és főzd, amíg minden puha lesz. Ízesítsd sóval, borssal és tálald friss kenyérrel.
+Görög Saláta,4
+Hagyma,db,0.76
+Só,teáskanál,0.96
+Paradicsom,db,1.07
+Csirkemell,db,0.84
+Pirítsd meg az aprított hagymát és fokhagymát olívaolajon. Add hozzá a rizst, és keverd át, amíg átlátszó lesz. Add hozzá az apróra vágott gombát, majd öntsd fel alaplével fokozatosan. Főzd addig, amíg a rizs krémes lesz. Fűszerezd sóval, borssal és tálald melegen.
+Lasagna,8
+Sütőpor,evőkanál,0.89
+Tészta,kg,0.11
+Burgonya,db,0.72
+Vaj,evőkanál,1.27
+Sajt,szelet,1.16
+Tejföl,evőkanál,0.62
+Tojás,db,0.89
+Paradicsom,db,0.95
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Lencseleves,8
+Olívaolaj,evőkanál,0.58
+Tejföl,evőkanál,1.16
+Víz,liter,0.66
+Hagyma,db,0.97
+Tészta,kg,0.10
+Rizs,kg,0.08
+Csirkemell,db,0.67
+Sütőpor,evőkanál,1.19
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Lencseleves,5
+Tészta,kg,0.10
+Répa,db,0.91
+Víz,liter,0.64
+Paradicsom,db,1.07
+Burgonya,db,0.81
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Sajtos Pogácsa,7
+Sajt,szelet,0.54
+Rizs,kg,0.06
+Csirkemell,db,0.84
+Paradicsom,db,1.28
+Víz,liter,1.39
+Sütőpor,evőkanál,0.78
+Répa,db,1.19
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Lecsós Csirkemell,4
+Sajt,szelet,0.81
+Répa,db,1.23
+Kenyér,szelet,1.19
+Burgonya,db,1.36
+Szeleteld fel a csirkemellet csíkokra. A hagymát aprítsd fel, majd olajon pirítsd üvegesre. Add hozzá a csirkemellet és pirítsd fehéredésig. Add hozzá a felaprított paprikát és paradicsomot, majd párold, amíg minden megpuhul. Fűszerezd ízlés szerint, és hagyd pár percig főni, hogy összeérjenek az ízek.
+Gulyásleves,6
+Hagyma,db,0.92
+Vaj,evőkanál,1.38
+Liszt,kg,0.56
+Kenyér,szelet,1.28
+Csirkemell,db,0.82
+Só,teáskanál,1.21
+Kockázd fel a marhahúst. Aprítsd fel a hagymát, és pirítsd meg egy nagy fazékban. Tedd bele a húst, és süsd addig, amíg minden oldala megpirul. Add hozzá a pirospaprikát, majd öntsd fel vízzel. Tedd bele a felkockázott burgonyát, répát és főzd, amíg minden puha lesz. Ízesítsd sóval, borssal és tálald friss kenyérrel.
+Hortobágyi Palacsinta,8
+Liszt,kg,0.59
+Sajt,szelet,0.98
+Tojás,db,0.66
+Kenyér,szelet,1.37
+Hagyma,db,0.86
+Burgonya,db,1.49
+Csirkemell,db,1.06
+Répa,db,1.33
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Paprikás Csirke,5
+Só,teáskanál,1.20
+Hagyma,db,1.40
+Vaj,evőkanál,1.40
+Sajt,szelet,0.65
+Kenyér,szelet,1.00
+Kockázd fel a csirkét, majd a hagymát pirítsd meg olajon. Tedd bele a csirkét és süsd, amíg fehéredni kezd. Adj hozzá pirospaprikát, majd öntsd fel vízzel, hogy ellepje. Főzd, amíg a hús puha lesz. Tálald friss tejföllel és galuskával.
+Rántott Csirkeszárnyak,4
+Vaj,evőkanál,1.22
+Paprika,db,1.00
+Répa,db,0.72
+Kenyér,szelet,1.30
+A lisztet keverd össze a sütőporral és sóval. Morzsold bele a vajat, majd adj hozzá tejfölt, és gyúrd tésztává. Nyújtsd ki a tésztát és szaggass belőle pogácsákat. Tedd a sütőbe és süsd 180 °C-on aranybarnára. Tálald frissen, puha vajjal.
+Gyümölcssaláta,6
+Pirospaprika,evőkanál,1.41
+Vaj,evőkanál,1.04
+Rizs,kg,0.12
+Olívaolaj,evőkanál,0.71
+Burgonya,db,0.62
+Liszt,kg,0.74
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Gyümölcssaláta,8
+Sütőpor,evőkanál,0.96
+Burgonya,db,1.07
+Paradicsom,db,1.17
+Tészta,kg,0.11
+Répa,db,1.02
+Liszt,kg,0.51
+Olívaolaj,evőkanál,1.01
+Só,teáskanál,1.13
+Kockázd fel a marhahúst. Aprítsd fel a hagymát, és pirítsd meg egy nagy fazékban. Tedd bele a húst, és süsd addig, amíg minden oldala megpirul. Add hozzá a pirospaprikát, majd öntsd fel vízzel. Tedd bele a felkockázott burgonyát, répát és főzd, amíg minden puha lesz. Ízesítsd sóval, borssal és tálald friss kenyérrel.
+Gyümölcssaláta,3
+Vaj,evőkanál,1.26
+Só,teáskanál,1.13
+Pirospaprika,evőkanál,0.58
+Főzd meg a nokedlit sós vízben. Közben serpenyőben melegítsd fel az olajat, majd üsd bele a tojásokat és keverd át, hogy lágy rántottát kapj. Keverd bele a főtt nokedlit, és ízesítsd sóval, borssal.
+Bableves,6
+Sajt,szelet,1.48
+Tészta,kg,0.08
+Pirospaprika,evőkanál,0.93
+Kenyér,szelet,0.87
+Olívaolaj,evőkanál,0.55
+Víz,liter,0.52
+Áztasd be a babot egy éjszakára. Másnap főzd meg vízben sóval, babérlevéllel és fokhagymával. Add hozzá a kolbászt, répát és hagymát. Főzd, amíg minden puhára fő, majd fűszerezd pirospaprikával és tálald friss kenyérrel.
+Spenót Főzelék,5
+Liszt,kg,0.32
+Répa,db,1.26
+Tészta,kg,0.11
+Paprika,db,0.97
+Víz,liter,1.05
+Vágd a csirkemellet szeletekre, majd sózd meg. Forgasd lisztbe, majd tojásba és végül zsemlemorzsába. Forró olajban süsd aranybarnára mindkét oldalát. Tálald petrezselymes burgonyával és friss citromszelettel.
+Görög Saláta,6
+Tojás,db,0.60
+Rizs,kg,0.08
+Só,teáskanál,0.61
+Sütőpor,evőkanál,0.92
+Sajt,szelet,0.84
+Kenyér,szelet,0.66
+Melegítsd fel az olajat. Panírozd be a sajtokat: forgasd lisztbe, majd tojásba, végül zsemlemorzsába. Sütőben vagy serpenyőben süsd aranybarnára mindkét oldalát. Tálald friss salátával és tartármártással.
+Rakott Krumpli,8
+Víz,liter,0.72
+Burgonya,db,0.72
+Paprika,db,0.86
+Paradicsom,db,1.22
+Sajt,szelet,1.15
+Tejföl,evőkanál,1.48
+Tészta,kg,0.08
+Olívaolaj,evőkanál,0.55
+Főzd meg a burgonyát héjában, majd hámozd meg és szeleteld fel. Vajazz ki egy tepsit, és rétegezd bele a burgonyát. Adj hozzá sót, tejfölt és felkarikázott tojást minden réteghez. Süssd 180 °C-on, amíg a teteje aranybarna lesz. Tálald savanyúsággal.
+Gyümölcssaláta,4
+Tojás,db,1.47
+Paprika,db,1.33
+Só,teáskanál,1.16
+Hagyma,db,0.51
+Kockázd fel a marhahúst. Aprítsd fel a hagymát, és pirítsd meg egy nagy fazékban. Tedd bele a húst, és süsd addig, amíg minden oldala megpirul. Add hozzá a pirospaprikát, majd öntsd fel vízzel. Tedd bele a felkockázott burgonyát, répát és főzd, amíg minden puha lesz. Ízesítsd sóval, borssal és tálald friss kenyérrel.
+Húsleves,6
+Sajt,szelet,0.62
+Tojás,db,1.24
+Tejföl,evőkanál,1.22
+Olívaolaj,evőkanál,1.43
+Csirkemell,db,1.06
+Paradicsom,db,1.24
+Főzd meg a nokedlit sós vízben. Közben serpenyőben melegítsd fel az olajat, majd üsd bele a tojásokat és keverd át, hogy lágy rántottát kapj. Keverd bele a főtt nokedlit, és ízesítsd sóval, borssal.

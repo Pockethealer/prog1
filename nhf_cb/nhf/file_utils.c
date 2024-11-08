@@ -54,9 +54,8 @@ typedef struct Receptkonyv
     int etelek_szama;
     Etel* etelek;
 } Receptkonyv;
-
 /**
- * @struct Egyedi_osszetevok
+ * @struct Receptkonyv
  * @brief Egyedi összetevőket tartalmazó lista minden összetevő egyszer
  *kell hogy szerepeljen benne, tartalmazza az összetevők számát és az összetevők tömbjére mutató pointert.
  *A benne levő összetevők rendszerint nem tartalmaznak mennyiségeket csak a nevet és típust
