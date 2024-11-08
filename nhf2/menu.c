@@ -26,6 +26,14 @@ void menu_kiir(void)
     printf("6.Kilépni\n");
     return;
 }
+
+/**
+ * @brief Meghívja a kilépés előtti fv-eket: elmenti a recepteket és
+ * összetevőket és meghívja a megfelelő felszabadító fv-eket.
+ * @param e Egyedi_osszetevo struktúra
+ * @param r Receptkony struktúra
+ * @return int visszatér nullával ha sikerült minden
+ */
 int kilepes(Egyedi_osszetevok* e, Receptkonyv* r)
 {
     receptet_fileba_ment(r);
@@ -34,6 +42,7 @@ int kilepes(Egyedi_osszetevok* e, Receptkonyv* r)
     receptkonyv_felszabadit(r);
     return 0;
 }
+
 int main_menu(void)
 {
     /*locale beállítása windowson*/
@@ -45,12 +54,6 @@ int main_menu(void)
     /*struktúrák inicializálása*/
     Egyedi_osszetevok* osszetevo = osszetevo_beolvas();
     Receptkonyv* konyv = receptek_beolvas();
-    if (konyv == NULL)
-    {
-        printf("nem sikerült az összetevők beolvasása!, kilépés");
-        kilepes(osszetevo, NULL);
-        return -1;
-    }
     /*történések*/
     int vege = 0;
     int opcio = 0;

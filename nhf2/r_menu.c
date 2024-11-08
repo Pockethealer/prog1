@@ -11,9 +11,13 @@ void receptek_almenu(Receptkonyv** r);
 void recept_felvesz(Receptkonyv** r);
 void recept_keres(Receptkonyv* r);
 void recept_torol(Receptkonyv* r);
+void recept_listaz(Receptkonyv* r);
 
 void receptek_almenu(Receptkonyv** r)
 {
+    if (*r == NULL) {
+        printf("Nincs recept a receptkönyben!");
+    }
     int vege = 0;
     int opcio = 0;
     do
@@ -21,12 +25,13 @@ void receptek_almenu(Receptkonyv** r)
         printf("Mit szeretnél csinálni? A megfelelő számot írd be!\n\n");
         printf("1.Új receptet felvenni\n");
         printf("2.Receptet törölni\n");
-        printf("3.Receptet keresni\n");
-        printf("4.Kilépni a főmenübe\n");
+        printf("3.Ételek listázása\n");
+        printf("4.Receptet keresni\n");
+        printf("5.Kilépni a főmenübe\n");
 
         int sikeres = scanf("%d", &opcio);
 
-        while (sikeres != 1 || opcio < 1 || opcio > 4)
+        while (sikeres != 1 || opcio < 1 || opcio > 5)
         {
             printf("Hibás bevitel. Csak számot adj meg 1 és 4 között.\n");
             int c;
@@ -41,25 +46,32 @@ void receptek_almenu(Receptkonyv** r)
         case 1:
             system("@cls||clear");
             printf("Új receptet felvenni\n");
-            //recept_felvesz(r);
+            recept_felvesz(r);
             while ((c = getchar()) != '\n' && c != EOF) {}
             system("@cls||clear");
             break;
         case 2:
             system("@cls||clear");
             printf("2.Receptet törölni\n");
-            //recept_torol(*r);
+            recept_torol(*r);
             while ((c = getchar()) != '\n' && c != EOF) {}
             system("@cls||clear");
             break;
         case 3:
             system("@cls||clear");
-            printf("3.Receptet keresni\n");
-            recept_keres(*r);
+            printf("3.Ételek listázása\n");
+            recept_listaz(*r);
             while ((c = getchar()) != '\n' && c != EOF) {}
             system("@cls||clear");
             break;
         case 4:
+            system("@cls||clear");
+            printf("4.Receptet keresni\n");
+            recept_keres(*r);
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            system("@cls||clear");
+            break;
+        case 5:
             system("@cls||clear");
             printf("Kilépés\n");
             vege = 1;
@@ -72,56 +84,82 @@ void receptek_almenu(Receptkonyv** r)
     } while (!vege);
     return;
 }
-/*void recept_felvesz(Receptkonyv** r)
+void recept_felvesz(Receptkonyv** r)
 {
 
-    if (*e == NULL)
+    if (*r == NULL)
     {
         printf("Nincs recept a listában!\n");
-        *e = (Egyedi_osszetevok*)malloc(sizeof(Egyedi_osszetevok));
-        if (*e == NULL)
+        *r = (Receptkonyv*)malloc(sizeof(Receptkonyv));
+        if (*r == NULL)
         {
-            printf("Nem lehetett lefoglalni a memoriat az összetevőknek!\n");
+            printf("Nem lehetett lefoglalni a memoriat az recepteknek!\n");
             return;
         }
-        (*e)->egyedi_osszetevok_szama = 0;
-        (*e)->egyedi_osszetevok = NULL;
+        (*r)->etelek_szama = 0;
+        (*r)->etelek = NULL;
     }
-    printf("Írd be az összetevő nevét, és mértékegységét, vesszővel elválasztva!\n");
+    printf("Írd be az étel nevét!\n");
 #ifdef _WIN32
-    Osszetevo a = o_beolvas2();
+    /*igen hülyén néz ki hogy osszetevők struktúrába olvasom be az étel nevét de nem akartam egy külön fv-t írni csak erre*/
+    Osszetevo nev = o_beolvas1();
+    if (recept_letezik(*r, nev.nev))
+    {
+        printf("Már létezik recept ezzel a névvel!\n");
+        return;
+    }
+
+    int osszetevok_szama;
+    printf("Nem létezik ezen a néven recept, a hozzáadáshoz nyomj egy entert!");//utf-8-kezelés miatt kell
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+    printf("Írd be hány összetevője lesz!\n");
+
+    if (scanf("%d", &osszetevok_szama) != 1)
+    {
+        printf("Rossz formátumú megadás, nem sikerült hozzáadni!\n");
+        return;
+    }
+    printf("Sikeresen beolvastad az összetevők darabszámát: %d. Nyomj egy entert a folytatáshoz!\n", osszetevok_szama);
+    while ((c = getchar()) != '\n' && c != EOF) {}
+    Osszetevo* osszetevok = (Osszetevo*)malloc(osszetevok_szama * sizeof(Osszetevo));
+    if (osszetevok == NULL)
+    {
+        printf("Nem sikerült lefoglalni a memóriát az összetevőknek!\n");
+        return;
+    }
+    for (int i = 0; i < osszetevok_szama;i++) {
+        printf("Írd be a %d. összetevő nevét, mértékegységét, és mennyiségét, vesszővel elválasztva(törtszámnál tizedes pontot használj!)\n", i + 1);
+        osszetevok[i] = o_beolvas3();
+        printf("Összetevő siekresen beolvasva, nyomj egy entert a folytatáshoz!\n");
+        while ((c = getchar()) != '\n' && c != EOF) {}
+    }
+    printf("Írd be a recept elkészítéséhez az instrukciókat, egy sorba!\n");
+
+    Etel etel = i_beolvas();
+    printf("Sikeresen hozzáadtad a receptet, nyomj egy entert a folytatáshoz!\n");
 #endif
 #ifdef __linux__
-    Osszetevo a;
-    if (scanf("%[^,],%[^\n]", a.nev, a.tipus) != 2) {
-        printf("Hibás név, nem sikerült az összetevőt felvenni!\n");
-        return;
-    };
+    /*TODO*/
 #endif
 
-    if (!osszetevo_letezik(*e, a.nev))
+    (*r)->etelek_szama++;
+    Etel* temp = realloc((*r)->etelek, (*r)->etelek_szama * sizeof(Etel));
+    if (temp == NULL)
     {
-        (*e)->egyedi_osszetevok_szama++;
-        Osszetevo* temp = realloc((*e)->egyedi_osszetevok, (*e)->egyedi_osszetevok_szama * sizeof(Osszetevo));
-        if (temp == NULL)
-        {
-            printf("Nem sikerült a memória bővítése az összetevőknek!\n");
-            free((*e)->egyedi_osszetevok);
-            (*e)->egyedi_osszetevok = NULL;
-            return;
-        }
-        (*e)->egyedi_osszetevok = temp;
-        strcpy((*e)->egyedi_osszetevok[(*e)->egyedi_osszetevok_szama - 1].nev, a.nev);
-        strcpy((*e)->egyedi_osszetevok[(*e)->egyedi_osszetevok_szama - 1].tipus, a.tipus);
-        printf("Az összetevőt sikeresen hozzáadtad! Nyomj egy entert a továbblépéshez!\n");
+        printf("Nem sikerült a memória bővítése a recepthez!\n");
+        free(osszetevok);
+        (*r)->etelek_szama--;
+        return;
     }
-    else
-    {
-        printf("A beírt összetevő már létezik\n");
-    }
+    (*r)->etelek = temp;
+    strcpy((*r)->etelek[(*r)->etelek_szama - 1].nev, nev.nev);
+    (*r)->etelek[(*r)->etelek_szama - 1].osszetevok_szama = osszetevok_szama;
+    strcpy((*r)->etelek[(*r)->etelek_szama - 1].elkeszites, etel.elkeszites);
+    (*r)->etelek[(*r)->etelek_szama - 1].osszetevok = osszetevok;
 
     return;
-}*/
+}
 void recept_keres(Receptkonyv* r) {
     if (r == NULL)
     {
@@ -149,9 +187,20 @@ void recept_keres(Receptkonyv* r) {
     else printf("A keresett összetevő nem található!\n");
     return;
 }
-/*void recept_torol(Receptkonyv* r)
+void recept_listaz(Receptkonyv* r) {
+    if (r == NULL) {
+        printf("A receptkonyv üres!\n");
+        return;
+    }
+    for (int i = 0; i < r->etelek_szama;i++) {
+        printf("%d.: %s\n", i + 1, r->etelek[i].nev);
+    }
+    printf("Az ételek nevét sikeresen kilistáztad! Nyomj egy entert a továbblépéshez!\n");
+    return;
+}
+void recept_torol(Receptkonyv* r)
 {
-    if (e == NULL)
+    if (r == NULL)
     {
         printf("Nincs recept a listában! Nyomj egy entert a továbblépéshez!\n");
         return;
@@ -169,34 +218,36 @@ void recept_keres(Receptkonyv* r) {
     };
 
 #endif
-    int j = osszetevo_letezik(e, a.nev) - 1;
+    int j = recept_letezik(r, a.nev) - 1;
     if (j >= 0)
     {
-        Osszetevo* temp = malloc((e->egyedi_osszetevok_szama - 1) * sizeof(Osszetevo));
-        if (temp == NULL)
+        Etel* temp_r = (Etel*)malloc((r->etelek_szama - 1) * sizeof(Etel));
+        if (temp_r == NULL)
         {
             printf("Nem sikerült a memória foglalás az összetevő törléséhez!\n");
             return;
         }
         int poz = 0;
-        for (int i = 0;i < e->egyedi_osszetevok_szama;i++) {
+        for (int i = 0;i < r->etelek_szama;i++) {
             if (i != j)
             {
-                temp[poz] = e->egyedi_osszetevok[i];
+                temp_r[poz] = r->etelek[i];
                 poz++;
-            }
 
+            }
+            else {
+                free(r->etelek[i].osszetevok);
+            }
         }
-        free(e->egyedi_osszetevok);
-        e->egyedi_osszetevok = temp;
-        e->egyedi_osszetevok_szama--;
-        printf("Az összetevőt sikeresen törölted!Nyomj egy entert a továbblépéshez!\n");
+        free(r->etelek);
+        r->etelek = temp_r;
+        r->etelek_szama--;
+        printf("A receptet sikeresen törölted! Nyomj egy entert a továbblépéshez!\n");
     }
     else
     {
         printf("A keresett összetevő nem található!\n");
     }
-
     return;
-}*/
+}
 

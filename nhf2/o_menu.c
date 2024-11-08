@@ -216,7 +216,7 @@ void osszetevo_torol(Egyedi_osszetevok* e)
         free(e->egyedi_osszetevok);
         e->egyedi_osszetevok = temp;
         e->egyedi_osszetevok_szama--;
-        printf("Az összetevőt sikeresen törölted!Nyomj egy entert a továbblépéshez!\n");
+        printf("Az összetevőt sikeresen törölted! Nyomj egy entert a továbblépéshez!\n");
     }
     else
     {
