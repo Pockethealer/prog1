@@ -1,4 +1,4 @@
-125
+126
 Spagetti Bolognese,5
 Spagetti,kg,0.50
 Darált marhahús,kg,0.30
@@ -940,3 +940,10 @@ Olívaolaj,evőkanál,1.43
 Csirkemell,db,1.06
 Paradicsom,db,1.24
 Főzd meg a nokedlit sós vízben. Közben serpenyőben melegítsd fel az olajat, majd üsd bele a tojásokat és keverd át, hogy lágy rántottát kapj. Keverd bele a főtt nokedlit, és ízesítsd sóval, borssal.
+Katsuke curry,5
+krumpli,kg,0.60
+répa,db,3.00
+csirkecomb,kg,1.00
+hagyma,db,1.00
+curry kocka,db,1.00
+Vágd fel a hagymát. pirítsd meg kockázd fel a krumplit vágd fel a húst. panírozz és főzz!

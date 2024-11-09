@@ -18,15 +18,26 @@
 #include <io.h>
 #endif
 #include "debugmalloc.h"
+ /**
+  * @brief A konzol kiszinezésére bevezetett konstansok
+  *
+  */
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BLUE    "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
 
- /*Az általános adatstruktúráim, a kettős indirekció ott van benne,
-    *hogy egy ételnek bárhány összetevője lehet illetve bárhány étel lehet a receptkönyvben.*/
+  /*Az általános adatstruktúráim, a kettős indirekció ott van benne,
+     *hogy egy ételnek bárhány összetevője lehet illetve bárhány étel lehet a receptkönyvben.*/
 
-    /**
-        * @struct Osszetevo
-        * @brief  Összetevők struckt tartalmazza az összetevő nevét (max 50 karakter),
-        *típusát(max 50 karakter), és mennyiségét(double)
-    */
+     /**
+         * @struct Osszetevo
+         * @brief  Összetevők struckt tartalmazza az összetevő nevét (max 50 karakter),
+         *típusát(max 50 karakter), és mennyiségét(double)
+     */
 typedef struct Osszetevo
 {
     char nev[51];

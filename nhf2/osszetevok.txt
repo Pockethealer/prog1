@@ -1,4 +1,4 @@
-59
+64
 Spagetti,kg
 Darált marhahús,kg
 Paradicsomszósz,liter
@@ -58,3 +58,8 @@ Víz,liter
 Rizs,kg
 Pirospaprika,evőkanál
 Tejföl,evőkanál
+krumpli,kg
+csirkecomb,kg
+curry kocka,db
+♥,g
+かつ丼,g

@@ -12,18 +12,18 @@
 #include "file_utils.h"
 #include "debugmalloc.h"
 
-void osszetevok_almenu(Egyedi_osszetevok **e);
-void osszetevo_felvesz(Egyedi_osszetevok **e);
-void osszetevo_kiir(Egyedi_osszetevok *e);
-void osszetevok_keres(Egyedi_osszetevok *e);
-void osszetevo_torol(Egyedi_osszetevok *e);
+void osszetevok_almenu(Egyedi_osszetevok** e);
+void osszetevo_felvesz(Egyedi_osszetevok** e);
+void osszetevo_kiir(Egyedi_osszetevok* e);
+void osszetevok_keres(Egyedi_osszetevok* e);
+void osszetevo_torol(Egyedi_osszetevok* e);
 
 /**
  * @brief Az összetevők almenü vezérlőegysége, azért kell **e-t kapnia hogy hozzáférjen az eredeti pointerhez ha azon akar módosítani
  * Tartalmaz egy összetevő felvétel, törlés, listázás, és keresés menüpontot.
  * @param e A korábban beolvasott összetevők listáját tartalmazó egyedi összetevők struct.
  */
-void osszetevok_almenu(Egyedi_osszetevok **e)
+void osszetevok_almenu(Egyedi_osszetevok** e)
 {
 
     int vege = 0;
@@ -105,13 +105,13 @@ void osszetevok_almenu(Egyedi_osszetevok **e)
  * ha tartalmazza már a tömb akkor nem engedi újra felvenni egyébként hozzáadja a tömbhöz átméretezés után.
  * @param e Receptek listája
  */
-void osszetevo_felvesz(Egyedi_osszetevok **e)
+void osszetevo_felvesz(Egyedi_osszetevok** e)
 {
 
     if (*e == NULL)
     {
         printf("Nincs recept a listában!\n");
-        *e = (Egyedi_osszetevok *)malloc(sizeof(Egyedi_osszetevok));
+        *e = (Egyedi_osszetevok*)malloc(sizeof(Egyedi_osszetevok));
         if (*e == NULL)
         {
             printf("Nem lehetett lefoglalni a memoriat az összetevőknek!\n");
@@ -136,7 +136,7 @@ void osszetevo_felvesz(Egyedi_osszetevok **e)
     if (!osszetevo_letezik(*e, a.nev))
     {
         (*e)->egyedi_osszetevok_szama++;
-        Osszetevo *temp = realloc((*e)->egyedi_osszetevok, (*e)->egyedi_osszetevok_szama * sizeof(Osszetevo));
+        Osszetevo* temp = realloc((*e)->egyedi_osszetevok, (*e)->egyedi_osszetevok_szama * sizeof(Osszetevo));
         if (temp == NULL)
         {
             printf("Nem sikerült a memória bővítése az összetevőknek!\n");
@@ -159,7 +159,7 @@ void osszetevo_felvesz(Egyedi_osszetevok **e)
  * @brief Kiírja az argumentumban kapot struct összetevő elemeinek a listáját.
  * @param e
  */
-void osszetevo_kiir(Egyedi_osszetevok *e)
+void osszetevo_kiir(Egyedi_osszetevok* e)
 {
     if (e == NULL)
     {
@@ -178,7 +178,7 @@ void osszetevo_kiir(Egyedi_osszetevok *e)
  * @brief Keres az adott struktúrában a név alapján amit stdin-ről olvas be.
  * @param e
  */
-void osszetevok_keres(Egyedi_osszetevok *e)
+void osszetevok_keres(Egyedi_osszetevok* e)
 {
     if (e == NULL)
     {
@@ -202,7 +202,8 @@ void osszetevok_keres(Egyedi_osszetevok *e)
     int i = osszetevo_letezik(e, a.nev) - 1;
     if (i >= 0)
     {
-        printf("A keresett összetevő(%s) a %d. helyen van a listában, mértékegysége: %s\nNyomj egy entert a továbblépéshez", a.nev, i + 1, e->egyedi_osszetevok[i].tipus);
+        printf("A keresett összetevő(%s) a %d. helyen van a listában, mértékegysége: %s\nNyomj egy entert a továbblépéshez",
+            a.nev, i + 1, e->egyedi_osszetevok[i].tipus);
     }
     else
         printf("A keresett összetevő nem található!\n");
@@ -213,7 +214,7 @@ void osszetevok_keres(Egyedi_osszetevok *e)
  * Készít egy ideiglenes struckt pointert, lefoglalja neki az új hoszzát, majd átmásolja az összes elemet kivéve a törlendőt, végül felszabadítja az eredetit.
  * @param e
  */
-void osszetevo_torol(Egyedi_osszetevok *e)
+void osszetevo_torol(Egyedi_osszetevok* e)
 {
     if (e == NULL)
     {
@@ -238,7 +239,7 @@ void osszetevo_torol(Egyedi_osszetevok *e)
     int j = osszetevo_letezik(e, a.nev) - 1;
     if (j >= 0)
     {
-        Osszetevo *temp = malloc((e->egyedi_osszetevok_szama - 1) * sizeof(Osszetevo));
+        Osszetevo* temp = malloc((e->egyedi_osszetevok_szama - 1) * sizeof(Osszetevo));
         if (temp == NULL)
         {
             printf("Nem sikerült a memória foglalás az összetevő törléséhez!\n");
