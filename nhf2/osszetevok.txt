@@ -1,4 +1,4 @@
-64
+66
 Spagetti,kg
 Darált marhahús,kg
 Paradicsomszósz,liter
@@ -63,3 +63,5 @@ csirkecomb,kg
 curry kocka,db
 ♥,g
 かつ丼,g
+próba,kiló
+proba,g

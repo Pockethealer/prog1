@@ -12,18 +12,33 @@
 #include "file_utils.h"
 #include "debugmalloc.h"
 
-void receptek_almenu(Receptkonyv **r);
-void recept_felvesz(Receptkonyv **r);
-void recept_keres(Receptkonyv *r);
-void recept_torol(Receptkonyv *r);
-void recept_listaz(Receptkonyv *r);
-
+void receptek_almenu(Receptkonyv** r);
+void recept_felvesz(Receptkonyv** r);
+void recept_keres(Receptkonyv* r);
+void recept_torol(Receptkonyv* r);
+void recept_listaz(Receptkonyv* r);
+/**
+ * @brief Kilistázza a receptek menüopciókat, stdio-n.
+ */
+void r_menu_kiir(void)
+{
+    for (int i = 0;i < 80;i++) printf("=");
+    printf(COLOR_BOLD"\n%*.s%s\n"COLOR_RESET, 33, " ", "RECEPTEK ALMENÜ");
+    for (int i = 0;i < 80;i++) printf("=");
+    printf("\n%*.s"COLOR_UNDERLINE"Mit szeretnél csinálni? A megfelelő számot írd be!"COLOR_RESET"\n\n", 15, " ");
+    printf(COLOR_GREEN"1.    ➤ Új receptet felvenni\n");
+    printf("2.    ➤ Receptet törölni\n");
+    printf("3.    ➤ Ételek listázása\n");
+    printf("4.    ➤ Receptet keresni\n");
+    printf("5.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
+    return;
+}
 /**
  * @brief A receptek almenü vezérlőegysége, azért kell **r-t kapnia hogy hozzáférjen az eredeti pointerhez ha azon akar módosítani
  * Tartalmaz egy receptek felvétel, törlés, listázás, és keresés menüpontot.
  * @param e A korábban beolvasott receptek listáját tartalmazó Receptköny struct.
  */
-void receptek_almenu(Receptkonyv **r)
+void receptek_almenu(Receptkonyv** r)
 {
     if (*r == NULL)
     {
@@ -33,13 +48,7 @@ void receptek_almenu(Receptkonyv **r)
     int opcio = 0;
     do
     {
-        printf("Mit szeretnél csinálni? A megfelelő számot írd be!\n\n");
-        printf("1.Új receptet felvenni\n");
-        printf("2.Receptet törölni\n");
-        printf("3.Ételek listázása\n");
-        printf("4.Receptet keresni\n");
-        printf("5.Kilépni a főmenübe\n");
-
+        r_menu_kiir();
         int sikeres = scanf("%d", &opcio);
 
         while (sikeres != 1 || opcio < 1 || opcio > 5)
@@ -108,12 +117,12 @@ void receptek_almenu(Receptkonyv **r)
  * ha tartalmazza már a tömb akkor nem engedi újra felvenni, egyébként hozzáadja a tömbhöz átméretezés után. A beolvasás kicsit körülményes de működik.
  * @param e Receptek listája
  */
-void recept_felvesz(Receptkonyv **r)
+void recept_felvesz(Receptkonyv** r)
 {
     if (*r == NULL)
     {
         printf("Nincs recept a listában!\n");
-        *r = (Receptkonyv *)malloc(sizeof(Receptkonyv));
+        *r = (Receptkonyv*)malloc(sizeof(Receptkonyv));
         if (*r == NULL)
         {
             printf("Nem lehetett lefoglalni a memoriat az recepteknek!\n");
@@ -139,7 +148,7 @@ void recept_felvesz(Receptkonyv **r)
         return;
     }
     printf("Sikeresen beolvastad az összetevők darabszámát: %d.\n", osszetevok_szama);
-    Osszetevo *osszetevok = (Osszetevo *)malloc(osszetevok_szama * sizeof(Osszetevo));
+    Osszetevo* osszetevok = (Osszetevo*)malloc(osszetevok_szama * sizeof(Osszetevo));
     if (osszetevok == NULL)
     {
         printf("Nem sikerült lefoglalni a memóriát az összetevőknek!\n");
@@ -183,7 +192,7 @@ void recept_felvesz(Receptkonyv **r)
     while ((c = getchar()) != '\n' && c != EOF)
     {
     }
-    Osszetevo *osszetevok = (Osszetevo *)malloc(osszetevok_szama * sizeof(Osszetevo));
+    Osszetevo* osszetevok = (Osszetevo*)malloc(osszetevok_szama * sizeof(Osszetevo));
     if (osszetevok == NULL)
     {
         printf("Nem sikerült lefoglalni a memóriát az összetevőknek!\n");
@@ -205,7 +214,7 @@ void recept_felvesz(Receptkonyv **r)
 #endif
 
     (*r)->etelek_szama++;
-    Etel *temp = realloc((*r)->etelek, (*r)->etelek_szama * sizeof(Etel));
+    Etel* temp = realloc((*r)->etelek, (*r)->etelek_szama * sizeof(Etel));
     if (temp == NULL)
     {
         printf("Nem sikerült a memória bővítése a recepthez!\n");
@@ -225,7 +234,7 @@ void recept_felvesz(Receptkonyv **r)
  * @brief Kiírja az argumentumban kapot struct receptekben lévő ételek neveit.
  * @param e
  */
-void recept_keres(Receptkonyv *r)
+void recept_keres(Receptkonyv* r)
 {
     if (r == NULL)
     {
@@ -259,7 +268,7 @@ void recept_keres(Receptkonyv *r)
  * @brief Keres az adott struktúrában a név alapján amit stdin-ről olvas be.
  * @param e
  */
-void recept_listaz(Receptkonyv *r)
+void recept_listaz(Receptkonyv* r)
 {
     if (r == NULL)
     {
@@ -278,7 +287,7 @@ void recept_listaz(Receptkonyv *r)
  * Készít egy ideiglenes struckt pointert, lefoglalja neki az új hoszzát, majd átmásolja az összes elemet kivéve a törlendőt, végül felszabadítja az eredetit.
  * @param e
  */
-void recept_torol(Receptkonyv *r)
+void recept_torol(Receptkonyv* r)
 {
     if (r == NULL)
     {
@@ -302,7 +311,7 @@ void recept_torol(Receptkonyv *r)
     int j = recept_letezik(r, a.nev) - 1;
     if (j >= 0)
     {
-        Etel *temp_r = (Etel *)malloc((r->etelek_szama - 1) * sizeof(Etel));
+        Etel* temp_r = (Etel*)malloc((r->etelek_szama - 1) * sizeof(Etel));
         if (temp_r == NULL && r->etelek_szama - 1 != 0)
         {
             printf("Nem sikerült a memória foglalás az összetevő törléséhez!\n");

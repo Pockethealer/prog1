@@ -19,6 +19,23 @@ void osszetevok_keres(Egyedi_osszetevok* e);
 void osszetevo_torol(Egyedi_osszetevok* e);
 
 /**
+ * @brief Kilistázza az összetevők menüopciókat, stdio-n.
+ */
+void o_menu_kiir(void)
+{
+    for (int i = 0;i < 80;i++) printf("=");
+    printf(COLOR_BOLD"\n%*.s%s\n"COLOR_RESET, 32, " ", "ÖSZETEVŐK ALMENÜ");
+    for (int i = 0;i < 80;i++) printf("=");
+    printf("\n%*.s"COLOR_UNDERLINE"Mit szeretnél csinálni? A megfelelő számot írd be!"COLOR_RESET"\n\n", 15, " ");
+    printf(COLOR_GREEN"1.    ➤ Új összetevőt felvenni\n");
+    printf("2.    ➤ Összetevőt törölni\n");
+    printf("3.    ➤ Az összetevőket kilistázni\n");
+    printf("4.    ➤ Összetevőt keresni\n");
+    printf("5.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
+    return;
+}
+
+/**
  * @brief Az összetevők almenü vezérlőegysége, azért kell **e-t kapnia hogy hozzáférjen az eredeti pointerhez ha azon akar módosítani
  * Tartalmaz egy összetevő felvétel, törlés, listázás, és keresés menüpontot.
  * @param e A korábban beolvasott összetevők listáját tartalmazó egyedi összetevők struct.
@@ -30,13 +47,7 @@ void osszetevok_almenu(Egyedi_osszetevok** e)
     int opcio = 0;
     do
     {
-        printf("\nMit szeretnél csinálni? A megfelelő számot írd be!\n\n");
-        printf("1.Új összetevőt felvenni\n");
-        printf("2.Összetevőt törölni\n");
-        printf("3.Az összetevőket kilistázni\n");
-        printf("4.Összetevőt keresni\n");
-        printf("5.Kilépni a főmenübe\n");
-
+        o_menu_kiir();
         int sikeres = scanf("%d", &opcio);
 
         while (sikeres != 1 || opcio < 1 || opcio > 5)

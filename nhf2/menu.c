@@ -27,13 +27,16 @@ void menu_kiir(void);
  */
 void menu_kiir(void)
 {
-    printf("Mit szeretnél csinálni? A megfelelő számot írd be!\n\n");
-    printf("1.Összetevők kezelése\n");
-    printf("2.Receptek kezelése\n");
-    printf("3.Qol funkciók\n");
-    printf("4.Bevásárló lista kezelése\n");
-    printf("5.Kedvencek kezelése\n");
-    printf("6.Kilépni\n");
+    for (int i = 0;i < 80;i++) printf("=");
+    printf(COLOR_BOLD"\n%*.s%s\n"COLOR_RESET, 37, " ", "FŐMENÜ");
+    for (int i = 0;i < 80;i++) printf("=");
+    printf("\n%*.s"COLOR_UNDERLINE"Mit szeretnél csinálni? A megfelelő számot írd be!"COLOR_RESET"\n\n", 15, " ");
+    printf(COLOR_YELLOW"1.    ➤ Összetevők kezelése\n");
+    printf("2.    ➤ Receptek kezelése\n");
+    printf("3.    ➤ Qol funkciók\n");
+    printf("4.    ➤ Bevásárló lista kezelése\n");
+    printf("5.    ➤ Kedvencek kezelése\n");
+    printf("6.    ➤ Kilépni\n"COLOR_RESET);
     return;
 }
 
@@ -69,6 +72,12 @@ int main_menu(void)
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
     setlocale(LC_ALL, "hu_HU.UTF-8");
+    /*Ansi engedélyezés a consolnak */
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    DWORD dwMode = 0;
+    GetConsoleMode(hOut, &dwMode);
+    dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+    SetConsoleMode(hOut, dwMode);
 #endif
     /*struktúrák inicializálása*/
     Egyedi_osszetevok* osszetevo = osszetevo_beolvas();
