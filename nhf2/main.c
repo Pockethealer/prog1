@@ -1,6 +1,6 @@
 /**
  * @file main.c
- * @brief Egynelőre elég redundáns, de megtartottam ha később bővíteni akarom a projectet akkor innen lehet.
+ * @brief Egyenlőre elég redundáns, de megtartottam ha később bővíteni akarom a projectet akkor innen lehet.
  * A példaként mellékelt osszetevok.txt és receptek.txt chatgpt által lettek generálva, nem mindig értelmes a tartlmuk.
  */
 #include <stdio.h>
