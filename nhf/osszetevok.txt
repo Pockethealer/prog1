@@ -1,101 +1,67 @@
-Liszt;1;kg;300
-Cukor;2;kg;400
-So;3;kg;150
-Tej;4;liter;250
-Tojas;5;db;200
-Olaj;6;liter;600
-Hus;7;kg;1500
-Zoldseg;8;kg;400
-Gyumolcs;9;kg;600
-Fuszerek;10;kg;800
-Burgonya;11;kg;200
-Hagyma;12;kg;250
-Kisali;13;kg;300
-Saj;14;kg;1200
-Kakaopor;15;kg;1500
-Tejszinhab;16;liter;800
-Konzerv;17;db;500
-Kenyér;18;db;300
-Pasta;19;kg;500
-Vaj;20;kg;900
-Rizs;21;kg;400
-Fokhagyma;22;kg;600
-Sárgarépa;23;kg;200
-Paprika;24;kg;500
-Paradicsom;25;kg;600
-Cukkini;26;kg;300
-Jégsaláta;27;kg;250
-Spenót;28;kg;350
-Kelkáposzta;29;kg;400
-Borsó;30;kg;250
-Kukorica;31;kg;300
-Cékla;32;kg;300
-Zöldborsó;33;kg;400
-Mák;34;kg;1000
-Fűszerpaprika;35;kg;800
-Kókuszreszelék;36;kg;900
-Cilantro;37;kg;600
-Gyömbér;38;kg;700
-Koriander;39;kg;800
-Fenyőmag;40;kg;2000
-Lencse;41;kg;400
-Füstölt hús;42;kg;1800
-Sárgarépa;43;kg;200
-Olajbogyó;44;kg;1200
-Fűszernövények;45;kg;700
-Tökmag;46;kg;1500
-Zabpehely;47;kg;300
-Rukola;48;kg;600
-Chili;49;kg;900
-Túrós batyu;50;db;400
-Krémsajt;51;kg;1200
-Sült gesztenye;52;kg;1500
-Hibiszkusz;53;kg;800
-Fűszerkeverék;54;kg;1000
-Pulykahús;55;kg;1600
-Hal;56;kg;2000
-Füstölt hal;57;kg;2500
-Tengeri só;58;kg;400
-Cukormentes;59;kg;700
-Méz;60;kg;1200
-Mustár;61;kg;600
-Ketchup;62;kg;500
-Mártás;63;kg;800
-Salátaöntet;64;liter;600
-Kókuszolaj;65;liter;1200
-Szezámmag;66;kg;900
-Bors;67;kg;1200
-Kávé;68;kg;2500
-Tea;69;kg;1500
-Cigánykenyér;70;db;400
-Fagylalt;71;liter;1500
-Puding;72;kg;700
-Zselatin;73;kg;600
-Málna;74;kg;1800
-Eper;75;kg;2000
-Sárgadinnye;76;kg;800
-Dinnye;77;kg;500
-Barack;78;kg;900
-Alma;79;kg;300
-Körte;80;kg;600
-Szőlő;81;kg;700
-Mogyoró;82;kg;1600
-Mandula;83;kg;1800
-Pisztácia;84;kg;2000
-Fahéj;85;kg;600
-Vanília;86;kg;2000
-Curry;87;kg;900
-Garam masala;88;kg;800
-Fokhagyma por;89;kg;700
-Csípős paprika;90;kg;800
-Sült krumpli;91;kg;400
-Gyümölcslevek;92;liter;500
-Müzli;93;kg;900
-Granola;94;kg;1200
-Bögrés sütik;95;db;300
-Húsleves;96;liter;700
-Fokhagymás kenyér;97;db;400
-Túró;98;kg;800
-Fagylalt;99;liter;2000
-Vörösbor;100;liter;3000 
-Erős pista;101;g;700
+66
+Spagetti,kg
+Darált marhahús,kg
+Paradicsomszósz,liter
+Hagyma,db
+Fokhagyma,gerezd
+Kenyér,szelet
+Sajt,szelet
+Vaj,evőkanál
+Csirkemell,db
+Saláta,fej
+Paradicsom,db
+Uborka,db
+Olívaolaj,evőkanál
+Só,teáskanál
+Zöldségleves alap,liter
+Liszt,csésze
+Tej,csésze
+Tojás,db
+Cukor,evőkanál
+Sütőpor,teáskanál
+Bors,csipet
+Római saláta,fej
+Kruton,csésze
+Parmezán sajt,evőkanál
+Cézár öntet,evőkanál
+Kaliforniai paprika,db
+Répa,db
+Brokkoli,csésze
+Szójaszósz,evőkanál
+Gyömbér,teáskanál
+Tészta,csésze
+Cheddar sajt,csésze
+Feta sajt,csésze
+Olívabogyó,csésze
+Kókusztej,csésze
+Currypor,evőkanál
+Banán,db
+Eper,csésze
+Méz,evőkanál
+Petrezselyem,evőkanál
+Tonhal,konzerv
+Majonéz,evőkanál
+Taco tészta,db
+Taco fűszerkeverék,evőkanál
+Mozzarella,szelet
+Bazsalikom,levél
+Avokádó,db
+Tortilla,db
+Lencse,csésze
+Burgonya,db
+Pizzatészta,db
+Mozzarella sajt,csésze
+Tejszín,csésze
+Szódabikarbóna,teáskanál
+Paprika,db
+Víz,liter
+Rizs,kg
+Pirospaprika,evőkanál
+Tejföl,evőkanál
+krumpli,kg
+csirkecomb,kg
+curry kocka,db
+♥,g
+かつ丼,g
+próba,kiló
+proba,g
