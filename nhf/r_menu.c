@@ -36,7 +36,7 @@ void r_menu_kiir(void)
 /**
  * @brief A receptek almenü vezérlőegysége, azért kell **r-t kapnia hogy hozzáférjen az eredeti pointerhez ha azon akar módosítani
  * Tartalmaz egy receptek felvétel, törlés, listázás, és keresés menüpontot.
- * @param e A korábban beolvasott receptek listáját tartalmazó Receptköny struct.
+ * @param r A korábban beolvasott receptek listáját tartalmazó Receptköny struct.
  */
 void receptek_almenu(Receptkonyv** r)
 {
@@ -53,12 +53,12 @@ void receptek_almenu(Receptkonyv** r)
 
         while (sikeres != 1 || opcio < 1 || opcio > 5)
         {
-            printf("Hibás bevitel. Csak számot adj meg 1 és 4 között.\n");
+            printf("Hibás bevitel. Csak számot adj meg 1 és 5 között.\n");
             int c;
             while ((c = getchar()) != '\n' && c != EOF)
             {
             }
-            printf("Add meg a választott opciót (1-4): ");
+            printf("Add meg a választott opciót (1-5): ");
             sikeres = scanf("%d", &opcio);
         }
         int c;
@@ -115,7 +115,7 @@ void receptek_almenu(Receptkonyv** r)
 /**
  * @brief Megnézi hogy van-e recept a listában, ha nincs akkor inicializálja a listát. Ezután beolvas egy nevet,
  * ha tartalmazza már a tömb akkor nem engedi újra felvenni, egyébként hozzáadja a tömbhöz átméretezés után. A beolvasás kicsit körülményes de működik.
- * @param e Receptek listája
+ * @param r Receptek listája
  */
 void recept_felvesz(Receptkonyv** r)
 {
@@ -232,7 +232,7 @@ void recept_felvesz(Receptkonyv** r)
 }
 /**
  * @brief Kiírja az argumentumban kapot struct receptekben lévő ételek neveit.
- * @param e
+ * @param r
  */
 void recept_keres(Receptkonyv* r)
 {
@@ -250,7 +250,7 @@ void recept_keres(Receptkonyv* r)
     Osszetevo a;
     if (scanf("%[^\n]", a.nev) <= 0)
     {
-        printf("Hibás név, nem sikerült az összetevőt felvenni!\n");
+        printf("Hibás név, nincs ilyen étel a listában!\n");
         return;
     };
 
@@ -259,14 +259,16 @@ void recept_keres(Receptkonyv* r)
     if (i >= 0)
     {
         recept_kiir(&(r->etelek[i]));
+        printf("\nA receptet sikeresen kiírtad! Nyomj egy entert a továbblépéshez!\n");
+
     }
     else
-        printf("A keresett összetevő nem található!\n");
+        printf("A keresett étel nem található!\n");
     return;
 }
 /**
  * @brief Keres az adott struktúrában a név alapján amit stdin-ről olvas be.
- * @param e
+ * @param r
  */
 void recept_listaz(Receptkonyv* r)
 {
@@ -285,7 +287,7 @@ void recept_listaz(Receptkonyv* r)
 /**
  * @brief Törli az adott receptet amit az étel nevével kell megadni, amennyiben létezik az r structban.
  * Készít egy ideiglenes struckt pointert, lefoglalja neki az új hoszzát, majd átmásolja az összes elemet kivéve a törlendőt, végül felszabadítja az eredetit.
- * @param e
+ * @param r
  */
 void recept_torol(Receptkonyv* r)
 {

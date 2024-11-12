@@ -16,6 +16,7 @@
 #include "file_utils.h"
 #include "o_menu.h"
 #include "r_menu.h"
+#include "k_menu.h"
 #include "debugmalloc.h"
 
 int main_menu(void);
@@ -113,7 +114,7 @@ int main_menu(void)
         case 3:
             system("@cls||clear");
             printf("Qol funkciók\n");
-            //TODO
+            qol_almenu(konyv);
             break;
         case 4:
             system("@cls||clear");
@@ -141,3 +142,9 @@ int main_menu(void)
     kilepes(osszetevo, konyv);
     return 0;
 }
+
+int main(void) {
+    main_menu();
+    return 0;
+}
+
