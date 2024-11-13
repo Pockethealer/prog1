@@ -1,6 +1,6 @@
 /**
  * @file o_menu.c
- * @brief Az összetevők almenühöz tartozó fv-ek, egy külön modulba szétszedve.
+ * @brief Az összetevők és receptek almenühöz tartozó fv-ek, egy külön modulba szétszedve.
  * @date 2024-11-08
  */
 #include <stdio.h>
