@@ -1,4 +1,4 @@
-66
+67
 Spagetti,kg
 Darált marhahús,kg
 Paradicsomszósz,liter
@@ -65,3 +65,4 @@ curry kocka,db
 かつ丼,g
 próba,kiló
 proba,g
+醬油,ml

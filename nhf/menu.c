@@ -15,7 +15,6 @@
 /*Saját modulok*/
 #include "file_utils.h"
 #include "o_menu.h"
-#include "r_menu.h"
 #include "k_menu.h"
 #include "debugmalloc.h"
 
@@ -35,9 +34,8 @@ void menu_kiir(void)
     printf(COLOR_YELLOW"1.    ➤ Összetevők kezelése\n");
     printf("2.    ➤ Receptek kezelése\n");
     printf("3.    ➤ Qol funkciók\n");
-    printf("4.    ➤ Bevásárló lista kezelése\n");
-    printf("5.    ➤ Kedvencek kezelése\n");
-    printf("6.    ➤ Kilépni\n"COLOR_RESET);
+    printf("4.    ➤ Bevásárló lista, és kedvencek lista kezelése\n");
+    printf("5.    ➤ Kilépni\n"COLOR_RESET);
     return;
 }
 
@@ -50,7 +48,7 @@ void menu_kiir(void)
  */
 int kilepes(Egyedi_osszetevok* e, Receptkonyv* r)
 {
-    receptet_fileba_ment(r);
+    receptet_fileba_ment(r, "receptek.txt");
     osszetevo_fileba_ment(e, r);
     egyedi_osszetevo_felszabadit(e);
     receptkonyv_felszabadit(r);
@@ -82,7 +80,7 @@ int main_menu(void)
 #endif
     /*struktúrák inicializálása*/
     Egyedi_osszetevok* osszetevo = osszetevo_beolvas();
-    Receptkonyv* konyv = receptek_beolvas();
+    Receptkonyv* konyv = receptek_beolvas("receptek.txt");
     int vege = 0;
     int opcio = 0;
     /*fő menülogika*/
@@ -90,11 +88,11 @@ int main_menu(void)
     {
         menu_kiir();
         int sikeres = scanf("%d", &opcio);
-        while (sikeres != 1 || opcio < 1 || opcio > 6)
+        while (sikeres != 1 || opcio < 1 || opcio > 5)
         {
-            printf("Hibás bevitel. Csak számot adj meg 1 és 6 között.\n");
+            printf("Hibás bevitel. Csak számot adj meg 1 és 5 között.\n");
             while (getchar() != '\n') {}
-            printf("Add meg a választott opciót (1-6): ");
+            printf("Add meg a választott opciót (1-5): ");
             sikeres = scanf("%d", &opcio);
         }
         int c;
@@ -118,15 +116,10 @@ int main_menu(void)
             break;
         case 4:
             system("@cls||clear");
-            printf("Bevásárló lista kezelése\n");
-            //TODO
+            printf("Bevásárló lista, és kedvencek lista kezelése\n");
+            bl_almenu(konyv);
             break;
         case 5:
-            system("@cls||clear");
-            printf("Kedvencek kezelése\n");
-            //TODO
-            break;
-        case 6:
             system("@cls||clear");
             printf("Kilépés\n");
             vege = 1;

@@ -15,5 +15,10 @@ void osszetevo_kiir(Egyedi_osszetevok* e);
 void osszetevok_keres(Egyedi_osszetevok* e);
 void osszetevo_torol(Egyedi_osszetevok* e);
 
+void receptek_almenu(Receptkonyv** r);
+void recept_felvesz(Receptkonyv** r);
+void recept_keres(Receptkonyv* r);
+void recept_torol(Receptkonyv* r);
+void recept_listaz(Receptkonyv* r);
 
 #endif

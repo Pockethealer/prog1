@@ -1,0 +1,171 @@
+25
+Spagetti Bolognese,5
+Spagetti,kg,0.50
+Darált marhahús,kg,0.30
+Paradicsomszósz,liter,0.50
+Hagyma,db,1.00
+Fokhagyma,gerezd,2.00
+Főzd meg a spagettit, pirítsd meg a húst a hagymával és fokhagymával, add hozzá a paradicsomszószt, és párold.
+Sajtos Melegszendvics,3
+Kenyér,szelet,2.00
+Sajt,szelet,1.00
+Vaj,evőkanál,1.00
+Kend meg a kenyeret vajjal, tedd közé a sajtot, és pirítsd serpenyőben aranybarnára.
+Csirkesaláta,6
+Csirkemell,db,1.00
+Saláta,fej,1.00
+Paradicsom,db,1.00
+Uborka,db,1.00
+Olívaolaj,evőkanál,1.00
+Só,teáskanál,0.50
+Süsd meg a csirkét, aprítsd fel a zöldségeket, keverd össze mindet, és ízesítsd olívaolajjal és sóval.
+Paradicsomleves,5
+Paradicsom,kg,0.50
+Hagyma,db,1.00
+Fokhagyma,gerezd,2.00
+Zöldségleves alap,liter,0.50
+Só,teáskanál,0.50
+Aprítsd fel a paradicsomot, hagymát, fokhagymát, párold alaplében, majd turmixold és ízesítsd.
+Palacsinta,6
+Liszt,csésze,1.00
+Tej,csésze,1.00
+Tojás,db,1.00
+Cukor,evőkanál,1.00
+Sütőpor,teáskanál,0.50
+Só,csipet,1.00
+Keverd össze az összetevőket, önts egy serpenyőbe, és süsd aranybarnára mindkét oldalát.
+Omlett,4
+Tojás,db,2.00
+Só,csipet,1.00
+Bors,csipet,1.00
+Vaj,evőkanál,1.00
+Verd fel a tojásokat, fűszerezd, öntsd egy forró serpenyőbe, és süsd készre.
+Cézár Saláta,6
+Római saláta,fej,1.00
+Kruton,csésze,1.00
+Parmezán sajt,evőkanál,2.00
+Csirkemell,db,1.00
+Cézár öntet,evőkanál,2.00
+Só,csipet,1.00
+Vágd fel a salátát, add hozzá a krutont és sajtot, süsd meg a csirkét, keverd össze, és öntsd rá az öntetet.
+Francia Pirítós,4
+Kenyér,szelet,2.00
+Tojás,db,1.00
+Tej,csésze,0.25
+Cukor,evőkanál,1.00
+Áztasd be a kenyeret tojásos tejbe, süsd serpenyőben aranybarnára.
+Zöldség Wok,7
+Kaliforniai paprika,db,1.00
+Répa,db,1.00
+Brokkoli,csésze,1.00
+Szójaszósz,evőkanál,2.00
+Fokhagyma,gerezd,2.00
+Gyömbér,teáskanál,1.00
+Olívaolaj,evőkanál,1.00
+Vágd fel a zöldségeket, pirítsd meg az olajon, add hozzá a szójaszószt, fokhagymát és gyömbért.
+Sajtos Tészta,5
+Tészta,csésze,1.00
+Cheddar sajt,csésze,1.00
+Tej,csésze,0.50
+Vaj,evőkanál,1.00
+Só,csipet,1.00
+Főzd meg a tésztát, olvaszd fel a vajat a tejben, add hozzá a sajtot, és keverd össze a tésztával.
+Görög Saláta,5
+Paradicsom,db,1.00
+Uborka,db,1.00
+Feta sajt,csésze,0.50
+Olívabogyó,csésze,0.25
+Olívaolaj,evőkanál,1.00
+Aprítsd fel a zöldségeket, morzsold rá a fetát, add hozzá az olívabogyót, és locsold meg olívaolajjal.
+Csirke Curry,6
+Csirkemell,db,1.00
+Kókusztej,csésze,1.00
+Currypor,evőkanál,1.00
+Hagyma,db,1.00
+Fokhagyma,gerezd,2.00
+Só,teáskanál,0.50
+Pirítsd meg a csirkét a hagymával és fokhagymával, add hozzá a curryt és kókusztejet, párold készre.
+Gyümölcs Turmix,4
+Banán,db,1.00
+Eper,csésze,1.00
+Tej,csésze,1.00
+Méz,evőkanál,1.00
+Turmixold össze az összetevőket, amíg sima nem lesz.
+Rántotta,3
+Tojás,db,2.00
+Só,csipet,1.00
+Vaj,evőkanál,1.00
+Verd fel a tojásokat sóval, süsd meg vajon, közben óvatosan kevergetve.
+Fokhagymás Kenyér,4
+Kenyér,szelet,2.00
+Fokhagyma,gerezd,1.00
+Vaj,evőkanál,1.00
+Petrezselyem,evőkanál,0.50
+Kend meg a kenyeret fokhagymás vajjal, pirítsd aranybarnára, és szórd meg petrezselyemmel.
+Tonhal Szendvics,4
+Kenyér,szelet,2.00
+Tonhal,konzerv,1.00
+Majonéz,evőkanál,1.00
+Saláta,levél,1.00
+Keverd össze a tonhalat a majonézzel, kend a kenyérre a salátalevéllel.
+Marhahúsos Taco,6
+Darált marhahús,kg,0.20
+Taco tészta,db,2.00
+Saláta,levél,1.00
+Cheddar sajt,evőkanál,1.00
+Paradicsom,db,1.00
+Taco fűszerkeverék,evőkanál,1.00
+Pirítsd meg a húst fűszerkeverékkel, tedd a taco tésztába zöldségekkel és sajttal.
+Caprese Saláta,4
+Paradicsom,db,1.00
+Mozzarella,szelet,3.00
+Bazsalikom,levél,5.00
+Olívaolaj,evőkanál,1.00
+Szeleteld fel a paradicsomot és mozzarellát, rétegezd a bazsalikommal, és locsold meg olívaolajjal.
+Avokádós Pirítós,3
+Kenyér,szelet,1.00
+Avokádó,db,0.50
+Só,csipet,1.00
+Törd össze az avokádót, kend a kenyérre, és szórd meg sóval.
+Csirkés Wrap,5
+Csirkemell,db,1.00
+Tortilla,db,1.00
+Saláta,levél,1.00
+Paradicsom,db,1.00
+Majonéz,evőkanál,1.00
+Süsd meg a csirkét, szeleteld fel, és tekerd a tortillába a zöldségekkel és majonézzel.
+Lencseleves,5
+Lencse,csésze,1.00
+Répa,db,1.00
+Hagyma,db,1.00
+Fokhagyma,gerezd,1.00
+Zöldségleves alap,liter,0.50
+Főzd a lencsét a felaprított zöldségekkel alaplében, amíg meg nem puhul.
+Burgonyapüré,3
+Burgonya,db,2.00
+Vaj,evőkanál,1.00
+Tej,csésze,0.25
+Főzd meg a burgonyát, törd össze vajjal és tejjel.
+Margherita Pizza,5
+Pizzatészta,db,1.00
+Paradicsomszósz,csésze,0.50
+Mozzarella sajt,csésze,1.00
+Bazsalikom,levél,5.00
+Olívaolaj,evőkanál,1.00
+Kend meg a tésztát szószal, add hozzá a sajtot és bazsalikomot, süsd aranybarnára.
+Csirkés Tészta,5
+Tészta,csésze,1.00
+Csirkemell,db,1.00
+Tejszín,csésze,0.50
+Parmezán sajt,evőkanál,1.00
+Só,csipet,1.00
+Süsd meg a csirkét, add hozzá a tejszínt és sajtot, majd keverd össze a főtt tésztával.
+Banános Süti,7
+Banán,db,2.00
+Liszt,csésze,1.00
+Cukor,csésze,0.50
+Vaj,evőkanál,2.00
+Tojás,db,1.00
+Szódabikarbóna,teáskanál,1.00
+Só,csipet,1.00
+Törd össze a banánt, keverd össze az összetevőkkel, és süsd aranybarnára.

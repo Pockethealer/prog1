@@ -122,8 +122,8 @@ typedef struct Egyedi_osszetevok
 } Egyedi_osszetevok;
 
 
-Receptkonyv* receptek_beolvas(void);
-void receptet_fileba_ment(Receptkonyv* r);
+Receptkonyv* receptek_beolvas(char* file);
+void receptet_fileba_ment(Receptkonyv* r, char* file);
 void receptkonyv_felszabadit(Receptkonyv* r);
 int recept_letezik(Receptkonyv* r, const char* etel_neve);
 void recept_kiir(Etel* m);
@@ -163,10 +163,11 @@ int recept_letezik(Receptkonyv* r, const char* etel_neve) {
     return 0;
 }
 /**
- * @brief Elmenti a kapott r struktúrát az előre megadott formátumban a receptek.txt fileba, ha nem létezik létrehozza a program gyökérkönyvtárába
+ * @brief Elmenti a kapott r struktúrát az előre megadott formátumban a kapott paraméter nevű fileba, ha nem létezik létrehozza a program gyökérkönyvtárába
  * @param r Receptkönyv amit menteni szeretnénk
+ * @param f a file, amibe menti
  */
-void receptet_fileba_ment(Receptkonyv* r)
+void receptet_fileba_ment(Receptkonyv* r, char* file)
 {
     if (r == NULL)
     {
@@ -174,7 +175,7 @@ void receptet_fileba_ment(Receptkonyv* r)
         return;
     }
 
-    FILE* f = fopen("receptek.txt", "w");
+    FILE* f = fopen(file, "w");
     if (f == NULL)
     {
         printf("Nem lehet megnyitni a fájlt írásra.\n");
@@ -199,10 +200,11 @@ void receptet_fileba_ment(Receptkonyv* r)
 }
 /**
  * @brief beolvassa a recepteket az előre megadott receptek.txt fileból az r receptkönyv struktúrába
-(lehetett volna argumentum a filenév de felesleges), a működése egyszerű csak felbloatolja egy rakás hibakezelés.
+ * a működése egyszerű csak felbloatolja egy rakás hibakezelés.
+ * @param f a kapott filenév ahonnan beolvas
  * @return Receptkonyv*
  */
-Receptkonyv* receptek_beolvas(void)
+Receptkonyv* receptek_beolvas(char* file)
 {
     Receptkonyv* r = (Receptkonyv*)malloc(sizeof(Receptkonyv));
     if (r == NULL)
@@ -210,16 +212,16 @@ Receptkonyv* receptek_beolvas(void)
         printf("Nem lehetett lefoglalni a memoriat!\n");
         return NULL;
     }
-    FILE* f = fopen("receptek.txt", "r");
+    FILE* f = fopen(file, "r");
     if (f == NULL)
     {
-        printf("Nem lehetett megnyitni a receptek file-t!\n");
+        printf("Nem lehetett megnyitni a %s file-t!\n", file);
         free(r);
         return NULL;
     }
     if (fscanf(f, "%d", &(r->etelek_szama)) != 1 || r->etelek_szama <= 0)
     {
-        printf("Hibás a receptek.txt file tartalma, az első sorba az ételek száma kell hogy kerüljön.\n");
+        printf("Hibás a %s file tartalma, az első sorba az ételek száma kell hogy kerüljön.\n", file);
         free(r);
         fclose(f);
         return NULL;
@@ -301,7 +303,7 @@ void recept_kiir(Etel* m) {
         printf("Null pointert adott meg az étel kiíráshoz!\n");
         return;
     }
-    printf("Az étel neve: "COLOR_RED COLOR_UNDERLINE BG_BLACK"%s\n"COLOR_RESET, m->nev);
+    printf("Az étel neve: "COLOR_RED COLOR_UNDERLINE BG_BLACK"%s"COLOR_RESET"\n", m->nev);
     printf("Az étel összetevőinek száma: %d\n", m->osszetevok_szama);
     for (int i = 0;i < m->osszetevok_szama;i++) {
         printf("Az %d. összetevő: "COLOR_GREEN"%s"COLOR_RESET", mennyisége: "COLOR_CYAN"%.1lf"COLOR_RESET"(%s).\n",
@@ -316,7 +318,7 @@ void recept_kiir(Etel* m) {
  * elvileg case független, de mivel utf karakterek ezért néha bugos, az esetek 99%ában működik.
  * @param e Az összetevőket tartalmazó struktúra.
  * @param osszetevo_neve Keresett string.
- * @return int Ezután visszatér a keresett elem tömbbeli poziciójával, vagy nullával ha nem található.
+ * @return int Ezután visszatér a keresett elem tömbbeli poziciójával+1el, vagy nullával ha nem található.
  */
 int osszetevo_letezik(Egyedi_osszetevok* e, const char* osszetevo_neve)
 {

@@ -85,8 +85,8 @@ typedef struct Egyedi_osszetevok
     int egyedi_osszetevok_szama;
 } Egyedi_osszetevok;
 
-Receptkonyv* receptek_beolvas(void);
-void receptet_fileba_ment(Receptkonyv* r);
+Receptkonyv* receptek_beolvas(char* file);
+void receptet_fileba_ment(Receptkonyv* r, char* file);
 void receptkonyv_felszabadit(Receptkonyv* r);
 int recept_letezik(Receptkonyv* r, const char* etel_neve);
 void recept_kiir(Etel* m);

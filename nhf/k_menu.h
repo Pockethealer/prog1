@@ -9,10 +9,13 @@
 #include <windows.h>
 #endif
 #include "file_utils.h"
+#include "o_menu.h"
 #include "debugmalloc.h"
 
 void recept_random(Receptkonyv* r);
 void qol_almenu(Receptkonyv* r);
+void bl_almenu(Receptkonyv* r);
+void bl_hozzaad(Receptkonyv* r, Egyedi_osszetevok* e);
 
 
 #endif
