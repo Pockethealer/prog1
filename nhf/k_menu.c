@@ -170,6 +170,10 @@ void receptek_szures(Receptkonyv* r) {
                     printf("%s\n", r->etelek[i].nev);
                 }
             }
+            printf("Sikeresen kilistáztad a recepteket, nyomj egy entert a folytatáshoz!");
+            while ((c = getchar()) != '\n' && c != EOF)
+            {
+            }
             printf("\nSzeretnéd másik összetevővel szűkiteni a szűrést? (i/I v n/N): ");
             int sikeres = scanf("%c", &folytatas);
             while (sikeres != 1 || (tolower(folytatas) != 'n' && tolower(folytatas) != 'i'))
