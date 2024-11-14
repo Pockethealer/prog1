@@ -36,6 +36,10 @@ void qol_almenu(Receptkonyv* r)
     int c;
     do
     {
+        printf("Sikeresen beléptél az almenübe, nyomj egy entert a folytatáshoz!");
+        while ((c = getchar()) != '\n' && c != EOF)
+        {
+        }
         q_menu_kiir();
         int sikeres = scanf("%d", &opcio);
 
@@ -269,6 +273,10 @@ void bl_almenu(Receptkonyv* r)
     int c;
     do
     {
+        printf("Sikeresen beléptél az almenübe, nyomj egy entert a folytatáshoz!");
+        while ((c = getchar()) != '\n' && c != EOF)
+        {
+        }
         bl_menu_kiir();
         int sikeres = scanf("%d", &opcio);
         while (sikeres != 1 || opcio < 1 || opcio > 7)

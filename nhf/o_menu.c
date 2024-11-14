@@ -35,6 +35,11 @@ void osszetevok_almenu(Egyedi_osszetevok** e)
     int opcio = 0;
     do
     {
+        int c;
+        printf("Sikeresen beléptél az almenübe, nyomj egy entert a folytatáshoz!");
+        while ((c = getchar()) != '\n' && c != EOF)
+        {
+        }
         o_menu_kiir();
         int sikeres = scanf("%d", &opcio);
 
@@ -48,7 +53,6 @@ void osszetevok_almenu(Egyedi_osszetevok** e)
             printf("Add meg a választott opciót (1-5): ");
             sikeres = scanf("%d", &opcio);
         }
-        int c;
         while ((c = getchar()) != '\n' && c != EOF)
         {
         }
@@ -299,6 +303,11 @@ void receptek_almenu(Receptkonyv** r)
     int opcio = 0;
     do
     {
+        int c;
+        printf("Sikeresen beléptél az almenübe, nyomj egy entert a folytatáshoz!");
+        while ((c = getchar()) != '\n' && c != EOF)
+        {
+        }
         r_menu_kiir();
         int sikeres = scanf("%d", &opcio);
 
@@ -312,7 +321,6 @@ void receptek_almenu(Receptkonyv** r)
             printf("Add meg a választott opciót (1-5): ");
             sikeres = scanf("%d", &opcio);
         }
-        int c;
         while ((c = getchar()) != '\n' && c != EOF)
         {
         }
