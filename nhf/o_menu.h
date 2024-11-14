@@ -1,3 +1,9 @@
+/**
+ * @file o_menu.h
+ * @brief Az összetevők és receptek almenü fv-einek a deklarációja, és az include headerek.
+ * @date 2024-11-14
+ *
+ */
 #ifndef O_MENU_H
 #define O_MENU_H
 #include <stdio.h>

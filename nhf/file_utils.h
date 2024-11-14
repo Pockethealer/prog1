@@ -1,3 +1,8 @@
+/**
+ * @file file_utils.h
+ * @brief A filekezelő fv-ek deklarációi, a program által használt structok deklarációi, és a konzol kiszínezéséhez használt ansi karakterkódok.
+ * @date 2024-11-14
+ */
 #ifndef FILE_UTILS_H
 #define FILE_UTILS_H
 #include <stdio.h>
@@ -13,11 +18,18 @@
 #include <io.h>
 #endif
 #include "debugmalloc.h"
-/**
- * @brief A konzol kiszinezésére bevezetett konstansok
- *
- */
- // Text colors
+ /**
+  * @brief A konzol kiszinezésére bevezetett konstansok
+  */
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BLUE    "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
+
+  // Text colors
 #define COLOR_RESET     "\033[0m"
 #define COLOR_BOLD      "\033[1m"
 #define COLOR_UNDERLINE "\033[4m"
@@ -60,12 +72,25 @@
 #define BG_BRIGHT_MAGENTA "\033[105m"
 #define BG_BRIGHT_CYAN    "\033[106m"
 #define BG_BRIGHT_WHITE   "\033[107m"
+  /*Az általános adatstruktúráim, a kettős indirekció ott van benne,
+     *hogy egy ételnek bárhány összetevője lehet illetve bárhány étel lehet a receptkönyvben.*/
+
+     /**
+         * @struct Osszetevo
+         * @brief  Összetevők struckt tartalmazza az összetevő nevét (max 50 karakter),
+         *típusát(max 50 karakter), és mennyiségét(double)
+     */
 typedef struct Osszetevo
 {
     char nev[51];
     char tipus[51];
     double mennyiseg;
 } Osszetevo;
+/**
+ * @struct Etel
+ * @brief Étel struktúra tartalmazza az étel nevét(max 50 karakter) az összetevőinek számát,
+ * az összetevők tömbjének pointerét, és az elkészítési útmutatót(max 1000 karakter)
+ */
 typedef struct Etel
 {
     char nev[51];
@@ -73,24 +98,34 @@ typedef struct Etel
     Osszetevo* osszetevok;
     char elkeszites[1001];
 } Etel;
+/**
+ * @struct Receptkonyv
+ * @brief Receptkönyv struktúra tartalmazza a benne levő ételek számát és az ételek tömbjére egy mutatót.
+ */
 typedef struct Receptkonyv
 {
     int etelek_szama;
     Etel* etelek;
 } Receptkonyv;
 
+/**
+ * @struct Egyedi_osszetevok
+ * @brief Egyedi összetevőket tartalmazó lista minden összetevő egyszer
+ *kell hogy szerepeljen benne, tartalmazza az összetevők számát és az összetevők tömbjére mutató pointert.
+ *A benne levő összetevők rendszerint nem tartalmaznak mennyiségeket csak a nevet és típust, de a lehetőség adott rá.
+ */
 typedef struct Egyedi_osszetevok
 {
     Osszetevo* egyedi_osszetevok;
     int egyedi_osszetevok_szama;
 } Egyedi_osszetevok;
 
+
 Receptkonyv* receptek_beolvas(char* file);
 void receptet_fileba_ment(Receptkonyv* r, char* file);
 void receptkonyv_felszabadit(Receptkonyv* r);
 int recept_letezik(Receptkonyv* r, const char* etel_neve);
 void recept_kiir(Etel* m);
-
 
 Egyedi_osszetevok* osszetevo_beolvas(void);
 void osszetevo_fileba_ment(Egyedi_osszetevok* e, Receptkonyv* r);

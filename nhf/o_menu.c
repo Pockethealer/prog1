@@ -3,30 +3,12 @@
  * @brief Az összetevők és receptek almenühöz tartozó fv-ek, egy külön modulba szétszedve.
  * @date 2024-11-08
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#ifdef _WIN32
-#include <windows.h>
-#endif
-#include "file_utils.h"
-#include "debugmalloc.h"
 
-void osszetevok_almenu(Egyedi_osszetevok** e);
-void osszetevo_felvesz(Egyedi_osszetevok** e);
-void osszetevo_kiir(Egyedi_osszetevok* e);
-void osszetevok_keres(Egyedi_osszetevok* e);
-void osszetevo_torol(Egyedi_osszetevok* e);
+#include "o_menu.h"
 
-void receptek_almenu(Receptkonyv** r);
-void recept_felvesz(Receptkonyv** r);
-void recept_keres(Receptkonyv* r);
-void recept_torol(Receptkonyv* r);
-void recept_listaz(Receptkonyv* r);
-
-/**
- * @brief Kilistázza az összetevők menüopciókat, stdio-n.
- */
+ /**
+  * @brief Kilistázza az összetevők menüopciókat, stdio-n.
+  */
 void o_menu_kiir(void)
 {
     for (int i = 0;i < 80;i++) printf("=");
@@ -153,7 +135,7 @@ void osszetevo_felvesz(Egyedi_osszetevok** e)
     if (!osszetevo_letezik(*e, a.nev))
     {
         (*e)->egyedi_osszetevok_szama++;
-        //Azért tempbe hogy ha nem sikerül foglalni akkor az eredeti ne vesszen el
+        //Azért temp-be hogy ha nem sikerül foglalni akkor az eredeti ne vesszen el
         Osszetevo* temp = realloc((*e)->egyedi_osszetevok, (*e)->egyedi_osszetevok_szama * sizeof(Osszetevo));
         if (temp == NULL)
         {
@@ -238,7 +220,6 @@ void osszetevo_torol(Egyedi_osszetevok* e)
         printf("Nincs recept a listában! Nyomj egy entert a továbblépéshez!\n");
         return;
     }
-    /*ékezetes karaktert lehet csak teljesen máshogy windowson és unixon*/
     printf("Írd be a törlendő összetevő nevét!\n");
 #ifdef _WIN32
     Osszetevo a = o_beolvas1();
@@ -283,7 +264,10 @@ void osszetevo_torol(Egyedi_osszetevok* e)
 
     return;
 }
+
 //Innentől kezdődik a receptek almenü
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /**
  * @brief Kilistázza a receptek menüopciókat, stdio-n.
  */
@@ -381,7 +365,7 @@ void receptek_almenu(Receptkonyv** r)
 }
 /**
  * @brief Megnézi hogy van-e recept a listában, ha nincs akkor inicializálja a listát. Ezután beolvas egy nevet,
- * ha tartalmazza már a tömb akkor nem engedi újra felvenni, egyébként hozzáadja a tömbhöz átméretezés után. A beolvasás kicsit körülményes de működik.
+ * ha tartalmazza már a tömb akkor nem engedi újra felvenni, egyébként hozzáadja a tömbhöz átméretezés után.
  * @param r Receptek listája
  */
 void recept_felvesz(Receptkonyv** r)
@@ -434,7 +418,6 @@ void recept_felvesz(Receptkonyv** r)
 #endif
 
 #ifdef _WIN32
-    /*igen hülyén néz ki hogy osszetevők struktúrába olvasom be az étel nevét de nem akartam egy külön fv-t írni csak erre*/
     Osszetevo nev = o_beolvas1();
     if (recept_letezik(*r, nev.nev))
     {
@@ -563,7 +546,7 @@ void recept_torol(Receptkonyv* r)
         printf("Nincs recept a listában! Nyomj egy entert a továbblépéshez!\n");
         return;
     }
-    printf("Írd be a törlendő összetevő nevét!\n");
+    printf("Írd be a törlendő recept nevét!\n");
 #ifdef _WIN32
     Osszetevo a = o_beolvas1();
 

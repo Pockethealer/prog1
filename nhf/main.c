@@ -59,9 +59,9 @@ int kilepes(Egyedi_osszetevok* e, Receptkonyv* r)
  * @brief A főmenü logikájával foglalkozó fv. Beolvassa a fileokból az összetevők listáját(továbbiakban e), és receptek listáját(továbbiakban r).
  * A véletlenszerűnek tűnően elhelyezett "while (getchar() != '\n') {}" az utf-8 as beolvasás miatt kellenek,
  * mivel inkonzisztensen olvassa az stdio streamet ezért ezzel törlöm az esetlegesen bennmaradt adatot a következő beolvasás előtt,
- * mivel az fflush nem definiált c-ben és vicces dolgokat művel néha.
+ * mivel az fflush nem definiált c-ben.
  * A "system("@cls||clear");" csak kozmetikai célok miatt van ott, törli a konzolablakot az átláthatóság kedvéért.
- * Tartalmaz egy összetevők, receptek, qol, bev. lista, és kedvencek menüpontot.
+ * Tartalmaz egy összetevők, receptek, qol, bev. lista/kedvencek menüpontot.
  * @return int ha minden rendben visszatér nullával, majd később hibakezeléshez.
  */
 int main_menu(void)

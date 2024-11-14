@@ -3,32 +3,11 @@
  * @brief A qol és a kedvencek/bevásárlólista modulja, tartalmazza az almenüket és az azokhoz szükséges funkciókat.
  * @date 2024-11-08
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#include <stdbool.h>
-#ifdef _WIN32
-#include <windows.h>
-#endif
-#include "file_utils.h"
-#include "debugmalloc.h"
-#include "o_menu.h"
 
-void recept_random(Receptkonyv* r);
-void qol_almenu(Receptkonyv* r);
-void receptek_szures(Receptkonyv* r);
-void bl_almenu(Receptkonyv* r);
-void bl_hozzaad(Receptkonyv* r, Egyedi_osszetevok* e);
-void bl_torol(Egyedi_osszetevok* e);
-void bl_ment(Egyedi_osszetevok* e);
-void kedvenc_hozzáad(Receptkonyv* r, Receptkonyv** k);
-
-
-
-/**
- * @brief Kilistázza a Qol almenü pontjait stdio-n.
- */
+#include "k_menu.h"
+ /**
+  * @brief Kilistázza a Qol almenü pontjait stdio-n.
+  */
 void q_menu_kiir(void)
 {
     for (int i = 0;i < 80;i++) printf("=");
@@ -405,7 +384,7 @@ void bl_hozzaad(Receptkonyv* r, Egyedi_osszetevok* e) {
     return;
 }
 /**
- * @brief elmenti a kész bevásárló listát egy blista.txt file-ba. Ha létezett korábban akkor felülírja.
+ * @brief Elmenti a kész bevásárló listát egy blista.txt file-ba. Ha létezett korábban akkor felülírja.
  * @param e bevásárló lista structja
  */
 void bl_ment(Egyedi_osszetevok* e) {
@@ -427,7 +406,7 @@ void bl_ment(Egyedi_osszetevok* e) {
     fclose(f);
 }
 /**
- * @brief kitörli a bevásárlólista tartalmát, felszabadítja ha volt benne összetevő, beállítja a pointerüket null-ra, és az összetevők számát is null-ra
+ * @brief Kitörli a bevásárlólista tartalmát, felszabadítja ha volt benne összetevő, beállítja a pointerüket null-ra, és az összetevők számát is null-ra
  * @param e A bevásárlólista strucktja
  */
 void bl_torol(Egyedi_osszetevok* e) {
@@ -449,7 +428,7 @@ void bl_torol(Egyedi_osszetevok* e) {
     fclose(f);
 }
 /**
- * @brief hozzáadja a beírt ételt az r-ből a k structba, amennyiben az szerepel az r-ben és még nem szerepel a k-ban.
+ * @brief Hozzáadja a beírt ételt az r-ből a k structba, amennyiben az szerepel az r-ben és még nem szerepel a k-ban.
  * Amennyiben a k null pointer létrehoz egy üres k-t és ahhoz adja hozzá.
  * @param k kedvencek struktúra
  * @param r receptkönyv struktúra

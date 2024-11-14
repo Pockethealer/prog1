@@ -1,4 +1,10 @@
-126
+127
+Omlett,4
+Tojás,db,2.00
+Só,csipet,1.00
+Bors,csipet,1.00
+Vaj,evőkanál,1.00
+Verd fel a tojásokat, fűszerezd, öntsd egy forró serpenyőbe, és süsd készre.
 Spagetti Bolognese,5
 Spagetti,kg,0.50
 Darált marhahús,kg,0.30
@@ -34,12 +40,6 @@ Cukor,evőkanál,1.00
 Sütőpor,teáskanál,0.50
 Só,csipet,1.00
 Keverd össze az összetevőket, önts egy serpenyőbe, és süsd aranybarnára mindkét oldalát.
-Omlett,4
-Tojás,db,2.00
-Só,csipet,1.00
-Bors,csipet,1.00
-Vaj,evőkanál,1.00
-Verd fel a tojásokat, fűszerezd, öntsd egy forró serpenyőbe, és süsd készre.
 Cézár Saláta,6
 Római saláta,fej,1.00
 Kruton,csésze,1.00
@@ -947,3 +947,10 @@ csirkecomb,kg,1.00
 hagyma,db,1.00
 curry kocka,db,1.00
 Vágd fel a hagymát. pirítsd meg kockázd fel a krumplit vágd fel a húst. panírozz és főzz!
+Uborkasaláta,5
+Uborka,db,2.00
+Balzsamecet,ml,15.00
+olivaolaj,ml,10.00
+só,g,2.00
+bors,g,0.50
+Hámozd meg az uborkát, vágd szeletekre. Készítsd el az öntetet, az ecethez keverd hozzá az olajat, add hozzá a sót és a borsot és keverd amíg homogén nem lesz! Ezután keverd össze az uborkával az öntetet.
