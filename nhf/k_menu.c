@@ -16,7 +16,7 @@ void q_menu_kiir(void)
     printf("\n%*.s"COLOR_UNDERLINE"Mit szeretnél csinálni? A megfelelő számot írd be!"COLOR_RESET"\n\n", 15, " ");
     printf(COLOR_GREEN"1.    ➤ Random recept\n");
     printf("2.    ➤ Receptek keresése összetevő alapján\n");
-    printf("3.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
+    printf(COLOR_BRIGHT_RED"3.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
     return;
 }
 /**
@@ -78,23 +78,25 @@ void qol_almenu(Receptkonyv* r)
  * @param r receptkönyv struktúra, tartalmazza a recepteket
  */
 void recept_random(Receptkonyv* r)
-{
+{   //a c amibe ürítem az stdin-t az o meg a keresett opció
     char c;
+    char o;
     srand(time(0));
     int random = (rand() % r->etelek_szama);
     do {
         printf("A generált étel: "COLOR_RED"%s\n"COLOR_RESET, r->etelek[random].nev);
         printf("Nyomj egy I/i-t az elfogadáshoz, vagy N/n-t, ha szeretnél újat generálni.\n");
-        int sikeres = scanf("%c", &c);
-        while (sikeres != 1 || (tolower(c) != 'n' && tolower(c) != 'i'))
+        int sikeres = scanf("%c", &o);
+        while (sikeres != 1 || (tolower(o) != 'n' && tolower(o) != 'i'))
         {
-            printf("Hibás bevitel. Csak I/i-t vagy N/n-t írhatsz be.\n");
+            printf("Hibás bevitel. Csak I/i-t vagy N/n-t írhatsz be. Nyomj egy entert a folytatáshoz!\n");
             while ((c = getchar()) != '\n' && c != EOF) {}
             printf("Add meg a választott opciót: ");
-            sikeres = scanf("%c", &c);
+            sikeres = scanf("%c", &o);
         }
-        if (tolower(c) == 'n')     random = (rand() % r->etelek_szama);
-    } while (tolower(c) != 'i');
+        if (tolower(o) == 'n')     random = (rand() % r->etelek_szama);
+        while ((c = getchar()) != '\n' && c != EOF) {}
+    } while (tolower(o) != 'i');
     recept_kiir(&(r->etelek[random]));
     printf("\nAz étel receptjét sikeresen kiírtad! Nyomj egy entert a továbblépéshez!\n");
     return;
@@ -214,6 +216,10 @@ void receptek_szures(Receptkonyv* r) {
     free(egyezo_receptek);
     return;
 }
+/////////////////////////////////////////////////////////////////////////////
+//Bevásárló lista almenü itt kezdődik
+/////////////////////////////////////////////////////////////////////////////
+
 /**
  * @brief Kilistázza a bevásárlólista almenü pontjait stdio-n.
  */
@@ -229,7 +235,7 @@ void bl_menu_kiir(void)
     printf(COLOR_CYAN"4.    ➤ Étel hozzáadása a kedvencek listához\n");
     printf("5.    ➤ Étel törlése a kedvencek listából\n");
     printf("6.    ➤ A kedvencek lista kiírása\n");
-    printf("7.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
+    printf(COLOR_BRIGHT_RED"7.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
     return;
 }
 /**

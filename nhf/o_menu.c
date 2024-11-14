@@ -19,7 +19,7 @@ void o_menu_kiir(void)
     printf("2.    ➤ Összetevőt törölni\n");
     printf("3.    ➤ Az összetevőket kilistázni\n");
     printf("4.    ➤ Összetevőt keresni\n");
-    printf("5.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
+    printf(COLOR_BRIGHT_RED"5.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
     return;
 }
 
@@ -125,7 +125,7 @@ void osszetevo_felvesz(Egyedi_osszetevok** e)
 #endif
 #ifdef __linux__
     Osszetevo a;
-    if (scanf("%[^,],%[^\n]", a.nev, a.tipus) != 2)
+    if (scanf("%50[^,],%50[^\n]", a.nev, a.tipus) != 2)
     {
         printf("Hibás név, nem sikerült az összetevőt felvenni!\n");
         return;
@@ -191,7 +191,7 @@ void osszetevok_keres(Egyedi_osszetevok* e)
 #endif
 #ifdef __linux__
     Osszetevo a;
-    if (scanf("%[^\n]", a.nev) <= 0)
+    if (scanf("%50[^\n]", a.nev) <= 0)
     {
         printf("Hibás név, nem sikerült az összetevőt felvenni!\n");
         return;
@@ -227,7 +227,7 @@ void osszetevo_torol(Egyedi_osszetevok* e)
 #endif
 #ifdef __linux__
     Osszetevo a;
-    if (scanf("%[^\n]", a.nev) <= 0)
+    if (scanf("%50[^\n]", a.nev) <= 0)
     {
         printf("Hibás név, nem sikerült az összetevőt felvenni!\n");
         return;
@@ -264,7 +264,7 @@ void osszetevo_torol(Egyedi_osszetevok* e)
 
     return;
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Innentől kezdődik a receptek almenü
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -281,7 +281,7 @@ void r_menu_kiir(void)
     printf("2.    ➤ Receptet törölni\n");
     printf("3.    ➤ Ételek listázása\n");
     printf("4.    ➤ Receptet keresni\n");
-    printf("5.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
+    printf(COLOR_BRIGHT_RED"5.    ➤ Kilépni a főmenübe\n"COLOR_RESET);
     return;
 }
 /**
@@ -385,7 +385,7 @@ void recept_felvesz(Receptkonyv** r)
     printf("Írd be az étel nevét!\n");
 #ifdef __linux__
     Osszetevo nev;
-    scanf("%[^\n]", nev.nev);
+    scanf("%50[^\n]", nev.nev);
     if (recept_letezik(*r, nev.nev))
     {
         printf("Már létezik recept ezzel a névvel!\n");
@@ -408,12 +408,12 @@ void recept_felvesz(Receptkonyv** r)
     for (int i = 0; i < osszetevok_szama; i++)
     {
         printf("\nÍrd be a %d. összetevő nevét, mértékegységét, és mennyiségét, vesszővel elválasztva(törtszámnál tizedes pontot használj!)\n", i + 1);
-        scanf("%[^,],%[^,],%lf", osszetevok->nev, osszetevok->tipus, &(osszetevok->mennyiseg));
+        scanf("%50[^,],%50[^,],%lf", osszetevok->nev, osszetevok->tipus, &(osszetevok->mennyiseg));
         printf("Összetevő siekresen beolvasva!\n");
     }
     printf("Írd be a recept elkészítéséhez az instrukciókat, egy sorba!\n");
     Etel etel;
-    scanf("%[\n]", etel.elkeszites);
+    scanf("%1000[\n]", etel.elkeszites);
     printf("Sikeresen hozzáadtad a receptet, nyomj egy entert a folytatáshoz!\n");
 #endif
 
@@ -498,7 +498,7 @@ void recept_keres(Receptkonyv* r)
 #endif
 #ifdef __linux__
     Osszetevo a;
-    if (scanf("%[^\n]", a.nev) <= 0)
+    if (scanf("%50[^\n]", a.nev) <= 0)
     {
         printf("Hibás név, nincs ilyen étel a listában!\n");
         return;
@@ -553,7 +553,7 @@ void recept_torol(Receptkonyv* r)
 #endif
 #ifdef __linux__
     Osszetevo a;
-    if (scanf("%[^\n]", a.nev) <= 0)
+    if (scanf("%50[^\n]", a.nev) <= 0)
     {
         printf("Hibás név, nem sikerült az összetevőt felvenni!\n");
         return;

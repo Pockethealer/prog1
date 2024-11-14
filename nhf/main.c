@@ -35,7 +35,7 @@ void menu_kiir(void)
     printf("2.    ➤ Receptek kezelése\n");
     printf("3.    ➤ Qol funkciók\n");
     printf("4.    ➤ Bevásárló lista, és kedvencek lista kezelése\n");
-    printf("5.    ➤ Kilépni\n"COLOR_RESET);
+    printf(COLOR_BRIGHT_RED"5.    ➤ Kilépni\n"COLOR_RESET);
     return;
 }
 
