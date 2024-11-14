@@ -436,12 +436,10 @@ void recept_felvesz(Receptkonyv** r)
     int osszetevok_szama;
     printf("Nem létezik ezen a néven recept, a hozzáadáshoz nyomj egy entert!\n");
     int c;
-    while ((c = getchar()) != '\n' && c != EOF)
-    {
-    }
-    printf("Írd be hány összetevője lesz!\n");
-
-    if (scanf("%d", &osszetevok_szama) != 1)
+    while ((c = getchar()) != '\n' && c != EOF){}
+    printf("Nyomj egy entert, majd írd be hány összetevője lesz!");
+    while ((c = getchar()) != '\n' && c != EOF){}
+    if (scanf(" %d", &osszetevok_szama) != 1)
     {
         printf("Rossz formátumú megadás, nem sikerült hozzáadni!\n");
         return;
@@ -450,20 +448,20 @@ void recept_felvesz(Receptkonyv** r)
     while ((c = getchar()) != '\n' && c != EOF)
     {
     }
-    Osszetevo* osszetevok = (Osszetevo*)malloc(osszetevok_szama * sizeof(Osszetevo));
+    Osszetevo *osszetevok = (Osszetevo *)malloc(osszetevok_szama * sizeof(Osszetevo));
     if (osszetevok == NULL)
     {
         printf("Nem sikerült lefoglalni a memóriát az összetevőknek!\n");
         return;
     }
     for (int i = 0; i < osszetevok_szama; i++)
-    {
+    {   
         printf("\nÍrd be a %d. összetevő nevét, mértékegységét, és mennyiségét, vesszővel elválasztva(törtszámnál tizedes pontot használj!)\n", i + 1);
         osszetevok[i] = o_beolvas3();
-        printf("Összetevő siekresen beolvasva, nyomj egy entert a folytatáshoz!\n");
+        printf("Összetevő sikeresen beolvasva, nyomj egy entert a folytatáshoz!\n");
         while ((c = getchar()) != '\n' && c != EOF)
-        {
-        }
+        {}
+        while ((c = getchar()) != '\n' && c != EOF){}
     }
     printf("Írd be a recept elkészítéséhez az instrukciókat, egy sorba!\n");
 
