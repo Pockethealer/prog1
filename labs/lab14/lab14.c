@@ -4,7 +4,7 @@ typedef struct Cord {
     int x, y;
 }Cord;
 typedef enum irany { jobb, bal, fel, le }irany;
-typedef enum lehet { ures, fal, kijarat, kincs };
+typedef enum lehet { ures, fal, kijarat, kincs }lehet;
 
 void rajzol(char s[10][11]) {
     for (int i = 0; i < 10;i++) {
